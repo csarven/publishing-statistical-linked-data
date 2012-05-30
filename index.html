@@ -125,11 +125,11 @@
                         <h4 id="data-collection_world-bank">World Bank</h4>
                         <p>The World Bank datasets were collected by making requests to The World Bank API endpoints using the XML output format. The decision for this preference over JSON was to easily achieve an RDF/XML serialization over other methods.</p>
 
-                        <p>The following API endpoints were called: http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</p>
+                        <p>The following API endpoints were called:</p>
 
                         <table id="data-collection_world-bank_chart">
                             <caption>World Bank APIs</caption>
-                            <thead><tr><th></th><th>API call patterns</th><th>Number of request</th><th>Data size</th></tr></thead>
+                            <thead><tr><th></th><th>API call patterns</th><th>Number of request</th><th>Format</th><th>Data size</th></tr></thead>
                             <tfoot>Counts are rounded based on last retrievals.</tfoot>
                             <tbody>
                                 <tr>
@@ -142,6 +142,7 @@
                                             <li><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/cru/{var}/{month, year or decade}/{ISO3 or basinID}.xml</code> (Derived statistics for emsemble requests)</li>
                                         </ul>
                                     </td>
+                                    <td>XML</td>
                                     <td>140666</td>
                                     <td>983M</td>
                                 </tr>
@@ -153,6 +154,7 @@
                                             <li><code>https://finances.worldbank.org/api/views/{id}/rows.xml</code></li>
                                         </ul>
                                     </td>
+                                    <td>XML</td>
                                     <td>32</td>
                                     <td>365M</td>
                                 </tr>
@@ -163,6 +165,7 @@
                                             <li><code>http://search.worldbank.org/api/projects/all.xml</code></li>
                                         </ul>
                                     </td>
+                                    <td>XML</td>
                                     <td>1</td>
                                     <td>171M</td>
                                 </tr>
@@ -174,6 +177,7 @@
                                             <li><code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml&#38;per_page=20000</code></li>
                                         </ul>
                                     </td>
+                                    <td>XML</td>
                                     <td>7090</td>
                                     <td>18G</td>
                                 </tr>
@@ -182,6 +186,26 @@
 
                         <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. Java and Bash scripts are manually executed to make the API calls at this time in order to closely monitor abnormalities in the responses until the full process becomes more systematic.</p>
 
+
+                        <h4 id="data-collection_irish-census">Irish Census</h4>
+                        <table id="data-collection_irish-census_chart">
+                            <caption>Irish Census</caption>
+                            <thead><tr><th></th><th>Data dumps</th><th>Number of request</th><th>Format</th><th>Data size</th></tr></thead>
+                            <tfoot>Counts are rounded based on last retrievals.</tfoot>
+                            <tbody>
+                                <tr>
+                                    <th><a href="http://census.cso.ie/census/ReportFolders/ReportFolders.aspx">Census Interactive Tables for 2006</a></th>
+                                    <td>
+                                        <ul>
+                                            <li><code>http://census.cso.ie/census/ReportFolders/ReportFolders.aspx</code></li>
+                                        </ul>
+                                    </td>
+                                    <td>CSV</td>
+                                    <td>14</td>
+                                    <td>8M</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <h3 id="data-processing">Data processing</h3>
                         <h4 id="data-processing_world-bank">World Bank</h4>
@@ -296,12 +320,23 @@
                         <table id="linked-dataset_world-bank_chart">
                             <caption>Dataset breakdown of World Bank Linked Data</caption>
                             <thead><tr><th></th><th>Completeness</th><th>Number of triples</th></tr></thead>
-                            <tfoot><tr><td colspan="3">Completeness is based on what is subjectively considered to be <em>safe enough</em> given the state of the World Bank API responses. The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
+                            <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                             <tbody>
                                 <tr><th>World Bank Climate Change</th><td>Complete</td><td>78 million</td></tr>
                                 <tr><th>World Bank Finances</th><td>Complete</td><td>7 million</td></tr>
-                                <tr><th>World Bank Projects and Operations</th><td>Incomplete</td><td>1 million</td></tr>
+                                <tr><th>World Bank Projects and Operations</th><td>Partial</td><td>1 million</td></tr>
                                 <tr><th>World Development Indicators</th><td>Complete</td><td>79 million</td></tr>
+                            </tbody>
+                        </table>
+
+
+                        <h4 id="linked-datasets_irish-census">Irish Census</h4>
+                        <table id="linked-dataset_world-bank_chart">
+                            <caption>Dataset breakdown of Irish Census Linked Data</caption>
+                            <thead><tr><th></th><th>Completeness</th><th>Number of triples</th></tr></thead>
+                            <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
+                            <tbody>
+                                <tr><th>2006 Irish Census</th><td>Partial</td><td>12 million</td></tr>
                             </tbody>
                         </table>
 
