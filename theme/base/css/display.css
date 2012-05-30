@@ -1,0 +1,169 @@
+/** theme:    base
+ *
+ * @author    Sarven Capadisli <info@csarven.ca>
+ * @license   http://creativecommons.org/licenses/by/3.0/ Creative Commons Attribution 3.0 Unported
+ * @link      http://csarven.ca/
+ */
+
+@media screen, projection, tv {
+* { margin:0; padding:0; }
+img { display:block; border:0; }
+a abbr { cursor: pointer; border-bottom:0; }
+table { border-collapse:collapse; }
+tr { vertical-align:top; }
+ol { list-style-position:inside; }
+/*html { font-size: 87.5%; }*/
+body {
+background-color:#FFFFFF;
+color:#000000;
+font-family:sans-serif;
+font-size:1em;
+line-height:1.65;
+position:relative;
+}
+h1,h2,h3,h4,h5,h6 {
+margin-bottom:0.5em;
+overflow:hidden;
+}
+h1 {
+font-size:1.8em;
+margin-bottom:1em;
+}
+h2 { font-size:1.6em; }
+h3 { font-size:1.3em; }
+h4 { font-size:1.1em; }
+h5 { font-size:1em; }
+h6 { font-size:0.9em; }
+
+h1,h2,h3,h4,h5,h6,
+caption, dt {
+text-shadow:1px 1px 1px #CCCCCC;
+}
+
+tr {
+border-color:#EEEEEE;
+}
+
+
+code { font-size:1.2em; }
+
+legend {
+font-weight:bold;
+font-size:1.3em;
+}
+input, textarea, select, option {
+padding:4px;
+font-family:sans-serif;
+font-size:1em;
+}
+input.submit {
+font-weight:bold;
+cursor:pointer;
+}
+textarea {
+overflow:auto;
+}
+option {
+padding-bottom:0;
+}
+fieldset {
+padding:0;
+border:0;
+}
+form ul li {
+list-style-type:none;
+margin:0 0 18px 0;
+}
+form label {
+font-weight:bold;
+}
+input.checkbox,
+input.radio {
+position:relative;
+top:2px;
+left:auto;
+border:0;
+}
+
+.error,
+.success,
+.warning {
+padding:4px 1.55%;
+border-radius:4px;
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+margin-bottom:18px;
+border-width:2px;
+border-style:solid;
+}
+
+.dn { display:none; }
+
+caption {
+font-weight:bold;
+font-size:1.3em;
+text-align:left;
+}
+thead tr {
+border-bottom:0;
+}
+thead td {
+font-size:1.1em;
+font-weight:bold;
+}
+
+th, td {
+padding-top:0.5em;
+padding-bottom:0.5em;
+padding-right:1em;
+}
+th {
+text-align:left;
+}
+tr {
+border-bottom-width:1px;
+border-bottom-style:solid;
+}
+tr:last-child {
+border-bottom:0;
+}
+
+
+#wrap {
+margin:0 auto;
+width:100%;
+min-width:760px;
+max-width:1003px;
+overflow:hidden;
+}
+
+
+#content {
+min-height:259px;
+}
+
+
+p {
+margin-bottom:1em;
+}
+
+#content ul {
+list-style-position:inside;
+margin-bottom:1em;
+}
+
+
+.entry-content {
+margin-bottom:3em;
+}
+
+
+dt {
+font-weight:bold;
+margin-bottom:0.5em;
+}
+
+dd {
+margin-bottom:1.25em;
+}
+
