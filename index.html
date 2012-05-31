@@ -97,7 +97,21 @@
                         <h2>Original data</h2>
                         <p>Super high level blurb about the datasets (World Bank, Eurostat, Irish Census) we are about to discuss, ... In what shape they are and how are they published...</p>
 
-                        <h3 id="original-data_world-bank">World Bank</h3>
+<!--
+TODO:
+What is this data
+What does it cover
+
+-->
+                    </div>
+
+
+                    <div id="case-studies">
+                        <h2>Case Studies</h2>
+                        <p>Some blurbs..</p>
+
+                        <h3>Data sources</h3>
+                        <h4 id="original-data_world-bank">World Bank</h4>
                         <p>The World Bank Group provides access to several datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. Herein we'll take a look at the datasets which comprimise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (WDI), <a href="https://finances.worldbank.org/">World Bank Finances</a> (WBF), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (WBPO), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (WBCC). These datasets are available in XML and JSON formats via The World Bank API.</p>
 
                         <ul>
@@ -107,27 +121,19 @@
                             <li>The WBCC dataset contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalities), measured variables and derived statistics, global circumlation models.</li>
                         </ul>
 
+                        <h4 id="original-data_eurostat">Eurostat</h4>
 
-                        <h3 id="original-data_eurostat">Eurostat</h3>
-
-                        <h3 id="original-data_irish-census">Irish Census</h3>
-
-                        <p>Some blurbs..</p>
-                    </div>
+                        <h4 id="original-data_irish-census">Irish Census</h4>
 
 
-                    <div id="implementation">
-                        <h2>Impementation</h2>
-                        <p>Some blurbs..</p>
 
-
-                        <h3 id="data-collection">Data collection</h3>
-                        <h4 id="data-collection_world-bank">World Bank</h4>
+                        <h3 id="data-retrieval">Data retrieval</h3>
+                        <h4 id="data-retrieval_world-bank">World Bank</h4>
                         <p>The World Bank datasets were collected by making requests to The World Bank API endpoints using the XML output format. The decision for this preference over JSON was to easily achieve an RDF/XML serialization over other methods.</p>
 
                         <p>The following API endpoints were called:</p>
 
-                        <table id="data-collection_world-bank_chart">
+                        <table id="data-retrieval_world-bank_chart">
                             <caption>World Bank APIs</caption>
                             <thead><tr><th></th><th>API call patterns</th><th>Number of request</th><th>Format</th><th>Data size</th></tr></thead>
                             <tfoot>Counts are rounded based on last retrievals.</tfoot>
@@ -184,11 +190,11 @@
                             </tbody>
                         </table>
 
-                        <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. Java and Bash scripts are manually executed to make the API calls at this time in order to closely monitor abnormalities in the responses until the full process becomes more systematic.</p>
+                        <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. Java and Bash scripts are s0pb0x78ly executed to make the API calls at this time in order to closely monitor abnormalities in the responses until the full process becomes more systematic.</p>
 
 
-                        <h4 id="data-collection_irish-census">Irish Census</h4>
-                        <table id="data-collection_irish-census_chart">
+                        <h4 id="data-retrieval_irish-census">Irish Census</h4>
+                        <table id="data-retrieval_irish-census_chart">
                             <caption>Irish Census</caption>
                             <thead><tr><th></th><th>Data dumps</th><th>Number of request</th><th>Format</th><th>Data size</th></tr></thead>
                             <tfoot>Counts are rounded based on last retrievals.</tfoot>
@@ -257,6 +263,13 @@
                         <p>In the case of country codes, it should be noted that ISO 3166-2 is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country Canada in the datasets. It contains a <code>skos:exactMatch</code> to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa with 2 or 3-letter <code>skos:notation</code>s.</p>
 
                         <h4 id="uri-patterns">URI patterns</h4>
+<!--
+TODO
+Trip the URI patterns
+Talk about the decision on slashes and hash
+What are the tradeoffs?
+Why did you mint your own URIs?
+-->
                         <h5 id="uri-patterns_world-bank">World Bank</h5>
                         <dl>
                             <dt id="uri-patterns_classification">Classifications</dt>
@@ -284,6 +297,11 @@
 
 
                         <h4 id="data-interlinking">Data interlinking</h4>
+<!--
+What can you link on (codelists probably.. but not observations.. geography is the obvious connection points)
+Reused some.. and mapped to existing stuff
+Highlight some of the interesting questions that came up along the way
+-->
                         <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (LIMES). With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
 
                         <p>Additional interlinking was done by adding links to resources with corresponding homepages on the World Bank site, as well as links to referenced documents.</p>
