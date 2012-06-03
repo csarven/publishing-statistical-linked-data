@@ -110,8 +110,9 @@ What does it cover
                         <h2>Case Studies</h2>
                         <p>Some blurbs..</p>
 
-                        <h3>Data sources</h3>
-                        <h4 id="original-data_world-bank">World Bank</h4>
+
+                        <h3 id="data-sources">Data sources</h3>
+                        <h4 id="data-source_world-bank">World Bank</h4>
                         <p>The World Bank Group provides access to several datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. Herein we'll take a look at the datasets which comprimise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (WDI), <a href="https://finances.worldbank.org/">World Bank Finances</a> (WBF), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (WBPO), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (WBCC). These datasets are available in XML and JSON formats via The World Bank API.</p>
 
                         <ul>
@@ -121,9 +122,9 @@ What does it cover
                             <li>The WBCC dataset contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalities), measured variables and derived statistics, global circumlation models.</li>
                         </ul>
 
-                        <h4 id="original-data_eurostat">Eurostat</h4>
+                        <h4 id="data-source_eurostat">Eurostat</h4>
 
-                        <h4 id="original-data_irish-census">Irish Census</h4>
+                        <h4 id="data-source_irish-census">Irish Census</h4>
 
 
 
@@ -190,7 +191,7 @@ What does it cover
                             </tbody>
                         </table>
 
-                        <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. Java and Bash scripts are s0pb0x78ly executed to make the API calls at this time in order to closely monitor abnormalities in the responses until the full process becomes more systematic.</p>
+                        <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. Java and Bash scripts are manually executed to make the API calls at this time in order to closely monitor abnormalities in the responses until the full process becomes more systematic.</p>
 
 
                         <h4 id="data-retrieval_irish-census">Irish Census</h4>
@@ -212,6 +213,8 @@ What does it cover
                                 </tr>
                             </tbody>
                         </table>
+
+
 
                         <h3 id="data-processing">Data processing</h3>
                         <h4 id="data-processing_world-bank">World Bank</h4>
@@ -326,9 +329,11 @@ Highlight some of the interesting questions that came up along the way
                             <li>Creator of the data</li>
                         </ul>
 
+
                         <h4 id="data-structure-definition">Data structure definitions</h4>
                         <h5 id="data-structure-definition_world-bank">World Bank</h5>
                         <p></p>
+
 
 
                         <h3 id="linked-datasets">Linked datasets</h3>
@@ -337,13 +342,13 @@ Highlight some of the interesting questions that came up along the way
 
                         <table id="linked-dataset_world-bank_chart">
                             <caption>Dataset breakdown of World Bank Linked Data</caption>
-                            <thead><tr><th></th><th>Completeness</th><th>Number of triples</th></tr></thead>
+                            <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                             <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                             <tbody>
-                                <tr><th>World Bank Climate Change</th><td>Complete</td><td>78 million</td></tr>
-                                <tr><th>World Bank Finances</th><td>Complete</td><td>7 million</td></tr>
-                                <tr><th>World Bank Projects and Operations</th><td>Partial</td><td>1 million</td></tr>
-                                <tr><th>World Development Indicators</th><td>Complete</td><td>79 million</td></tr>
+                                <tr><th>World Bank Climate Change</th><td>RDF/XML</td><td>78 million</td><td>10G</td></tr>
+                                <tr><th>World Bank Finances</th><td>RDF/XML</td><td>7 million</td><td>827M</td></tr>
+                                <tr><th>World Bank Projects and Operations</th><td>RDF/XML</td><td>1 million</td><td>93M</td></tr>
+                                <tr><th>World Development Indicators</th><td>RDF/XML</td><td>79 million</td><td>8.4G</td></tr>
                             </tbody>
                         </table>
 
@@ -351,10 +356,10 @@ Highlight some of the interesting questions that came up along the way
                         <h4 id="linked-datasets_irish-census">Irish Census</h4>
                         <table id="linked-dataset_world-bank_chart">
                             <caption>Dataset breakdown of Irish Census Linked Data</caption>
-                            <thead><tr><th></th><th>Completeness</th><th>Number of triples</th></tr></thead>
+                            <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                             <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                             <tbody>
-                                <tr><th>2006 Irish Census</th><td>Partial</td><td>12 million</td></tr>
+                                <tr><th>2006 Irish Census</th><td>Turtle</td><td>12 million</td><td>776M</td></tr>
                             </tbody>
                         </table>
 
