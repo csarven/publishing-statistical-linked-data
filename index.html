@@ -95,14 +95,14 @@
 
                     <div id="original-data">
                         <h2>Original data</h2>
-                        <p>Super high level blurb about the datasets (World Bank, Eurostat, Irish Census) we are about to discuss, ... In what shape they are and how are they published...</p>
+                        <p>Blurb about the datasets we are about to discuss, .. in what shape they are and how are they published...</p>
 
-<!--
-TODO:
-What is this data
-What does it cover
+                        <h3 id="original-data_world-bank">World Bank</h3>
+                        <p>The World Bank Group provides access to a comprehensive set of data about development in countries around the globe. The publicly available statistical data is compiled from officially-recognized international sources; to name a few, the data consists of development indicators, financial statements, climate change, projects and operations.</p>
 
--->
+                        <h3 id="original-data_eurostat">Eurostat</h3>
+
+                        <h3 id="original-data_irish-census">Irish Census</h3>
                     </div>
 
 
@@ -110,237 +110,229 @@ What does it cover
                         <h2>Case Studies</h2>
                         <p>Some blurbs..</p>
 
+                        <div id="data-sources">
+                            <h3>Data sources</h3>
+                            <h4 id="data-source_world-bank">World Bank</h4>
+                            <p>The World Bank Group provides a free and open access to several datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. In our use case, we'll take a look at the datasets which comprimise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (WDI), <a href="https://finances.worldbank.org/">World Bank Finances</a> (WBF), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (WBPO), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (WBCC). These datasets are available in XML and JSON formats via The World Bank API. Here is a brief summary of the datasets:</p>
 
-                        <h3 id="data-sources">Data sources</h3>
-                        <h4 id="data-source_world-bank">World Bank</h4>
-                        <p>The World Bank Group provides access to several datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. Herein we'll take a look at the datasets which comprimise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (WDI), <a href="https://finances.worldbank.org/">World Bank Finances</a> (WBF), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (WBPO), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (WBCC). These datasets are available in XML and JSON formats via The World Bank API.</p>
+                            <dl>
+                                <dt>World Development Indicators</dt>
+                                <dd>Available as a single data cube where it contains indicators, countries, and time as dimension values, and a measured value.</dd>
+                                <dt>World Bank Finances</dt>
+                                <dd>Comes in several sub-datasets with different structures i.e., the observations in the datasets contain different dimensions, measures, as well as attributes.</dd>
+                                <dt>World Bank Projects and Operations</dt>
+                                <dd>Offered as information on project documents as opposed to statistical observations.</dd>
+                                <dt>World Bank Climate Change</dt>
+                                <dd>Contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalities), measured variables and derived statistics, global circumlation models.</dd>
+                            </dl>
 
-                        <ul>
-                            <li>The WDI dataset is available as a single data cube where it contains indicators, countries, and time as dimension values, and a measured value.</li>
-                            <li>The WBF dataset comes in several sub-datasets with different structures i.e., the observations in the datasets contain different dimensions, measures, as well as attributes.</li>
-                            <li>The WBPO dataset is offered as information on project documents, as opposed to statistical observations.</li>
-                            <li>The WBCC dataset contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalities), measured variables and derived statistics, global circumlation models.</li>
-                        </ul>
+                            <h4 id="data-source_eurostat">Eurostat</h4>
 
-                        <h4 id="data-source_eurostat">Eurostat</h4>
-
-                        <h4 id="data-source_irish-census">Irish Census</h4>
-
-
-
-                        <h3 id="data-retrieval">Data retrieval</h3>
-                        <h4 id="data-retrieval_world-bank">World Bank</h4>
-                        <p>The World Bank datasets were collected by making requests to The World Bank API endpoints using the XML output format. The decision for this preference over JSON was to easily achieve an RDF/XML serialization over other methods.</p>
-
-                        <p>The following API endpoints were called:</p>
-
-                        <table id="data-retrieval_world-bank_chart">
-                            <caption>World Bank APIs</caption>
-                            <thead><tr><th></th><th>API call patterns</th><th>Number of request</th><th>Format</th><th>Data size</th></tr></thead>
-                            <tfoot>Counts are rounded based on last retrievals.</tfoot>
-                            <tbody>
-                                <tr>
-                                    <th><a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a></th>
-                                    <td>
-                                        <ul>
-                                            <li><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (Basic requests)</li>
-                                            <li><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/ensemble/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (Emsemble requests)</li>
-                                            <li><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/ensemble/{stat}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (Derived statistics for emsemble requests)</li>
-                                            <li><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/cru/{var}/{month, year or decade}/{ISO3 or basinID}.xml</code> (Derived statistics for emsemble requests)</li>
-                                        </ul>
-                                    </td>
-                                    <td>XML</td>
-                                    <td>140666</td>
-                                    <td>983M</td>
-                                </tr>
-                                <tr>
-                                    <th><a href="https://finances.worldbank.org/">World Bank Finances</a></th>
-                                    <td>
-                                        <ul>
-                                            <li><code>https://finances.worldbank.org/api/views.xml</code></li>
-                                            <li><code>https://finances.worldbank.org/api/views/{id}/rows.xml</code></li>
-                                        </ul>
-                                    </td>
-                                    <td>XML</td>
-                                    <td>32</td>
-                                    <td>365M</td>
-                                </tr>
-                                <tr>
-                                    <th><a href="http://www.worldbank.org/projects">World Bank Projects and Operations</a></th>
-                                    <td>
-                                        <ul>
-                                            <li><code>http://search.worldbank.org/api/projects/all.xml</code></li>
-                                        </ul>
-                                    </td>
-                                    <td>XML</td>
-                                    <td>1</td>
-                                    <td>171M</td>
-                                </tr>
-                                <tr>
-                                    <th><a href="http://data.worldbank.org/developers">World Development Indicators</a></th>
-                                    <td>
-                                        <ul>
-                                            <li><code>http://api.worldbank.org/{lang}/countries/all/indicators/{id}?format=xml&#38;per_page=20000</code></li>
-                                            <li><code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml&#38;per_page=20000</code></li>
-                                        </ul>
-                                    </td>
-                                    <td>XML</td>
-                                    <td>7090</td>
-                                    <td>18G</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. Java and Bash scripts are manually executed to make the API calls at this time in order to closely monitor abnormalities in the responses until the full process becomes more systematic.</p>
+                            <h4 id="data-source_irish-census">Irish Census</h4>
+                        </div>
 
 
-                        <h4 id="data-retrieval_irish-census">Irish Census</h4>
-                        <table id="data-retrieval_irish-census_chart">
-                            <caption>Irish Census</caption>
-                            <thead><tr><th></th><th>Data dumps</th><th>Number of request</th><th>Format</th><th>Data size</th></tr></thead>
-                            <tfoot>Counts are rounded based on last retrievals.</tfoot>
-                            <tbody>
-                                <tr>
-                                    <th><a href="http://census.cso.ie/census/ReportFolders/ReportFolders.aspx">Census Interactive Tables for 2006</a></th>
-                                    <td>
-                                        <ul>
-                                            <li><code>http://census.cso.ie/census/ReportFolders/ReportFolders.aspx</code></li>
-                                        </ul>
-                                    </td>
-                                    <td>CSV</td>
-                                    <td>14</td>
-                                    <td>8M</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div id="data-retrieval">
+                            <h3>Data retrieval</h3>
+                            <h4 id="data-retrieval_world-bank">World Bank</h4>
+                            <p>The World Bank datasets were collected by making requests to The World Bank API endpoints using the XML output format. The reason for choosing the XML format preference over JSON was to easily transform the data to an RDF/XML serialization with XSLT. Table [<a href="#data-retrieval_world-bank_table">1</a>] provides retrieval information about the datasets.</p>
+
+                            <table id="data-retrieval_world-bank_table">
+                                <caption><strong>Table 1.</strong> World Bank data retrieval</caption>
+                                <thead><tr><th>Datasets</th><th>URLs</th><th>Format</th><th>Number of requests</th><th>Data size</th></tr></thead>
+                                <tfoot><tr><td colspan="5">The metadata for these datasets are retrieved from <code>https://finances.worldbank.org/api/views.xml</code>, <code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml</code>, and compiled manually for some information e.g., <code>http://www.currency-iso.org/dl_iso_table_a1.xml</code>.</td></tr>
+
+                                <tbody>
+                                    <tr>
+                                        <th><a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a></th>
+                                        <td><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (basic requests)</code></td>
+                                        <td>XML</td>
+                                        <td>140666</td>
+                                        <td>983M</td>
+                                    </tr>
+                                    <tr>
+                                        <th><a href="https://finances.worldbank.org/">World Bank Finances</a></th>
+                                        <td><code>https://finances.worldbank.org/api/views/{id}/rows.xml</code></td>
+                                        <td>XML</td>
+                                        <td>32</td>
+                                        <td>365M</td>
+                                    </tr>
+                                    <tr>
+                                        <th><a href="http://www.worldbank.org/projects">World Bank Projects and Operations</a></th>
+                                        <td><code>http://search.worldbank.org/api/projects/all.xml</code></td>
+                                        <td>XML</td>
+                                        <td>1</td>
+                                        <td>171M</td>
+                                    </tr>
+                                    <tr>
+                                        <th><a href="http://data.worldbank.org/developers">World Development Indicators</a></th>
+                                        <td><code>http://api.worldbank.org/{lang}/countries/all/indicators/{id}?format=xml</code></td>
+                                        <td>XML</td>
+                                        <td>7090</td>
+                                        <td>18G</td>
+                                    </tr>
+                                    </tfoot>
+                                </tbody>
+                            </table>
+
+                            <p>The data retrieval process from the World Bank API endpoints is held at irregular periods i.e., several times a month. The retrieval act is partly based on new dataset announcements in World Bank mailing lists. Although the data retrieval and transformation phases are conducted by independent scripts, the commitment to retrieve and store the data is based the readiness of the meaningful and usefulness of the data transformation to an RDF serialization. Hence, Java and Bash scripts are executed manually to retrieve in order to:</p>
+                            <ul>
+                                <li>closely monitor abnormalities in the responses and;</li>
+                                <li>account for necessary changes in the data transformations</li>
+                            </ul>
 
 
-
-                        <h3 id="data-processing">Data processing</h3>
-                        <h4 id="data-processing_world-bank">World Bank</h4>
-                        <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually curated, and others were brought up to the World Bank team's attention for investigation.</p>
-
-                        <h4 id="data-decisions_missing-units">Missing units</h4>
-                        <p>The statistics of the World Development Indicators consists of various indicators in different measurement units. At the time of this writing, these measurements in the source data are only provided as part of the string of the indicator name, as opposed to an explicit XML node [].</p>
-
-                        <h4 id="data-decisions_excluding-data">Excluding data</h4>
-                        <h5 id="data-decisions_missing-values">Missing values</h5>
-                        <p>Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values []. Hence, in order to keep the RDFized version of the dataset lean, these observations were excluded in the data transformation phase.</p>
-
-                        <h5 id="data-decisions_aggregated-data">Aggregated data</h5>
-                        <p>While the World Bank API provides an endpoint to pull aggregated data over the WDI, these particular calls were left out in the data collection process since the atomic parts of the data was collected from individual calls.</p>
+                            <h4 id="data-retrieval_eurostat">Eurostat</h4>
 
 
-                        <h5 id="data-decisions_mrv-values">MRV values</h5>
-                        <p>Most recent values (MRV) values were incorrectly introduced to non-date API calls [] in WDI. These observation nodes were excluded in the transformation phase since the data already contained observations with corresponding reference periods.</p>
-
-                        <h4 id="data-decisions_naming-patterns">Naming patterns</h4>
-                        <p>Different naming patterns were identified across World Bank datasets. Some of these are as follows:</p>
-
-                        <h5 id="data-decisions_region-names">Region names</h5>
-                        <p>Region names as used in WDI and WBF datasets differed [] in a way that although they essentially conveyed the same meaning, labels did not match exactly. In order to have URIs for the region labels in the WBF observations, and to simplify the linking process, unique region names from the WBF observations was added to region resources in WDI. During the XSLT process, the alternative labels were matched with the labels in the observations themselves to arrive at their canonical representations.</p>
-
-                        <h5 id="data-decisions_credit-loan">Credit and Loan names</h5>
-                        <p>Based on a private discussion with the WFI team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
-
-                        <h4 id="data-decisions_missing-countries">Missing countries</h4>
-                        <p>Some country codes were identified in the WDI observations that were not defined in the WDI country code list. These were later added to the original data [] [].</p>
-
-
-                        <p>XSLT 2.0 transformations was then applied on the original XML files to arrive at an RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets.</p>
-
-                        <p>In order to import this data into the RDF store rather efficiently, <a href="http://librdf.org/raptor/rapper.html">rapper</a> RDF parser utility program was used to first reserialize each RDF/XML file as N-Triples and appended to a single file at run-time before importing.</p>
+                            <h4 id="data-retrieval_irish-census">Irish Census</h4>
+                            <p>Table [<a href="#data-retrieval_irish-census_table">3</a>] provides retrieval information about the datasets 2006 Irish Census datasets.</p>
+                            <table id="data-retrieval_irish-census_table">
+                                <caption><strong>Table 3.</strong> Irish Census (2006) data retrieval</caption>
+                                <thead><tr><th>Datasets</th><th>URLs</th><th>Format</th><th>Number of requests</th><th>Data size</th></tr></thead>
+                                <tfoot><tr><td colspan="5">These datasets are retrieved manually using the interactive application by clicking on the access URLs.</td></tr></tfoot>
+                                <tbody>
+                                    <tr>
+                                        <th><a href="http://census.cso.ie/census/ReportFolders/ReportFolders.aspx">Census Interactive Tables for 2006</a></th>
+                                        <td><code>http://census.cso.ie/census/ReportFolders/ReportFolders.aspx</code></td>
+                                        <td>CSV</td>
+                                        <td>14</td>
+                                        <td>8M</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
 
+                        <div id="data-review">
+                            <h3>Dataset review and decisions</h3>
+                            <p>In this section, we cover some of the observed <em>abnormalities</em> in the original datasets, and the decisions which were made in order to later achieve reasonable RDF serializations. The information in this section is meant illustrate the some of the recurring challenges and is not an exhaustive list.</p>
 
-                        <h3 id="data-modeling">Data modeling</h3>
-                        <h4 id="data-modeling_world-bank"></h4>
-                        <p>The data is primarily composed of observations (e.g., development indicators, financial loans, climate for a countries) using the RDF Data Cube vocabulary. There are also code lists for classifications like countries, currencies, projects, loan numbers, global circulation models and so on.</p>
+                            <h4 id="data-review_world-bank">World Bank</h4>
+                            <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually updated, and others were brought up to the World Bank team's attention for investigation.</p>
 
-                        <h4 id="vocabularies">Vocabularies</h4>
-                        <h5 id="vocabularies_world-bank">World Bank</h5>
-                        <p>Besides RDF, RDFs, XSD, OWL, the most common vocabularies in these datasets are: <a href="http://www.w3.org/TR/vocab-data-cube/">RDF Data Cube</a> for modeling statistical observations, <a href="http://purl.org/linked-data/sdmx">SDMX</a> for statistical codes, British reference periods (<a href="http://reference.data.gov.uk/doc/year">Year</a>, <a href="http://reference.data.gov.uk/id/gregorian-interval/">Gregorian Interval</a>), <a href="http://www.w3.org/2004/02/skos/core">SKOS</a>, <a href="http://purl.org/dc/terms/">DC Terms</a>. Where appropriate, properties and classifications were created to represent World Bank Linked Data. The <em><a href="#uri-patterns">URI patterns</a></em> section gives a further break down of this.</p>
+                            <h5 id="data-review_world-bank_missing-units">Missing units</h5>
+                            <p>The statistics of the World Development Indicators consists of various indicators in different measurement units. At the time of this writing, these measurements in the source data are only provided as part of the string of the indicator name, as opposed to an explicit XML node [].</p>
 
-                        <p>Properties that happen to be semantically the same, yet, syntactically different in the source data was collapsed into a single namespace in order to have a canonical name across the datasets, as well as to minimize the number of vocabulary terms.</p>
+                            <h5 id="data-review_world-bank_data-exclusion">Data exclusion</h5>
+                            <h6 id="data-review_world-bank_missing-values">Missing values</h6>
+                            <p>Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values []. Hence, in order to keep the RDF-ized version of the dataset lean, these observations were excluded in the data transformation phase.</p>
 
-                        <p>In the case of country codes, it should be noted that ISO 3166-2 is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country Canada in the datasets. It contains a <code>skos:exactMatch</code> to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa with 2 or 3-letter <code>skos:notation</code>s.</p>
-
-                        <h4 id="uri-patterns">URI patterns</h4>
-<!--
-TODO
-Trip the URI patterns
-Talk about the decision on slashes and hash
-What are the tradeoffs?
-Why did you mint your own URIs?
--->
-                        <h5 id="uri-patterns_world-bank">World Bank</h5>
-                        <dl>
-                            <dt id="uri-patterns_classification">Classifications</dt>
-                            <dd><code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>.</dd>
-                            <dt id="uri-patterns_properties">Properties</dt>
-                            <dd><code>http://worldbank.270a.info/property/{id}</code>, similar to above, too many to list here.</dd>
-                            <dt id="uri-patterns_datasets">Data Cube datasets</dt>
-                            <dd><code>http://worldbank.270a.info/dataset/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-development-indicators">world-development-indicators</a>, <a href="http://worldbank.270a.info/dataset/world-bank-finances">world-bank-finances</a>, <a href="http://worldbank.270a.info/dataset/world-bank-climates">world-bank-climates</a>.</dd>
-                            <dt id="uri-patterns_named-graphs">Named graphs in RDF store</dt>
-                            <dd><code>http://worldbank.270a.info/graph/{id}</code>, where id is one of; meta, world-development-indicators, world-bank-finances, world-bank-climates, world-bank-projects-and-operations.</dd>
-                            <dt id="uri-patterns_world-development-indicators">World Development Indicators</dt>
-                            <dd><code>http://worldbank.270a.info/dataset/world-development-indicators/{id}/{country}/{year}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/indicator">indicator code</a>, country in one of <a href="http://worldbank.270a.info/classification/country">country code</a>, and year in YYYY.</dd>
-                            <dt id="uri-patterns_world-bank-finances">World Bank Finances</dt>
-                            <dd><code>http://worldbank.270a.info/dataset/world-bank-finances/{id}/{rowid}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-finances">financial dataset code</a>, rowid as a positive integer.</dd>
-                            <dt id="uri-patterns_world-bank-climates">World Bank Climate Change</dt>
-                            <dd><code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a></dd>
-                        </dl>
+                            <h6 id="data-review_world-bank_aggregated-data">Aggregated data</h6>
+                            <p>While the World Bank API provides endpoints which compiled aggregate data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
 
 
-                        <h4 id="data-modeling_blank-nodes">Blank nodes</h4>
-                        <p>By in large, the datasets do not contain blank nodes (bnodes), with the exception of unavoidable ones in the Projects and Operations code list. Given the nature of the WBPO API response at the time, the decision was not create arbitrary URIs which may or may not need to exist at a later date.</p>
+                            <h6 id="data-review_world-bank_most-recent-values">Most recent values</h6>
+                            <p>Most recent values were incorrectly introduced to non-date API calls [] in <em>WDI</em>. These observation nodes were excluded in the transformation phase since the data already contained observations with corresponding reference periods.</p>
 
-                        <h4 id="data-modeling_normalization">Normalization</h4>
-                        <p>Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in IS0 8601 format.</p>
+                            <h5 id="data-review_world-bank_naming-patterns">Naming patterns</h5>
+                            <p>Different naming patterns were identified across World Bank datasets. Some of these are as follows:</p>
 
+                            <h6 id="data-review_world-bank_region-names">Region names</h6>
+                            <p>Region names as used in <em>WDI</em> and <em>WBF</em> datasets differed [] in a way that although they essentially conveyed the same meaning, labels did not match exactly. In order to have URIs for the region labels in the <em>WBF</em>  observations, and to simplify the linking process, unique region names from the <em>WBF</em>  observations was added to region resources in <em>WDI</em>. During the XSLT process, the alternative labels were matched with the labels in the observations themselves to arrive at their canonical representations.</p>
 
-                        <h4 id="data-interlinking">Data interlinking</h4>
-<!--
-What can you link on (codelists probably.. but not observations.. geography is the obvious connection points)
-Reused some.. and mapped to existing stuff
-Highlight some of the interesting questions that came up along the way
--->
-                        <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (LIMES). With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
+                            <h6 id="data-review_world-bank_credit-loan">Credit and Loan names</h6>
+                            <p>Based on a private discussion with the WFI team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
 
-                        <p>Additional interlinking was done by adding links to resources with corresponding homepages on the World Bank site, as well as links to referenced documents.</p>
-
-                        <p>Futher interlinking was done by adding links to resources with corresponding homepages on the World Bank site.</p>
-
-                        <h5 id="data-enrichment">Data enrichment</h5>
-                        <p>A code list for currencies was created based on <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currency and funds code list</a> to represent the SDMX attributes for the amount measurements in the World Bank Finances datasets. They were also linked to each country which officially uses that currency.</p>
-
-                        <p>Given that some of the codes in the World Bank country code list are not considered to be countries e.g., <code>1W</code> representing <em>World</em>, only the resources that represent a real country have an added <code>rdf:type</code> instance of <code>dbo:Country</code>.</p>
+                            <h5 id="data-review_world-bank_missing-countries">Missing countries</h5>
+                            <p>Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
 
 
-                        <h4 id="data-provenance">Data provenance</h4>
-                        <h5 id="data-provenance_world-bank">World Bank</h5>
-                        <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide extra metadata about the data. For the datasets and observations in these datasets, they address the following information:</p>
-                        <ul>
-                            <li>Defining source</li>
-                            <li>Data license</li>
-                            <li>Data collection date</li>
-                            <li>Data update date</li>
-                            <li>Location of the source data</li>
-                            <li>Creator of the data</li>
-                        </ul>
+                            <p>XSLT 2.0 transformations was then applied on the original XML files to arrive at an RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets.</p>
+
+                            <p>In order to import this data into the RDF store rather efficiently, <a href="http://librdf.org/raptor/rapper.html">rapper</a> RDF parser utility program was used to first re-serialize each RDF/XML file as N-Triples and appended to a single file at run-time before importing.</p>
+                        </div>
 
 
-                        <h4 id="data-structure-definition">Data structure definitions</h4>
-                        <h5 id="data-structure-definition_world-bank">World Bank</h5>
-                        <p></p>
+                        <div id="data-modeling">
+                            <h3>Data modeling</h3>
+                            <h4 id="data-modeling_world-bank"></h4>
+                            <p>The data is primarily composed of observations (e.g., development indicators, financial loans, climate for a countries) using the RDF Data Cube vocabulary. There are also code lists for classifications like countries, currencies, projects, loan numbers, global circulation models and so on.</p>
 
+                            <h4 id="vocabularies">Vocabularies</h4>
+                            <h5 id="vocabularies_world-bank">World Bank</h5>
+                            <p>Besides RDF, RDFS, XSD, OWL, the most common vocabularies in these datasets are: <a href="http://www.w3.org/TR/vocab-data-cube/">RDF Data Cube</a> for modeling statistical observations, <a href="http://purl.org/linked-data/sdmx">SDMX</a> for statistical codes, British reference periods (<a href="http://reference.data.gov.uk/doc/year">Year</a>, <a href="http://reference.data.gov.uk/id/gregorian-interval/">Gregorian Interval</a>), <a href="http://www.w3.org/2004/02/skos/core">SKOS</a>, <a href="http://purl.org/dc/terms/">DC Terms</a>. Where appropriate, properties and classifications were created to represent World Bank Linked Data. The <em><a href="#uri-patterns">URI patterns</a></em> section gives a further break down of this.</p>
+
+                            <p>Properties that happen to be semantically the same, yet, syntactically different in the source data was collapsed into a single namespace in order to have a canonical name across the datasets, as well as to minimize the number of vocabulary terms.</p>
+
+                            <p>In the case of country codes, it should be noted that ISO 3166-2 is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country Canada in the datasets. It contains a <code>skos:exactMatch</code> to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa with 2 or 3-letter <code>skos:notation</code>s.</p>
+
+                            <h4 id="uri-patterns">URI patterns</h4>
+    <!--
+    TODO
+    Trip the URI patterns
+    Talk about the decision on slashes and hash
+    What are the trade-offs?
+    Why did you mint your own URIs?
+    -->
+                            <h5 id="uri-patterns_world-bank">World Bank</h5>
+                            <dl>
+                                <dt id="uri-patterns_classification">Classifications</dt>
+                                <dd><code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>.</dd>
+                                <dt id="uri-patterns_properties">Properties</dt>
+                                <dd><code>http://worldbank.270a.info/property/{id}</code>, similar to above, too many to list here.</dd>
+                                <dt id="uri-patterns_datasets">Data Cube datasets</dt>
+                                <dd><code>http://worldbank.270a.info/dataset/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-development-indicators">world-development-indicators</a>, <a href="http://worldbank.270a.info/dataset/world-bank-finances">world-bank-finances</a>, <a href="http://worldbank.270a.info/dataset/world-bank-climates">world-bank-climates</a>.</dd>
+                                <dt id="uri-patterns_named-graphs">Named graphs in RDF store</dt>
+                                <dd><code>http://worldbank.270a.info/graph/{id}</code>, where id is one of; meta, world-development-indicators, world-bank-finances, world-bank-climates, world-bank-projects-and-operations.</dd>
+                                <dt id="uri-patterns_world-development-indicators">World Development Indicators</dt>
+                                <dd><code>http://worldbank.270a.info/dataset/world-development-indicators/{id}/{country}/{year}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/indicator">indicator code</a>, country in one of <a href="http://worldbank.270a.info/classification/country">country code</a>, and year in YYYY.</dd>
+                                <dt id="uri-patterns_world-bank-finances">World Bank Finances</dt>
+                                <dd><code>http://worldbank.270a.info/dataset/world-bank-finances/{id}/{rowid}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-finances">financial dataset code</a>, rowid as a positive integer.</dd>
+                                <dt id="uri-patterns_world-bank-climates">World Bank Climate Change</dt>
+                                <dd><code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a></dd>
+                            </dl>
+
+
+                            <h4 id="data-modeling_blank-nodes">Blank nodes</h4>
+                            <p>By in large, the datasets do not contain blank nodes (bnodes), with the exception of unavoidable ones in the Projects and Operations code list. Given the nature of the <em>WBPO</em>  API response at the time, the decision was not create arbitrary URIs which may or may not need to exist at a later date.</p>
+
+                            <h4 id="data-modeling_normalization">Normalization</h4>
+                            <p>Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in IS0 8601 format.</p>
+
+
+                            <h4 id="data-interlinking">Data interlinking</h4>
+    <!--
+    What can you link on (codelists probably.. but not observations.. geography is the obvious connection points)
+    Reused some.. and mapped to existing stuff
+    Highlight some of the interesting questions that came up along the way
+    -->
+                            <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (LIMES). With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
+
+                            <p>Additional interlinking was done by adding links to resources with corresponding homepages on the World Bank site, as well as links to referenced documents.</p>
+
+                            <p>Futher interlinking was done by adding links to resources with corresponding homepages on the World Bank site.</p>
+
+                            <h5 id="data-enrichment">Data enrichment</h5>
+                            <p>A code list for currencies was created based on <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currency and funds code list</a> to represent the SDMX attributes for the amount measurements in the World Bank Finances datasets. They were also linked to each country which officially uses that currency.</p>
+
+                            <p>Given that some of the codes in the World Bank country code list are not considered to be countries e.g., <code>1W</code> representing <em>World</em>, only the resources that represent a real country have an added <code>rdf:type</code> instance of <code>dbo:Country</code>.</p>
+
+
+                            <h4 id="data-provenance">Data provenance</h4>
+                            <h5 id="data-provenance_world-bank">World Bank</h5>
+                            <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide extra metadata about the data. For the datasets and observations in these datasets, they address the following information:</p>
+                            <ul>
+                                <li>Defining source</li>
+                                <li>Data license</li>
+                                <li>Data collection date</li>
+                                <li>Data update date</li>
+                                <li>Location of the source data</li>
+                                <li>Creator of the data</li>
+                            </ul>
+
+
+                            <h4 id="data-structure-definition">Data structure definitions</h4>
+                            <h5 id="data-structure-definition_world-bank">World Bank</h5>
+                            <p></p>
+                        </div>
 
 
                         <h3 id="linked-datasets">Linked datasets</h3>
                         <h4 id="linked-datasets_world-bank">World Bank</h4>
                         <p>There is a <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file which contains metadata for the datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a>. The <a href="http://worldbank.270a.info/data/">data dumps</a> are available either as individual RDF/XML files or in compressed gzip format.</p>
 
-                        <table id="linked-dataset_world-bank_chart">
+                        <table id="linked-dataset_world-bank_table">
                             <caption>Dataset breakdown of World Bank Linked Data</caption>
                             <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                             <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
@@ -354,7 +346,7 @@ Highlight some of the interesting questions that came up along the way
 
 
                         <h4 id="linked-datasets_irish-census">Irish Census</h4>
-                        <table id="linked-dataset_world-bank_chart">
+                        <table id="linked-dataset_irish-census_table">
                             <caption>Dataset breakdown of Irish Census Linked Data</caption>
                             <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                             <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
@@ -417,7 +409,6 @@ Highlight some of the interesting questions that came up along the way
 
                     <div id="acknowledgements">
                         <h2>Acknowledgements</h2>
-                        <p>The research leading to these results has received funding from the <a rel="ov:kudosTo" href="[dbr:Framework_Programmes_for_Research_and_Technological_Development">European Community’s Seventh Framework Programme</a> (FP7/2007-2013) under Grant Agreement No. 256975 , LOD Around-The-Clock (LATC) Support Action.</p>
                     </div>
                 </div>
 

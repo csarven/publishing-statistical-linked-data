@@ -100,7 +100,6 @@ border-style:solid;
 .dn { display:none; }
 
 caption {
-font-weight:bold;
 font-size:1.3em;
 text-align:left;
 }
@@ -143,7 +142,7 @@ min-height:259px;
 }
 
 
-p {
+p, ol, ul, dd, table, figure {
 margin-bottom:1em;
 }
 
@@ -162,8 +161,3 @@ dt {
 font-weight:bold;
 margin-bottom:0.5em;
 }
-
-dd {
-margin-bottom:1.25em;
-}
-
