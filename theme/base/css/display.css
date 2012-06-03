@@ -35,10 +35,73 @@ h4 { font-size:1.1em; }
 h5 { font-size:1em; }
 h6 { font-size:0.9em; }
 
+/*
 h1,h2,h3,h4,h5,h6,
 caption, dt {
 text-shadow:1px 1px 1px #CCCCCC;
 }
+*/
+
+#abstract h2:before,
+#document-identifier h2:before,
+#categories-and-subject-descriptors h2:before,
+#keywords h2:before,
+#acknowledgements h2:before,
+#references h2:before {
+content: "";
+}
+
+h2 {
+margin-top:2em;
+counter-increment: section;
+counter-reset: sub-section;
+}
+h2:before {
+content: counter(section) "\00a0\00a0\00a0";
+}
+
+h3 {
+margin-top:1em;
+counter-increment: sub-section;
+counter-reset: sub-sub-section;
+}
+h3:before {
+content: counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
+}
+
+h4 {
+display:inline;
+}
+h4:after {
+content: ".";
+}
+h4 + p {
+display:inline;
+}
+h4 + p:after {
+content:"\A\A";
+white-space:pre;
+}
+
+h5 {
+font-weight:normal;
+font-style:italic;
+display:inline;
+}
+h5:after {
+content: ".";
+}
+h5 + p {
+display:inline;
+}
+
+h5 + p:after {
+content:"\A\A";
+white-space: pre;
+}
+
+
+
 
 tr {
 border-color:#EEEEEE;
