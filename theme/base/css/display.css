@@ -11,15 +11,25 @@ a abbr { cursor: pointer; border-bottom:0; }
 table { border-collapse:collapse; }
 tr { vertical-align:top; }
 ol { list-style-position:inside; }
+h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table {
+orphans: 2;
+widows: 1;
+word-wrap: break-word;
+}
 html { font-size: 10pt; }
 body {
 background-color:#FFFFFF;
 color:#000000;
-font-family:sans-serif;
+font-family:serif;
 font-size:10pt;
-line-height:1.65;
+line-height:1.4;
 position:relative;
+margin:0 auto;
+width:122mm;
+height:193mm;
 }
+
+
 h1,h2,h3,h4,h5,h6 {
 margin-bottom:0.5em;
 overflow:hidden;
@@ -33,14 +43,6 @@ h3 { font-size:10pt; }
 h4 { font-size:10pt; }
 h5 { font-size:10pt; }
 h6 { font-size:10pt; }
-
-/*
-h1,h2,h3,h4,h5,h6,
-caption, dt {
-text-shadow:1px 1px 1px #CCCCCC;
-}
-*/
-
 
 
 #abstract h2:before,
@@ -70,6 +72,7 @@ h3:before {
 content: counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
 }
 
+h1 + p,
 h2 + p,
 h3 + p {
 text-indent:0;
@@ -90,10 +93,12 @@ content:"\A";
 white-space:pre;
 }
 
-p + h4:before {
+p + h4:before,
+caption:before {
 content:"\A";
 white-space:pre;
 }
+
 
 h5 {
 font-weight:normal;
@@ -113,38 +118,46 @@ white-space: pre;
 }
 
 
+.entry-author p {
+text-indent:0;
+}
 
-
-tr {
-border-color:#EEEEEE;
+.author_org,
+.author_email,
+#abstract p {
+font-size:9pt;
 }
 
 
-code { font-size:10pt; }
-
-.error,
-.success,
-.warning {
-padding:4px 1.55%;
-border-radius:4px;
--moz-border-radius:4px;
--webkit-border-radius:4px;
-margin-bottom:18px;
-border-width:2px;
-border-style:solid;
+code {
+font-size:9pt;
+font-family:monospace;
 }
 
-.dn { display:none; }
+p {
+text-indent:1em;
+}
+
+ol, ul, dd, table, figure {
+margin-bottom:1em;
+}
+
+ol, ul, p, dd {
+text-align:justify;
+}
+
+dt {
+font-weight:bold;
+margin-bottom:0.5em;
+}
 
 caption {
-font-size:12pt;
 text-align:left;
 }
 thead tr {
 border-bottom:0;
 }
 thead td {
-font-size:12pt;
 font-weight:bold;
 }
 
@@ -166,25 +179,15 @@ border-bottom:0;
 
 
 #wrap {
-margin:0 auto;
-width:100%;
-min-width:760px;
-max-width:1003px;
 overflow:hidden;
 }
 
 
-#content {
-min-height:259px;
+#abstract {
+margin-left:1cm;
+margin-right:1cm;
 }
 
-p {
-text-indent:1em;
-}
-
-ol, ul, dd, table, figure {
-margin-bottom:1em;
-}
 
 #content ul {
 list-style-position:inside;
@@ -197,7 +200,4 @@ margin-bottom:3em;
 }
 
 
-dt {
-font-weight:bold;
-margin-bottom:0.5em;
-}
+
