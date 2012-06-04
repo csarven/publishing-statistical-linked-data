@@ -70,6 +70,7 @@ content: counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
 }
 
 h4 {
+margin-top:1em;
 display:inline;
 }
 h4:after {
@@ -79,7 +80,12 @@ h4 + p {
 display:inline;
 }
 h4 + p:after {
-content:"\A\A";
+content:"\A";
+white-space:pre;
+}
+
+p + h4:before {
+content:"\A";
 white-space:pre;
 }
 
@@ -96,7 +102,7 @@ display:inline;
 }
 
 h5 + p:after {
-content:"\A\A";
+content:"\A";
 white-space: pre;
 }
 
