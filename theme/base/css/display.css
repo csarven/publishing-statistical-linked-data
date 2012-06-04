@@ -5,19 +5,18 @@
  * @link      http://csarven.ca/
  */
 
-@media screen, projection, tv {
 * { margin:0; padding:0; }
 img { display:block; border:0; }
 a abbr { cursor: pointer; border-bottom:0; }
 table { border-collapse:collapse; }
 tr { vertical-align:top; }
 ol { list-style-position:inside; }
-/*html { font-size: 87.5%; }*/
+html { font-size: 10pt; }
 body {
 background-color:#FFFFFF;
 color:#000000;
 font-family:sans-serif;
-font-size:1em;
+font-size:10pt;
 line-height:1.65;
 position:relative;
 }
@@ -26,14 +25,14 @@ margin-bottom:0.5em;
 overflow:hidden;
 }
 h1 {
-font-size:1.8em;
+font-size:14pt;
 margin-bottom:1em;
 }
-h2 { font-size:1.6em; }
-h3 { font-size:1.3em; }
-h4 { font-size:1.1em; }
-h5 { font-size:1em; }
-h6 { font-size:0.9em; }
+h2 { font-size:12pt; }
+h3 { font-size:10pt; }
+h4 { font-size:10pt; }
+h5 { font-size:10pt; }
+h6 { font-size:10pt; }
 
 /*
 h1,h2,h3,h4,h5,h6,
@@ -41,6 +40,8 @@ caption, dt {
 text-shadow:1px 1px 1px #CCCCCC;
 }
 */
+
+
 
 #abstract h2:before,
 #document-identifier h2:before,
@@ -67,6 +68,11 @@ counter-reset: sub-sub-section;
 }
 h3:before {
 content: counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
+}
+
+h2 + p,
+h3 + p {
+text-indent:0;
 }
 
 h4 {
@@ -114,45 +120,7 @@ border-color:#EEEEEE;
 }
 
 
-code { font-size:1.2em; }
-
-legend {
-font-weight:bold;
-font-size:1.3em;
-}
-input, textarea, select, option {
-padding:4px;
-font-family:sans-serif;
-font-size:1em;
-}
-input.submit {
-font-weight:bold;
-cursor:pointer;
-}
-textarea {
-overflow:auto;
-}
-option {
-padding-bottom:0;
-}
-fieldset {
-padding:0;
-border:0;
-}
-form ul li {
-list-style-type:none;
-margin:0 0 18px 0;
-}
-form label {
-font-weight:bold;
-}
-input.checkbox,
-input.radio {
-position:relative;
-top:2px;
-left:auto;
-border:0;
-}
+code { font-size:10pt; }
 
 .error,
 .success,
@@ -169,14 +137,14 @@ border-style:solid;
 .dn { display:none; }
 
 caption {
-font-size:1.3em;
+font-size:12pt;
 text-align:left;
 }
 thead tr {
 border-bottom:0;
 }
 thead td {
-font-size:1.1em;
+font-size:12pt;
 font-weight:bold;
 }
 
@@ -210,8 +178,11 @@ overflow:hidden;
 min-height:259px;
 }
 
+p {
+text-indent:1em;
+}
 
-p, ol, ul, dd, table, figure {
+ol, ul, dd, table, figure {
 margin-bottom:1em;
 }
 

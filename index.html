@@ -49,7 +49,7 @@
 
                 <div id="abstract" class="entry-summary">
                     <h2>Abstract</h2>
-                    <div property="dcterms:abstract" datatype=""><p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p></div>
+                    <p property="dcterms:abstract" datatype="">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
                 </div>
 
                 <div property="dcterms:description" id="content" class="entry-content">
@@ -110,7 +110,7 @@
 
                     <h3 id="data-sources">Data sources</h3>
                     <h4 id="data-source_world-bank">World Bank</h4>
-                    <p>The World Bank Group provides a free and open access to several datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. In our use case, we'll take a look at the datasets which comprimise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (WDI), <a href="https://finances.worldbank.org/">World Bank Finances</a> (WBF), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (WBPO), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (WBCC). These datasets are available in XML and JSON formats via The World Bank API. Here is a brief summary of the datasets:</p>
+                    <p>The World Bank Group provides a free and open access to several datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. In our use case, we'll take a look at the datasets which compromise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (WDI), <a href="https://finances.worldbank.org/">World Bank Finances</a> (WBF), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (WBPO), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (WBCC). These datasets are available in XML and JSON formats via The World Bank API. Here is a brief summary of the datasets:</p>
 
                     <ul>
                         <li><strong>World Development Indicators</strong>: Available as a single data cube where it contains indicators, countries, and time as dimension values, and a measured value.</li>
@@ -134,7 +134,6 @@
                         <caption><strong>Table 1.</strong> World Bank data retrieval</caption>
                         <thead><tr><th>Datasets</th><th>URLs</th><th>Format</th><th>Number of requests</th><th>Data size</th></tr></thead>
                         <tfoot><tr><td colspan="5">The metadata for these datasets are retrieved from <code>https://finances.worldbank.org/api/views.xml</code>, <code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml</code>, and compiled manually for some information e.g., <code>http://www.currency-iso.org/dl_iso_table_a1.xml</code>.</td></tr>
-
                         <tbody>
                             <tr>
                                 <th><a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a></th>
@@ -227,7 +226,7 @@
 
 
                     <h3 id="data-modeling">Data modeling</h3>
-                    <p id="data-modeling_world-bank"><strong>World Bank</strong>: The data is primarily composed of observations (e.g., development indicators, financial loans, climate for a countries) using the RDF Data Cube vocabulary. There are also code lists for classifications like countries, currencies, projects, loan numbers, global circulation models and so on.</p>
+                    <p>TODO</p>
 
 
                     <h4 id="vocabularies">Vocabularies</h4>
@@ -236,7 +235,7 @@
                     <h5 id="vocabularies_world-bank">World Bank</h5>
                     <p>Besides RDF, RDFS, XSD, OWL, the most common vocabularies in these datasets are: <a href="http://www.w3.org/TR/vocab-data-cube/">RDF Data Cube</a> for modeling statistical observations, <a href="http://purl.org/linked-data/sdmx">SDMX</a> for statistical codes, British reference periods (<a href="http://reference.data.gov.uk/doc/year">Year</a>, <a href="http://reference.data.gov.uk/id/gregorian-interval/">Gregorian Interval</a>), <a href="http://www.w3.org/2004/02/skos/core">SKOS</a>, <a href="http://purl.org/dc/terms/">DC Terms</a>. Where appropriate, properties and classifications were created to represent World Bank Linked Data. The <em><a href="#uri-patterns">URI patterns</a></em> section gives a further break down of this.</p>
 
-                    <p>Properties that happen to be semantically the same, yet, syntactically different in the source data was collapsed into a single namespace in order to have a canonical name across the datasets, as well as to minimize the number of vocabulary terms.</p>
+                    <p>Properties that happen to be semantically the same, yet syntactically different, in source data was collapsed into a single namespace in order to have a canonical name across the datasets, as well as to minimize the number of vocabulary terms.</p>
 
                     <p>In the case of country codes, it should be noted that ISO 3166-2 is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country Canada in the datasets. It contains a <code>skos:exactMatch</code> to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa with 2 or 3-letter <code>skos:notation</code>s.</p>
 
@@ -245,26 +244,34 @@
                     <p>TODO</p>
 <!--
 TODO
-Trim the URI patterns
 Talk about the decision on slashes and hash
 What are the trade-offs?
 Why did you mint your own URIs?
 -->
                     <h5 id="uri-patterns_world-bank">World Bank</h5>
-                    <p>TODO</p>
-                    <p id="uri-patterns_world-bank_classification"><strong>Classifications</strong> are composed of code lists for various concepts that are used in the World Bank datasets. The concepts are compiled by using the accompanied meta-data from the World Bank, and are type of <code>skos:Concept</code>. Each code list is of type <code>skos:CodeList</code> and has a URI design pattern of <code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/country"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>. Each concept is defined under the code list namespace e.g., <code>http://worldbank.270a.info/classification/country/CA</code> is the concept for country <em>Canada</em>.</p>
+                    <p>Given the statistical nature of the majority of the World Bank data, URI spaces for concepts, properties, observations, and datasets are created. New URIs for classifications and properties were created because majority of the properties and concepts did not already exist in the wild, and in cases where they did, they did not fully correspond with the World Bank's. For instance, the country codes in the World Bank are not only composed of concepts of countries, but also other geopolitical areas and income levels. While these concepts were kept distinct, they still belonged to the same code list. As a widely recommended practice, these World Bank resources were interlinked and mapped to external resources.</p>
 
-                    <p id="uri-patterns_world-bank_properties"><strong>Properties</strong> have the URI pattern <code>http://worldbank.270a.info/property/{id}</code>.</p>
+                    <p>Names in the URIs are kept as close to the names as they occur in the original data as possible, in order to minimize misinterpretations and to stay semantically close to the source. Terms are lower-cased, and delimited with <code>-</code> for consistent readability across all of the datasets.</p>
 
-                    <p id="uri-patterns_world-bank_datasets"><strong>Data Cube datasets</strong> use the URI patterns: <code>http://worldbank.270a.info/dataset/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-development-indicators">world-development-indicators</a>, <a href="http://worldbank.270a.info/dataset/world-bank-finances">world-bank-finances</a>, <a href="http://worldbank.270a.info/dataset/world-bank-climates">world-bank-climates</a>.</p>
+                    <p>Observation URIs in WDI and WBCC datasets follow the same pattern. That is, the dimension values are used as the tokens in the URI space and are delimited with a slash. Due to the wide range of observation types in WBF datasets, its URI pattern is simpler in comparison to WDI and WBCC, such that, each observation is instead given a unique numerical row identifier as found in the original data source.</p>
 
-                    <p id="uri-patterns_world-bank_named-graphs"><strong>Named graphs in RDF store</strong> are placed in <code>http://worldbank.270a.info/graph/{id}</code>, where id is one of; <code>meta</code>, world-development-indicators</code>, <code>world-bank-finances</code>, <code>world-bank-climates</code>, <code>world-bank-projects-and-operations</code>.</dd>
+                    <p><em>Slash URIs</em> are used throughout the schema and data resources. The reason for this was to keep the URI patterns consistent and to make sure that all important resources when dereferenced returned information particular to the resource. Since the content size of the responses for statistical data may be heavy, the <em>slash URIs</em> approach appeared to be preferable to <em>hash URIs</em>.</p>
 
-                    <p id="uri-patterns_world-bank_world-development-indicators"><strong>World Development Indicators</strong> <em>observations</em> are within <code>http://worldbank.270a.info/dataset/world-development-indicators/{id}/{country}/{year}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/indicator">indicator code</a>, country in one of <a href="http://worldbank.270a.info/classification/country">country code</a>, and year in YYYY.</p>
+                    <p>The general URI space is as follows:</p>
 
-                    <p id="uri-patterns_world-bank_world-bank-finances"><strong>World Bank Finances</strong> <em>observations</em> are within <code>http://worldbank.270a.info/dataset/world-bank-finances/{id}/{rowid}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-finances">financial dataset code</a>, rowid as a positive integer.</p>
+                    <p id="uri-patterns_world-bank_classification"><em>Classifications</em> are composed of code lists for various concepts that are used in the World Bank datasets. The concepts are compiled by using the accompanied meta-data from the World Bank, and are type of a <code>skos:Concept</code>. Each code list is of type <code>skos:CodeList</code> and has a URI pattern of <code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/country"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>. Each concept is defined under the code list namespace hierarchy e.g., <code>http://worldbank.270a.info/classification/country/CA</code> is the concept for country <em>Canada</em>.</p>
 
-                    <p id="uri-patterns_world-bank_world-bank-climates"><strong>World Bank Climate Change</strong> <em>observations</em> are within <code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a>.</p>
+                    <p id="uri-patterns_world-bank_properties"><em>Properties</em> have the URI pattern <code>http://worldbank.270a.info/property/{id}</code>.</p>
+
+                    <p id="uri-patterns_world-bank_datasets"><em>Data Cube datasets</em> use the URI patterns: <code>http://worldbank.270a.info/dataset/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-development-indicators">world-development-indicators</a>, <a href="http://worldbank.270a.info/dataset/world-bank-finances">world-bank-finances</a>, <a href="http://worldbank.270a.info/dataset/world-bank-climates">world-bank-climates</a>.</p>
+
+                    <p id="uri-patterns_world-bank_named-graphs"><em>Named graphs in RDF store</em> are placed in <code>http://worldbank.270a.info/graph/{id}</code>, where id is one of; <code>meta</code>, world-development-indicators</code>, <code>world-bank-finances</code>, <code>world-bank-climates</code>, <code>world-bank-projects-and-operations</code>.</dd>
+
+                    <p id="uri-patterns_world-bank_world-development-indicators"><em>World Development Indicators</em> observations are within <code>http://worldbank.270a.info/dataset/world-development-indicators/{id}/{country}/{year}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/indicator">indicator code</a>, country in one of <a href="http://worldbank.270a.info/classification/country">country code</a>, and year in YYYY.</p>
+
+                    <p id="uri-patterns_world-bank_world-bank-finances"><em>World Bank Finances</em> observations are within <code>http://worldbank.270a.info/dataset/world-bank-finances/{id}/{rowid}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-finances">financial dataset code</a>, rowid as a positive integer.</p>
+
+                    <p id="uri-patterns_world-bank_world-bank-climates"><em>World Bank Climate Change</em> observations are within <code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a>.</p>
 
 
 
@@ -332,7 +339,7 @@ Highlight some of the interesting questions that came up along the way
                     <p>There is a <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file which contains metadata for the datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a>. The <a href="http://worldbank.270a.info/data/">data dumps</a> are available either as individual RDF/XML files or in compressed gzip format.</p>
 
                     <table id="linked-dataset_world-bank_table">
-                        <caption>Dataset breakdown of World Bank Linked Data</caption>
+                        <caption>World Bank Linked Data</caption>
                         <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                         <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
