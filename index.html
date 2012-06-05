@@ -218,11 +218,6 @@
 
                     <p id="data-review_world-bank_missing-countries"><em>Missing countries</em>: Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
 
-                    <p>XSLT 2.0 transformations was then applied on the original XML files to arrive at an RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets.</p>
-
-                    <p>In order to import this data into the RDF store rather efficiently, <a href="http://librdf.org/raptor/rapper.html">rapper</a> RDF parser utility program was used to first re-serialize each RDF/XML file as N-Triples and appended to a single file at run-time before importing.</p>
-
-
 
                     <h3 id="data-modeling">Data modeling</h3>
                     <p>TODO</p>
@@ -327,6 +322,20 @@ Highlight some of the interesting questions that came up along the way
                     <p></p>
 
 
+                    <h3 id="data-conversion">Data conversion</h3>
+                    <p>TODO</p>
+
+                    <h4 id="data-conversion_world-bank">World Bank</h4>
+                    <p>XSLT 2.0 transformations are applied on the source XML files to arrive at the target RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets. The conversion step from the command-line was preferred over Java's SAXTransformerFactory as it was significantly faster in preliminary tests.</p>
+
+                    <p>In order to import this data into the RDF store rather efficiently, <a href="http://librdf.org/raptor/rapper.html">rapper</a> RDF parser utility program was used to first re-serialize each RDF/XML file as N-Triples and appended to a single file at run-time before importing.</p>
+
+                    <h4 id="data-conversion_eurostat">Eurostat</h4>
+                    <p>TODO</p>
+
+                    <h4 id="data-conversion_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
 
                     <h3 id="linked-datasets">Linked datasets</h3>
                     <h4 id="linked-datasets_world-bank">World Bank</h4>
@@ -361,20 +370,69 @@ Highlight some of the interesting questions that came up along the way
                     </table>
 
 
-                    <h3 id="publication">Publication</h3>
-                    <p>Alternate formats as listed (at the bottom of the HTML page) for a given resource is currently the generated version (from a SPARQL query). It may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps, therefore, you should keep the difference in mind.</p>
-
-                    <h4 id="code_world-bank">About the code</h4>
-                    <p>The code which retrieves the World Bank data, transforms it to RDF, and imports to TDB Triple Store can be found at <a href="http://github.com/csarven/worldbank-linkeddata">GitHub</a>. It is using the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.</p>
-
-                    <h4 id="data-license">Data license</h4>
-                    <p>With the exception of World Bank's own licensing, the <em>Linked Data</em> version of this data is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</a>.</p>
-
-                    <h4 id="sparql-endpoint">SPARQL Endpoint</h4>
-                    <p>A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available for WBLD which accepts SPARQL 1.1 queries.</p>
-
-                    <h4 id="data-dumps">Data dumps</h4>
+                    <h3 id="data-license">Data license</h3>
+                    <h4 id="data-license_world-bank">World Bank</h4>
+                    <p>In addition to adhering to <a href="http://go.worldbank.org/OJC02YMLA0">World Bank's terms of use</a>, the <em>Linked Data</em> is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</a>.</p>
+                    <h4 id="data-license_eurostat">Eurostat</h4>
                     <p>TODO</p>
+                    <h4 id="data-license_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
+
+
+                    <h3 id="publication">Publication</h3>
+                    <p>TODO</p>
+                    <h4 id="publication_world-bank">World Bank</h4>
+                    <p>Alternate formats as listed (at the bottom of the HTML page) for a given resource is currently the generated version (from a SPARQL query). It may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps, therefore, you should keep the difference in mind.</p>
+                    <h4 id="publication_eurostat">Eurostat</h4>
+                    <p>TODO</p>
+                    <h4 id="publication_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
+
+                    <h3 id="sparql-endpoint">SPARQL Endpoint</h3>
+                    <p>TODO</p>
+                    <h4 id="sparql-endpoint_world-bank">World Bank</h4>
+                    <p>A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available for WBLD which accepts SPARQL 1.1 queries.</p>
+                    <h4 id="sparql-endpoint_eurostat">Eurostat</h4>
+                    <p>TODO</p>
+                    <h4 id="sparql-endpoint_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
+
+
+
+                    <h3 id="data-dumps">Data dumps</h3>
+                    <p>TODO</p>
+                    <h4 id="data-dumps_world-bank">World Bank</h4>
+                    <p>The RDF <a href="http://worldbank.270a.info/data/">data dumps</a> can be retrieved in several ways and are available in <em>Gzip</em>s of the schema and datasets along with individuals RDF/XML files. For automatic processing with tools like <a href="http://github.com/csarven/graphpusher">GraphPusher</a>, the location of the data dumps can be discovered via <a href="http://worldbank.270a.info/.well-known/void">World Bank's VoID</a>.</p>
+                    <h4 id="data-dumps_eurostat">Eurostat</h4>
+                    <p>TODO</p>
+                    <h4 id="data-dumps_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
+
+                    <h3 id="dataset-advertisement">Advertising the dataset</h3>
+                    <p>TODO</p>
+                    <h4 id="dataset-advertisement_world-bank">World Bank</h4>
+                    <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/world-bank-linked-data">world-bank-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=world-bank-linked-data">has level 3</a> in the CKAN Validator. It is a candidate for the lodcloud group.</p>
+                    <h4 id="dataset-advertisement_eurostat">Eurostat</h4>
+                    <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/eurostat-linked-data">eurostat-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=eurostat-linked-data">has level 1</a> in the CKAN Validator. It is a candidate for the lodcloud group. And is also available in the LATC project's <a href="http://latc-project.eu/datasets/">EU data cloud</a>.</p>
+                    <h4 id="dataset-advertisement_irish-census">Irish Census</h4>
+                    <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/data-gov-ie">data-gov-ie</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=data-gov-ie">has level 4</a> in the CKAN Validator. It is in the lodcloud group.</p>
+
+
+
+                    <h3 id="code">About the code</h3>
+                    <h4 id="code_world-bank">World Bank</h4>
+                    <p>The code which retrieves the World Bank data, transforms it to RDF, and imports to TDB Triple Store can be found at <a href="http://github.com/csarven/worldbank-linkeddata">GitHub</a>. It is using the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.</p>
+                    <h4 id="code_eurostat">Eurostat</h4>
+                    <p>TODO</p>
+                    <h4 id="code_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
+
+
 
 <!--
                     <h2 id="application">Application</h2>
