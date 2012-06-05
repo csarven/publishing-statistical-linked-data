@@ -361,7 +361,7 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
 
                     <table id="linked-dataset_irish-census_table">
-                        <caption>Dataset breakdown of Irish Census Linked Data</caption>
+                        <caption>Irish Census Linked Data</caption>
                         <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                         <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
@@ -383,21 +383,22 @@ Highlight some of the interesting questions that came up along the way
                     <h3 id="publication">Publication</h3>
                     <p>TODO</p>
                     <h4 id="publication_world-bank">World Bank</h4>
-                    <p>Alternate formats as listed (at the bottom of the HTML page) for a given resource is currently the generated version (from a SPARQL query). It may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps, therefore, you should keep the difference in mind.</p>
+                    <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
+
                     <h4 id="publication_eurostat">Eurostat</h4>
                     <p>TODO</p>
                     <h4 id="publication_irish-census">Irish Census</h4>
-                    <p>TODO</p>
+                    <p>The publication of approach of the 2006 Irish Census Linked Data is same as World Bank's using Linked Data Pages. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to create various visualizations in place of the statistical tabular data.</p>
 
 
                     <h3 id="sparql-endpoint">SPARQL Endpoint</h3>
                     <p>TODO</p>
                     <h4 id="sparql-endpoint_world-bank">World Bank</h4>
-                    <p>A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available for WBLD which accepts SPARQL 1.1 queries.</p>
+                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
                     <h4 id="sparql-endpoint_eurostat">Eurostat</h4>
-                    <p>TODO</p>
+                    <p>Same setup as World Bank with its own <a href="http://eurostat.linked-statistics.org/sparql">SPARQL endpoint</a>. This endpoint includes only the schema and excludes the data (~533GB RDF/XML) due to the limitation of the available resources and performance reasons.</p>
                     <h4 id="sparql-endpoint_irish-census">Irish Census</h4>
-                    <p>TODO</p>
+                    <p>Same setup as World Bank with its own <a href="http://data-gov.ie/sparql">SPARQL endpoint</a>. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
 
 
 
@@ -425,11 +426,11 @@ Highlight some of the interesting questions that came up along the way
 
                     <h3 id="code">About the code</h3>
                     <h4 id="code_world-bank">World Bank</h4>
-                    <p>The code which retrieves the World Bank data, transforms it to RDF, and imports to TDB Triple Store can be found at <a href="http://github.com/csarven/worldbank-linkeddata">GitHub</a>. It is using the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.</p>
+                    <p>The code which retrieves the World Bank data, transforms it to RDF serializations, and imports to TDB Triple Store can be found at <a href="http://github.com/csarven/worldbank-linkeddata">GitHub</a>. It is using the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.</p>
                     <h4 id="code_eurostat">Eurostat</h4>
                     <p>TODO</p>
                     <h4 id="code_irish-census">Irish Census</h4>
-                    <p>TODO</p>
+                    <p>The code which transforms the source data to RDF serializations can be found at <a href="http://github.com/data-gov-ie/cso2rdf">GitHub</a>.</p>
 
 
 
