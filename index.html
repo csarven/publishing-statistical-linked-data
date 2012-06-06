@@ -304,14 +304,14 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
 
                     <h5 id="data-provenance_world-bank">World Bank</h5>
-                    <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide extra metadata about the data. For the datasets and observations in these datasets, they address the following information:</p>
+                    <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide meta-data for resources like code lists and datasets. They particularly address the following information:</p>
                     <ul>
-                        <li>Defining source</li>
-                        <li>Data license</li>
-                        <li>Data collection date</li>
-                        <li>Data update date</li>
-                        <li>Location of the source data</li>
-                        <li>Creator of the data</li>
+                        <li><em>Defining source</em> using <code>rdfs:isDefinedBy</code></li>
+                        <li><em>License</em> using <code>dcterms:license</code></li>
+                        <li><em>Creation date</em> using <code>dcterms:created</code></li>
+                        <li><em>Issued date</em> using <code>dcterms:issued</code></li>
+                        <li><em>Source location</em> using <code>dcterms:source</code></li>
+                        <li><em>Creator of the data</em> using <code>dcterms:creator</code></li>
                     </ul>
 
 
@@ -319,7 +319,13 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
 
                     <h5 id="data-structure-definition_world-bank">World Bank</h5>
-                    <p></p>
+                    <p>TODO</p>
+
+                    <h5 id="data-structure-definition_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+                    <h5 id="data-structure-definition_irish-census">Irish Census</h5>
+                    <p>TODO</p>
 
 
                     <h3 id="data-conversion">Data conversion</h3>
@@ -344,7 +350,7 @@ Highlight some of the interesting questions that came up along the way
                     <table id="linked-dataset_world-bank_table">
                         <caption>World Bank Linked Data</caption>
                         <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
-                        <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
+                        <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>World Bank Climate Change</th><td>RDF/XML</td><td>78 million</td><td>10G</td></tr>
                             <tr><th>World Bank Finances</th><td>RDF/XML</td><td>7 million</td><td>827M</td></tr>
@@ -363,7 +369,7 @@ Highlight some of the interesting questions that came up along the way
                     <table id="linked-dataset_irish-census_table">
                         <caption>Irish Census Linked Data</caption>
                         <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
-                        <tfoot><tr><td colspan="3">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
+                        <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>2006 Irish Census</th><td>Turtle</td><td>12 million</td><td>776M</td></tr>
                         </tbody>
