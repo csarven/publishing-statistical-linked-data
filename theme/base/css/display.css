@@ -22,11 +22,14 @@ background-color:#FFFFFF;
 color:#000000;
 font-family:serif;
 font-size:10pt;
-line-height:1.4;
+line-height:1.3;
 position:relative;
 margin:0 auto;
+width:800px;
+/*
 width:122mm;
 height:193mm;
+*/
 }
 
 
@@ -44,14 +47,9 @@ h4 { font-size:10pt; }
 h5 { font-size:10pt; }
 h6 { font-size:10pt; }
 
-
-#abstract h2:before,
-#document-identifier h2:before,
-#categories-and-subject-descriptors h2:before,
-#keywords h2:before,
-#acknowledgements h2:before,
-#references h2:before {
-content: "";
+p {
+text-indent:1em;
+font-size:10pt;
 }
 
 h2 {
@@ -118,6 +116,11 @@ white-space: pre;
 }
 
 
+code {
+font-size:9pt;
+font-family:monospace;
+}
+
 .entry-author p {
 text-indent:0;
 }
@@ -128,15 +131,17 @@ text-indent:0;
 font-size:9pt;
 }
 
-
-code {
-font-size:9pt;
-font-family:monospace;
+#abstract h2:before,
+#document-identifier h2:before,
+#categories-and-subject-descriptors h2:before,
+#keywords h2:before,
+#acknowledgements h2:before,
+#references h2:before {
+content: "";
 }
 
-p {
-text-indent:1em;
-}
+
+
 
 ol, ul, dd, table, figure {
 margin-bottom:1em;
@@ -183,7 +188,10 @@ overflow:hidden;
 }
 
 
-#abstract {
+#abstract,
+#document-identifier,
+#categories-and-subject-descriptors,
+#keywords {
 margin-left:1cm;
 margin-right:1cm;
 }
