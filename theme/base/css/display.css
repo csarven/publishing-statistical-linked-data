@@ -14,22 +14,22 @@ ol { list-style-position:inside; }
 h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table {
 orphans: 2;
 widows: 1;
-word-wrap: break-word;
 }
-html { font-size: 10pt; }
+td, th, caption, code {
+word-wrap:break-word;
+word-break:break-all;
+}
+/*html { font-size: 13px; }*/
 body {
 background-color:#FFFFFF;
 color:#000000;
 font-family:serif;
-font-size:10pt;
+font-size:13px;
 line-height:1.3;
 position:relative;
 margin:0 auto;
-width:800px;
-/*
 width:122mm;
 height:193mm;
-*/
 }
 
 
@@ -38,18 +38,19 @@ margin-bottom:0.5em;
 overflow:hidden;
 }
 h1 {
-font-size:14pt;
+font-size:19px;
 margin-bottom:1em;
+text-align:center;
 }
-h2 { font-size:12pt; }
-h3 { font-size:10pt; }
-h4 { font-size:10pt; }
-h5 { font-size:10pt; }
-h6 { font-size:10pt; }
+h2 { font-size:16px; }
+h3 { font-size:13px; }
+h4 { font-size:13px; }
+h5 { font-size:13px; }
+h6 { font-size:13px; }
 
 p {
 text-indent:1em;
-font-size:10pt;
+font-size:13px;
 }
 
 h2 {
@@ -117,7 +118,7 @@ white-space: pre;
 
 
 code {
-font-size:9pt;
+font-size:12px;
 font-family:monospace;
 }
 
@@ -128,7 +129,7 @@ text-indent:0;
 .author_org,
 .author_email,
 #abstract p {
-font-size:9pt;
+font-size:12px;
 }
 
 #abstract h2:before,
@@ -141,6 +142,15 @@ content: "";
 }
 
 
+table {
+table-layout:fixed;
+width:100%;
+}
+
+th:last-child,
+td:last-child {
+padding-right:0;
+}
 
 
 ol, ul, dd, table, figure {
@@ -187,6 +197,15 @@ border-bottom:0;
 overflow:hidden;
 }
 
+.entry-subtitle,
+#authors {
+text-align:center;
+}
+
+
+.entry-subtitle {
+margin-bottom:2em;
+}
 
 #abstract,
 #document-identifier,
@@ -194,6 +213,40 @@ overflow:hidden;
 #keywords {
 margin-left:1cm;
 margin-right:1cm;
+}
+
+#authors dt {
+display:none;
+}
+
+#authors p {
+text-align:center;
+}
+
+#authors li,
+#categories-and-subject-descriptors li,
+#keywords li {
+list-style-type:none;
+}
+#categories-and-subject-descriptors li,
+#keywords li {
+display:inline;
+}
+#categories-and-subject-descriptors li:after {
+content:"; ";
+}
+#keywords li:after {
+content:", ";
+}
+#categories-and-subject-descriptors li:last-child:after,
+#keywords li:last-child:after {
+content:"";
+}
+
+#categories-and-subject-descriptors h2,
+#keywords h2,
+#document-identifier h2 {
+text-transform:capitalize;
 }
 
 
