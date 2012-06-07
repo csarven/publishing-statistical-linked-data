@@ -23,9 +23,9 @@ word-break:break-all;
 body {
 background-color:#FFFFFF;
 color:#000000;
-font-family:serif;
+font-family:"Latin Modern Roman", "Computer Modern", cmr10, "Times New Roman", serif;
 font-size:13px;
-line-height:1.3;
+line-height:1.2;
 position:relative;
 margin:0 auto;
 width:122mm;
@@ -52,13 +52,13 @@ h5 { font-size:13px; }
 h6 { font-size:13px; }
 
 h2 {
-margin-top:2em;
+margin-top:1.25em;
 margin-bottom:0.5em;
 counter-increment: section;
 counter-reset: sub-section;
 }
 h2:before {
-content: counter(section) "\00a0\00a0\00a0";
+content: counter(section) "\00a0\00a0\00a0\00a0";
 }
 
 h3 {
@@ -68,7 +68,7 @@ counter-increment: sub-section;
 counter-reset: sub-sub-section;
 }
 h3:before {
-content: counter(section) "." counter(sub-section) "\00a0\00a0\00a0";
+content: counter(section) "." counter(sub-section) "\00a0\00a0\00a0\00a0";
 }
 
 h1 + p,
