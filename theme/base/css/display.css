@@ -15,7 +15,7 @@ h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table {
 orphans: 2;
 widows: 1;
 }
-td, th, caption, code {
+caption, code {
 word-wrap:break-word;
 word-break:break-all;
 }
@@ -150,10 +150,18 @@ font-size:12px;
 content: "";
 }
 
+#abstract h2:after {
+content: ".";
+}
+
+#abstract h2,
+#abstract h2 + p {
+display:inline;
+}
+
 
 table {
-table-layout:fixed;
-width:100%;
+
 }
 
 th:last-child,
@@ -223,6 +231,13 @@ margin-bottom:2em;
 #keywords {
 margin-left:1cm;
 margin-right:1cm;
+}
+
+#abstract h2,
+#document-identifier  h2,
+#categories-and-subject-descriptors  h2,
+#keywords h2 {
+font-size:13px;
 }
 
 #authors dt {

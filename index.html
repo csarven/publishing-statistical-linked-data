@@ -23,7 +23,7 @@
     xmlns:this="http://csarven.ca/publishing-statistical-linked-data"
     xml:lang="en">
     <head>
-        <meta charset="UTF-8"/>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
         <title>Publishing statistical Linked Data</title>
         <meta name="description" content=""/>
         <link rel="stylesheet" type="text/css" media="all" href="theme/base/css/display.css"/>
@@ -58,24 +58,15 @@
                         <p><code>http://csarven.ca/publishing-statistical-linked-data</code></p>
                     </div>
 
-
-                    <div id="categories-and-subject-descriptors">
-                        <h2>Categories and Subject Descriptors</h2>
-                        <ul about="[this:]">
-                            <li><a rel="dcterms:subject" href="http://www.acm.org/about/class/ccs98-html#H.4">H.4</a> [<strong>Information Systems Applications</strong>]: Linked Data</li>
-                            <li><a rel="dcterms:subject" href="http://www.acm.org/about/class/ccs98-html#D.2">D.2</a> [<strong>Software Engineering</strong>]: Semantic Web</li>
-                        </ul>
-                    </div>
-
                     <div id="keywords">
                         <h2>Keywords</h2>
                         <ul about="[this:]" rel="dcterms:subject">
-                            <li><a href="http://dbpedia.org/resource/Data_modeling">Data modeling</a></li>
-                            <li><a href="http://dbpedia.org/resource/Knowledge_management">Knowledge management</a></li>
-                            <li><a href="http://dbpedia.org/resource/Linked_Data">Linked Data</a></li>
-                            <li><a href="http://dbpedia.org/resource/World_Bank">World Bank</a></li>
-                            <li><a href="http://dbpedia.org/resource/Eurostat">Eurostat</a></li>
-                            <li><a href="http://dbpedia.org/resource/Census">Census</a></li>
+                            <li><a resource="http://dbpedia.org/resource/Data_modeling" href="http://en.wikipedia.org/wiki/Data_modeling">Data modeling</a></li>
+                            <li><a resource="http://dbpedia.org/resource/Knowledge_management" href="http://en.wikipedia.org/wiki/Knowledge_management">Knowledge management</a></li>
+                            <li><a resource="http://dbpedia.org/resource/Linked_Data" href="http://en.wikipedia.org/wiki/Linked_Data">Linked Data</a></li>
+                            <li><a resource="http://dbpedia.org/resource/World_Bank" href="http://en.wikipedia.org/wiki/World_Bank">World Bank</a></li>
+                            <li><a resource="http://dbpedia.org/resource/Eurostat" href="http://en.wikipedia.org/wiki/Eurostat">Eurostat</a></li>
+                            <li><a resource="http://dbpedia.org/resource/Census" href="http://en.wikipedia.org/wiki/Census">Census</a></li>
                         </ul>
                     </div>
 
@@ -132,11 +123,11 @@
                     <table id="data-retrieval_world-bank_table">
                         <caption><strong>Table 1.</strong> World Bank data retrieval</caption>
                         <thead><tr><th>Datasets</th><th>URLs</th><th>Format</th><th>Number of requests</th><th>Data size</th></tr></thead>
-                        <tfoot><tr><td colspan="5">The metadata for these datasets are retrieved from the financial <a href="https://finances.worldbank.org/api/views/wc6g-9zmq/rows.xml">dictionary</a> and <a href="https://finances.worldbank.org/api/views.xml">datasets</a>, and several calls to development indicators with <code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml</code>. Some of the other information is manually put together or retrieved from external sources e.g., <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currencies</a>.</td></tr>
+                        <tfoot><tr><td colspan="5">The metadata for these datasets are retrieved from the financial <a href="https://finances.worldbank.org/api/views/wc6g-9zmq/rows.xml">dictionary</a> and <a href="https://finances.worldbank.org/api/views.xml">datasets</a>, and several calls to development indicators with <code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml</code>. Some of the other information is manually put together or retrieved from external sources e.g., <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currencies</a>.</td></tr></tfoot>
                         <tbody>
                             <tr>
                                 <th><a href="http://data.worldbank.org/developers/climate-data-api">Climate Change</a></th>
-                                <td><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (basic requests)</code></td>
+                                <td><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (basic requests)</td>
                                 <td>XML</td>
                                 <td>140666</td>
                                 <td>983M</td>
@@ -162,7 +153,6 @@
                                 <td>1</td>
                                 <td>171M</td>
                             </tr>
-                            </tfoot>
                         </tbody>
                     </table>
 
@@ -269,7 +259,7 @@
 
                     <p id="uri-patterns_world-bank_datasets"><em>Data Cube datasets</em> use the URI patterns: <code>http://worldbank.270a.info/dataset/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-development-indicators">world-development-indicators</a>, <a href="http://worldbank.270a.info/dataset/world-bank-finances">world-bank-finances</a>, <a href="http://worldbank.270a.info/dataset/world-bank-climates">world-bank-climates</a>.</p>
 
-                    <p id="uri-patterns_world-bank_named-graphs"><em>Named graphs in RDF store</em> are placed in <code>http://worldbank.270a.info/graph/{id}</code>, where id is one of; <code>meta</code>, world-development-indicators</code>, <code>world-bank-finances</code>, <code>world-bank-climates</code>, <code>world-bank-projects-and-operations</code>.</dd>
+                    <p id="uri-patterns_world-bank_named-graphs"><em>Named graphs in RDF store</em> are placed in <code>http://worldbank.270a.info/graph/{id}</code>, where id is one of; <code>meta</code>, <code>world-development-indicators</code>, <code>world-bank-finances</code>, <code>world-bank-climates</code>, <code>world-bank-projects-and-operations</code>.</p>
 
                     <p id="uri-patterns_world-bank_world-development-indicators"><em>World Development Indicators</em> observations are within <code>http://worldbank.270a.info/dataset/world-development-indicators/{id}/{country}/{year}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/indicator">indicator code</a>, country in one of <a href="http://worldbank.270a.info/classification/country">country code</a>, and year in YYYY.</p>
 
@@ -335,15 +325,17 @@ Highlight some of the interesting questions that came up along the way
 
 
                     <h4 id="data-enrichment">Data enrichment</h4>
+                    <p>TODO</p>
+
                     <h5 id="data-enrichment_world-bank">World Bank</h5>
                     <p>A code list for currencies was created based on <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currency and funds code list</a> to represent the SDMX attributes for the amount measurements in the World Bank Finances datasets. They were also linked to each country which officially uses that currency.</p>
 
                     <p>Given that some of the codes in the World Bank country code list are not considered to be countries e.g., <code>1W</code> representing <em>World</em>, only the resources that represent a real country have an added <code>rdf:type</code> instance of <code>dbo:Country</code>.</p>
 
-                    <h5 id="data-interlinking_eurostat">Eurostat</h5>
+                    <h5 id="data-enrichment_eurostat">Eurostat</h5>
                     <p>TODO</p>
 
-                    <h5 id="data-interlinking_irish-census">Irish Census</h5>
+                    <h5 id="data-enrichment_irish-census">Irish Census</h5>
                     <p>TODO</p>
 
 
@@ -365,10 +357,10 @@ Highlight some of the interesting questions that came up along the way
                         <li><em>Modified date</em> using <code>dcterms:modified</code></li>
                     </ul>
 
-                    <h5 id="data-provenance_world-bank">World Bank</h5>
+                    <h5 id="data-provenance_eurostat">Eurostat</h5>
                     <p>TODO</p>
 
-                    <h5 id="data-provenance_eurostat">Eurostat</h5>
+                    <h5 id="data-provenance_irish-census">Irish Census</h5>
                     <p>TODO</p>
 
 
@@ -390,7 +382,7 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
 
                     <h4 id="data-conversion_world-bank">World Bank</h4>
-                    <p>XSLT 2.0 transformations are applied on the source XML files to arrive at the target RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets. The conversion step from the command-line was preferred over Java's SAXTransformerFactory as it was significantly faster in preliminary tests.</p>
+                    <p>XSLT 2.0 transformations are applied on the source XML files to arrive at the target RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets. The conversion step from the command-line was preferred over Java's <code>SAXTransformerFactory</code> as it was significantly faster in preliminary tests.</p>
 
                     <p>In order to import this data into the RDF store rather efficiently, <a href="http://librdf.org/raptor/rapper.html">rapper</a> RDF parser utility program was used to first re-serialize each RDF/XML file as N-Triples and appended to a single file at run-time before importing.</p>
 
@@ -482,7 +474,7 @@ Highlight some of the interesting questions that came up along the way
                     <h4 id="dataset-advertisement_world-bank">World Bank</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/world-bank-linked-data">world-bank-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=world-bank-linked-data">has level 3</a> in the CKAN Validator. It is a candidate for the lodcloud group.</p>
                     <h4 id="dataset-advertisement_eurostat">Eurostat</h4>
-                    <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/eurostat-linked-data">eurostat-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=eurostat-linked-data">has level 1</a> in the CKAN Validator. It is a candidate for the lodcloud group. And is also available in the LATC project's <a href="http://latc-project.eu/datasets/">EU data cloud</a>.</p>
+                    <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/eurostat-linked-data">eurostat-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=eurostat-linked-data">has level 1</a> in the CKAN Validator. It is a candidate for the lodcloud group. And it is also available in the LATC project's <a href="http://latc-project.eu/datasets/">EU data cloud</a>.</p>
                     <h4 id="dataset-advertisement_irish-census">Irish Census</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/data-gov-ie">data-gov-ie</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=data-gov-ie">has level 4</a> in the CKAN Validator. It is in the lodcloud group.</p>
 
@@ -490,11 +482,11 @@ Highlight some of the interesting questions that came up along the way
 
                     <h3 id="code">About the code</h3>
                     <h4 id="code_world-bank">World Bank</h4>
-                    <p>The code which retrieves the World Bank data, transforms it to RDF serializations, and imports to TDB Triple Store can be found at <a href="http://github.com/csarven/worldbank-linkeddata">GitHub</a>. It is using the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.</p>
+                    <p>The code which retrieves the World Bank data, transforms it to RDF serializations, and imports to TDB Triple Store can be found at GitHub: <a href="http://github.com/csarven/worldbank-linkeddata">csarven/worldbank-linkeddata</a>. It is using the <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a>.</p>
                     <h4 id="code_eurostat">Eurostat</h4>
-                    <p>The code which transforms the source data to RDF serializations can be found at <a href="https://github.com/LATC/EU-data-cloud">GitHub</a></p>
+                    <p>The code which transforms the source data to RDF serializations can be found at GitHub: <a href="https://github.com/LATC/EU-data-cloud">LATC/EU-data-cloud</a>.</p>
                     <h4 id="code_irish-census">Irish Census</h4>
-                    <p>The code which transforms the source data to RDF serializations can be found at <a href="http://github.com/data-gov-ie/cso2rdf">GitHub</a>.</p>
+                    <p>The code which transforms the source data to RDF serializations can be found at GitHub: <a href="http://github.com/data-gov-ie/cso2rdf">cso2rdf</a>.</p>
 
 
 
@@ -530,34 +522,33 @@ XXX: If it makes sense, we might *briefly* talk about applications or "interesti
 
 
 
-                <h2 id="related-work">Related work</h2>
-                <p>TODO</p>
-
-                <h2 id="conclusions">Conclusions</h2>
-                <p>TODO</p>
-
-
-                <div id="acknowledgements">
-                    <h2>Acknowledgements</h2>
+                    <h2 id="related-work">Related work</h2>
                     <p>TODO</p>
-                </div>
 
-
-
-                <div id="references">
-                    <h2>References</h2>
+                    <h2 id="conclusions">Conclusions</h2>
                     <p>TODO</p>
-                    <ol about="[this:]">
-                        <li id="r_1">Franklin, M., Halevy, A., Maier, D.: <em>From databases to dataspaces: a new abstraction for information management</em>, SIGMOD Record 34(4), 27–33 (2005), <a rel="dcterms:references" href="http://dl.acm.org/citation.cfm?id=1107502">http://dl.acm.org/citation.cfm?id=1107502</a></li>
-<!--
-                        <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms</a></li>
-                        <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0</a></li>
-                        <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/SDcl8KkhTXs/VsDdRUezGqEJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/SDcl8KkhTXs/VsDdRUezGqEJ</a></li>
-                        <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/JpAhRiOusNk">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/JpAhRiOusNk</a></li>
-                        <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/vUWVhxxtLSQJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/vUWVhxxtLSQJ</a></li>
-                        <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/VhMMkUIxXsMJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/VhMMkUIxXsMJ</a></li>
--->
-                    </ol>
+
+
+                    <div id="acknowledgements">
+                        <h2>Acknowledgements</h2>
+                        <p>TODO</p>
+                    </div>
+
+                    <div id="references">
+                        <h2>References</h2>
+                        <p>TODO</p>
+                        <ol about="[this:]">
+                            <li id="r_1">Franklin, M., Halevy, A., Maier, D.: <em>From databases to dataspaces: a new abstraction for information management</em>, SIGMOD Record 34(4), 27–33 (2005), <a rel="dcterms:references" href="http://dl.acm.org/citation.cfm?id=1107502">http://dl.acm.org/citation.cfm?id=1107502</a></li>
+    <!--
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms</a></li>
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0</a></li>
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/SDcl8KkhTXs/VsDdRUezGqEJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/SDcl8KkhTXs/VsDdRUezGqEJ</a></li>
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/JpAhRiOusNk">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/JpAhRiOusNk</a></li>
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/vUWVhxxtLSQJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/vUWVhxxtLSQJ</a></li>
+                            <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/VhMMkUIxXsMJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/ZXAahsuREgM/VhMMkUIxXsMJ</a></li>
+    -->
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
