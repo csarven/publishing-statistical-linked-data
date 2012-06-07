@@ -103,10 +103,10 @@
                     <p>The World Bank Group provides a free and open access to numerous datasets in their <a href="http://data.worldbank.org/data-catalog">data catalog</a>. In our use case, we'll take a look at the datasets which compromise the bulk of this available data: <a href="http://data.worldbank.org/data-catalog/world-development-indicators">World Development Indicators</a> (<dfn><abbr title="World Development Indicators">WDI</abbr></dfn>), <a href="https://finances.worldbank.org/">World Bank Finances</a> (<dfn><abbr title="World Bank Finances">WBF</abbr></dfn>), <a href="http://data.worldbank.org/data-catalog/projects-portfolio">World Bank Projects and Operations</a> (<dfn><abbr title="World Bank Projects and Operations">WBPO</abbr></dfn>), and <a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a> (<dfn><abbr title="World Bank Climate Change">WBCC</abbr></dfn>). These datasets are available in XML and JSON formats via The World Bank APIs. Here is a brief summary of the datasets:</p>
 
                     <ul>
-                        <li><em>World Development Indicators</em> are available as a single observation model where it contains indicators, reference areas, and time series as dimension values, and the corresponding measurement value.</li>
-                        <li><em>World Bank Finances</em> comes in several sub-datasets with different structures i.e., the observations in the datasets contain different set of dimensions, along with a number of measurements and attributes.</li>
-                        <li><em>World Bank Projects and Operations</em> are offered as information on project documents as opposed to statistical observations.</li>
-                        <li><em>World Bank Climate Change</em> contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalies), measured variables and derived statistics, global circulation models.</li>
+                        <li><em>World Development Indicators</em> contains various global development data on world view, people, the environment, the economy, states and markets, and global links. It includes national, regional and global estimates.</li>
+                        <li><em>World Bank Finances</em> covers Bank's investments, assets it manages on behalf of global funds, and the Bank's own financial statements.</li>
+                        <li><em>World Bank Projects and Operations</em> provides information about the lending projects from 1947 to present along with links to publicly disclosed online documents.</li>
+                        <li><em>World Bank Climate Change</em> contains data from historical observations and future projections derived from global circulation models.</li>
                     </ul>
 
                     <h4 id="data-source_eurostat">Eurostat</h4>
@@ -251,7 +251,7 @@
 
                     <p><em>Slash URIs</em> are used throughout the schema and data resources. The reason for this is to keep the URI patterns consistent and to make sure that all important resources when dereferenced returned information that's particular to the resource. Since the content size of the responses for statistical data may be heavy, the <em>slash URIs</em> approach appeared to be preferable to <em>hash URIs</em>, as the latter would not allow distinct requests in majority of the deployments on the Web. This is of course independent to accessing these resources via SPARQL endpoints.</p>
 
-                    <p>The general URI space is as follows:</p>
+                    <p>The general URI space consists of:</p>
 
                     <p id="uri-patterns_world-bank_classification"><em>Classifications</em> are composed of code lists for various concepts that are used in the World Bank datasets. The concepts are compiled by using the accompanied metadata from the World Bank, and are type of a <code>skos:Concept</code>. Each code list is of type <code>skos:CodeList</code> and has a URI pattern of <code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/country"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>. Each concept is defined under the code list namespace hierarchy e.g., <code>http://worldbank.270a.info/classification/country/CA</code> is the concept for country <em>Canada</em>.</p>
 
@@ -370,6 +370,14 @@ Highlight some of the interesting questions that came up along the way
 
                     <h5 id="data-structure-definition_world-bank">World Bank</h5>
                     <p>TODO</p>
+                    <ul>
+                        <li><em>World Development Indicators</em> are available as a single observation model where it contains indicators, reference areas, and time series as dimension values, and the corresponding measurement value.</li>
+                        <li><em>World Bank Finances</em> comes in several sub-datasets with different structures i.e., the observations in the datasets contain different set of dimensions, along with a number of measurements and attributes.</li>
+                        <li><em>World Bank Climate Change</em> contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalies), measured variables and derived statistics, global circulation models.</li>
+                    </ul>
+
+                    <p><em>World Bank Projects and Operations</em> are treated as a classification for <a href="http://worldbank.270a.info/classification/project">projects</a> as opposed to Data Cube observations.</p>
+
 
                     <h5 id="data-structure-definition_eurostat">Eurostat</h5>
                     <p>TODO</p>
@@ -399,7 +407,7 @@ Highlight some of the interesting questions that came up along the way
 
                     <table id="linked-dataset_world-bank_table">
                         <caption>World Bank Linked Data</caption>
-                        <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
+                        <thead><tr>Dataset<th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                         <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>Climate Change</th><td>RDF/XML</td><td>78 million</td><td>10G</td></tr>
@@ -418,7 +426,7 @@ Highlight some of the interesting questions that came up along the way
 
                     <table id="linked-dataset_irish-census_table">
                         <caption>Irish Census Linked Data</caption>
-                        <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
+                        <thead><tr><th>Dataset</th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                         <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>2006 Irish Census</th><td>Turtle</td><td>12 million</td><td>776M</td></tr>
@@ -523,7 +531,8 @@ XXX: If it makes sense, we might *briefly* talk about applications or "interesti
 
 
                     <h2 id="related-work">Related work</h2>
-                    <p>TODO</p>
+                    <p>TODO. Not sure whether to keep this as a high level wrap-up of publishing statistical linked data, or to go through related work for each use-case, or both.</p>
+
 
                     <h2 id="conclusions">Conclusions</h2>
                     <p>TODO</p>
