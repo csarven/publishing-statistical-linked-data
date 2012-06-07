@@ -135,32 +135,32 @@
                         <tfoot><tr><td colspan="5">The metadata for these datasets are retrieved from the financial <a href="https://finances.worldbank.org/api/views/wc6g-9zmq/rows.xml">dictionary</a> and <a href="https://finances.worldbank.org/api/views.xml">datasets</a>, and several calls to development indicators with <code>http://api.worldbank.org/{lang}/{sources, topics, regions, incomeLevels, lendingTypes, countries, or indicators}?format=xml</code>. Some of the other information is manually put together or retrieved from external sources e.g., <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currencies</a>.</td></tr>
                         <tbody>
                             <tr>
-                                <th><a href="http://data.worldbank.org/developers/climate-data-api">World Bank Climate Change</a></th>
+                                <th><a href="http://data.worldbank.org/developers/climate-data-api">Climate Change</a></th>
                                 <td><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (basic requests)</code></td>
                                 <td>XML</td>
                                 <td>140666</td>
                                 <td>983M</td>
                             </tr>
                             <tr>
-                                <th><a href="https://finances.worldbank.org/">World Bank Finances</a></th>
+                                <th><a href="http://data.worldbank.org/developers">Development Indicators</a></th>
+                                <td><code>http://api.worldbank.org/{lang}/countries/all/indicators/{id}?format=xml</code></td>
+                                <td>XML</td>
+                                <td>7090</td>
+                                <td>18G</td>
+                            </tr>
+                            <tr>
+                                <th><a href="https://finances.worldbank.org/">Finances</a></th>
                                 <td><code>https://finances.worldbank.org/api/views/{id}/rows.xml</code></td>
                                 <td>XML</td>
                                 <td>32</td>
                                 <td>365M</td>
                             </tr>
                             <tr>
-                                <th><a href="http://www.worldbank.org/projects">World Bank Projects and Operations</a></th>
+                                <th><a href="http://www.worldbank.org/projects">Projects and Operations</a></th>
                                 <td><code>http://search.worldbank.org/api/projects/all.xml</code></td>
                                 <td>XML</td>
                                 <td>1</td>
                                 <td>171M</td>
-                            </tr>
-                            <tr>
-                                <th><a href="http://data.worldbank.org/developers">World Development Indicators</a></th>
-                                <td><code>http://api.worldbank.org/{lang}/countries/all/indicators/{id}?format=xml</code></td>
-                                <td>XML</td>
-                                <td>7090</td>
-                                <td>18G</td>
                             </tr>
                             </tfoot>
                         </tbody>
@@ -218,6 +218,13 @@
 
                     <p id="data-review_world-bank_missing-countries"><em>Missing countries</em>: Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
 
+                    <h4 id="data-review_eurostat">Eurostat</h4>
+                    <p>TODO</p>
+
+                    <h4 id="data-review_irish-census">Irish Census</h4>
+                    <p>TODO</p>
+
+
 
                     <h3 id="data-modeling">Data modeling</h3>
                     <p>TODO</p>
@@ -232,6 +239,14 @@
                     <p>Properties that happen to be semantically the same, yet syntactically different in source data were collapsed into a single namespace in order to have a canonical name across the datasets. Consequently this keeps the vocabulary slim, and potentially easier for reuse.</p>
 
                     <p>In the case of country codes, <a href="http://www.iso.org/iso/country_codes/background_on_iso_3166/iso_3166-2.htm">ISO 3166-2</a> is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country Canada in the datasets. It contains a <code>skos:exactMatch</code> relation to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa.</p>
+
+
+                    <h5 id="vocabularies_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+                    <h5 id="vocabularies_irish-census">Irish Census</h5>
+                    <p>TODO</p>
+
 
 
                     <h4 id="uri-patterns">URI patterns</h4>
@@ -263,6 +278,12 @@
                     <p id="uri-patterns_world-bank_world-bank-climates"><em>World Bank Climate Change</em> observations are within <code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a>.</p>
 
 
+                    <h5 id="uri-patterns_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+                    <h5 id="uri-patterns_irish-census">Irish Census</h5>
+                    <p>TODO</p>
+
 
                     <h4 id="blank-nodes">Blank nodes</h4>
                     <p>TODO</p>
@@ -282,7 +303,7 @@
                     <p>TODO</p>
 
                     <h5 id="data-modeling_world-bank_normalization">World Bank</h5>
-                    <p>Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in IS0 8601 format.</p>
+                    <p>Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">ISO 8601</a> format.</p>
 
                     <h5 id="data-modeling_eurostat_normalization">Eurostat</h5>
                     <p>TODO</p>
@@ -344,6 +365,13 @@ Highlight some of the interesting questions that came up along the way
                         <li><em>Modified date</em> using <code>dcterms:modified</code></li>
                     </ul>
 
+                    <h5 id="data-provenance_world-bank">World Bank</h5>
+                    <p>TODO</p>
+
+                    <h5 id="data-provenance_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+
 
                     <h4 id="data-structure-definition">Data structure definitions</h4>
                     <p>TODO</p>
@@ -382,10 +410,10 @@ Highlight some of the interesting questions that came up along the way
                         <thead><tr><th></th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
                         <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
-                            <tr><th>World Bank Climate Change</th><td>RDF/XML</td><td>78 million</td><td>10G</td></tr>
-                            <tr><th>World Bank Finances</th><td>RDF/XML</td><td>7 million</td><td>827M</td></tr>
-                            <tr><th>World Bank Projects and Operations</th><td>RDF/XML</td><td>1 million</td><td>93M</td></tr>
-                            <tr><th>World Development Indicators</th><td>RDF/XML</td><td>79 million</td><td>8.4G</td></tr>
+                            <tr><th>Climate Change</th><td>RDF/XML</td><td>78 million</td><td>10G</td></tr>
+                            <tr><th>Development Indicators</th><td>RDF/XML</td><td>79 million</td><td>8.4G</td></tr>
+                            <tr><th>Finances</th><td>RDF/XML</td><td>7 million</td><td>827M</td></tr>
+                            <tr><th>Projects and Operations</th><td>RDF/XML</td><td>1 million</td><td>93M</td></tr>
                         </tbody>
                     </table>
 
@@ -419,7 +447,7 @@ Highlight some of the interesting questions that came up along the way
                     <h3 id="publication">Publication</h3>
                     <p>TODO</p>
                     <h4 id="publication_world-bank">World Bank</h4>
-                    <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
+                    <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
 
                     <h4 id="publication_eurostat">Eurostat</h4>
                     <p>TODO</p>
