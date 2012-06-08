@@ -11,11 +11,16 @@ a abbr { cursor: pointer; border-bottom:0; }
 table { border-collapse:collapse; }
 tr { vertical-align:top; }
 ol { list-style-position:inside; }
-h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table {
-orphans: 2;
-widows: 1;
+h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table, thead, tbody, tfoot, tr {
+orphans: 0;
+widows: 0;
 }
-caption, code {
+
+#references {
+page-break-before: always;
+}
+
+code {
 word-wrap:break-word;
 word-break:break-all;
 }
