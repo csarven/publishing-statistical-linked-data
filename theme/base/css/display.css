@@ -85,45 +85,43 @@ h4 {
 margin-top:1em;
 display:inline;
 }
-h4:after {
+h4:after,
+h5:after {
 content: ".";
 }
-h4 + p {
+h4 + p,
+h5 + p {
 display:inline;
+text-align:justify;
+/*word-break:break-all;This is a bit hacky.. it appears to work in webkit and maybe it shouldn't */
+/*
+text-justify:distribute;
+word-break:break-all;
+hyphens:auto;
+text-wrap:normal;
+line-break:normal;
+*/
 }
-h4 + p:after {
+
+h4 + p:after,
+h5 + p:after {
 content:"\A";
 white-space:pre;
 }
 
 p + h4:before,
-caption:before {
+caption:before,
+p + h5:before {
 content:"\A";
 white-space:pre;
 }
-
 
 h5 {
 font-weight:normal;
 font-style:italic;
 display:inline;
 }
-h5:after {
-content: ".";
-}
-h5 + p {
-display:inline;
-}
 
-p + h5:before {
-content:"\A";
-white-space: pre;
-}
-
-h5 + p:after {
-content:"\A";
-white-space: pre;
-}
 
 
 code {

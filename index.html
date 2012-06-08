@@ -63,6 +63,7 @@
                         <ul about="[this:]" rel="dcterms:subject">
                             <li><a resource="http://dbpedia.org/resource/Data_modeling" href="http://en.wikipedia.org/wiki/Data_modeling">Data modeling</a></li>
                             <li><a resource="http://dbpedia.org/resource/Knowledge_management" href="http://en.wikipedia.org/wiki/Knowledge_management">Knowledge management</a></li>
+                            <li><a resource="http://dbpedia.org/resource/Statistics" href="http://en.wikipedia.org/wiki/Statistics">Statistics</a></li>
                             <li><a resource="http://dbpedia.org/resource/Linked_Data" href="http://en.wikipedia.org/wiki/Linked_Data">Linked Data</a></li>
                             <li><a resource="http://dbpedia.org/resource/World_Bank" href="http://en.wikipedia.org/wiki/World_Bank">World Bank</a></li>
                             <li><a resource="http://dbpedia.org/resource/Eurostat" href="http://en.wikipedia.org/wiki/Eurostat">Eurostat</a></li>
@@ -130,28 +131,28 @@
                                 <td><code>http://climatedataapi.worldbank.org/climateweb/rest/v1/{country or basin}/{type}/{var}/{start}/{end}/{ISO3 or basinID}.xml</code> (basic requests)</td>
                                 <td>XML</td>
                                 <td>140666</td>
-                                <td>983M</td>
+                                <td>983MB</td>
                             </tr>
                             <tr>
                                 <th><a href="http://data.worldbank.org/developers">Development Indicators</a></th>
                                 <td><code>http://api.worldbank.org/{lang}/countries/all/indicators/{id}?format=xml</code></td>
                                 <td>XML</td>
                                 <td>7090</td>
-                                <td>18G</td>
+                                <td>18GB</td>
                             </tr>
                             <tr>
                                 <th><a href="https://finances.worldbank.org/">Finances</a></th>
                                 <td><code>https://finances.worldbank.org/api/views/{id}/rows.xml</code></td>
                                 <td>XML</td>
                                 <td>32</td>
-                                <td>365M</td>
+                                <td>365MB</td>
                             </tr>
                             <tr>
                                 <th><a href="http://www.worldbank.org/projects">Projects and Operations</a></th>
                                 <td><code>http://search.worldbank.org/api/projects/all.xml</code></td>
                                 <td>XML</td>
                                 <td>1</td>
-                                <td>171M</td>
+                                <td>171MB</td>
                             </tr>
                         </tbody>
                     </table>
@@ -178,7 +179,7 @@
                                 <td><code>http://census.cso.ie/census/ReportFolders/ReportFolders.aspx</code></td>
                                 <td>CSV</td>
                                 <td>14</td>
-                                <td>8M</td>
+                                <td>8MB</td>
                             </tr>
                         </tbody>
                     </table>
@@ -193,7 +194,7 @@
 
                     <p id="data-review_world-bank_missing-units"><em>Missing units</em>: The statistics of the World Development Indicators consists of various indicators in different measurement units. At the time of this writing, these measurements in the source data are only provided as part of the string of the indicator name, as opposed to an explicit XML node [].</p>
 
-                    <p id="data-review_world-bank_missing-values"><em>Missing values</em>: Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values []. Hence, in order to keep the RDF format of the dataset lean, these observations were excluded in the data transformation phase.</p>
+                    <p id="data-review_world-bank_missing-values"><em>Missing values</em>: Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values. Hence, in order to keep the RDF format of the dataset lean, these observations were excluded in the data transformation phase. This resulted in ~80% reduction in number of observations with actual measured data [].</p>
 
                     <p id="data-review_world-bank_aggregated-data"><em>Aggregated data</em>: While the World Bank API provides endpoints which compiled aggregate data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
 
@@ -228,8 +229,11 @@
 
                     <p>Properties that happen to be semantically the same, yet syntactically different in source data were collapsed into a single namespace in order to have a canonical name across the datasets. Consequently this keeps the vocabulary slim, and potentially easier for reuse.</p>
 
-                    <p>In the case of country codes, <a href="http://www.iso.org/iso/country_codes/background_on_iso_3166/iso_3166-2.htm">ISO 3166-2</a> is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country Canada in the datasets. It contains a <code>skos:exactMatch</code> relation to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa.</p>
+                    <p>In the case of country codes, <a href="http://www.iso.org/iso/country_codes/background_on_iso_3166/iso_3166-2.htm">ISO 3166-2</a> is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country <em>Canada</em> in the datasets. It contains a <code>skos:exactMatch</code> relation to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa.</p>
 
+                    <p>The <em>WDI</em> addresses ~7000 development indicators.</p>
+
+                    <p>The metadata file contains ~86000 triples in which ~8000 are <code>skos:Concept</code>s. Although, the <em>WBPO</em> dataset is a considered to be classifications with ~15000 <code>skos:Concept</code>s, it was kept separately from the metadata file for practical reasons.</p>
 
                     <h5 id="vocabularies_eurostat">Eurostat</h5>
                     <p>TODO</p>
@@ -312,7 +316,7 @@ Highlight some of the interesting questions that came up along the way
 -->
 
                     <h5 id="data-interlinking_world-bank">World Bank</h5>
-                    <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>). While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, and curating the final results. With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
+                    <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, and curating the final results. With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
 
                     <p>Additional interlinking was done by adding links to resources with corresponding <code>foaf:page</code>s on the World Bank site, as well as links to referenced documents.</p>
 
@@ -371,7 +375,7 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
                     <ul>
                         <li><em>World Development Indicators</em> are available as a single observation model where it contains indicators, reference areas, and time series as dimension values, and the corresponding measurement value.</li>
-                        <li><em>World Bank Finances</em> comes in several sub-datasets with different structures i.e., the observations in the datasets contain different set of dimensions, along with a number of measurements and attributes.</li>
+                        <li><em>World Bank Finances</em> come in several sub-datasets with different structures i.e., the observations in the datasets contain different set of dimensions, along with a number of measurements and attributes.</li>
                         <li><em>World Bank Climate Change</em> contains sub-datasets for different historical and future observations. They primarily include data on; reference area, time periods, statistical types (averages and anomalies), measured variables and derived statistics, global circulation models.</li>
                     </ul>
 
@@ -389,7 +393,7 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
 
                     <h4 id="data-conversion_world-bank">World Bank</h4>
-                    <p>XSLT 2.0 transformations are applied on the source XML files to arrive at the target RDF/XML serialization. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets. The conversion step from the command-line with <code>saxonb-xslt</code> under the Ubuntu operating system was preferred over Java's <code>SAXTransformerFactory</code> Class as it was significantly faster in preliminary tests.</p>
+                    <p>XSLT 2.0 stylesheets were created to transform the source XML files to target RDF/XML serializations. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets. The conversion step from the command-line with <code>saxonb-xslt</code> under the Ubuntu operating system was preferred over Java's <code>SAXTransformerFactory</code> Class as it was significantly faster in preliminary tests.</p>
 
                     <p>In order to import this data into the RDF store rather efficiently, <a href="http://librdf.org/raptor/rapper.html">rapper</a> RDF parser utility program was used to first re-serialize each RDF/XML file as N-Triples and appended to a single file at run-time before importing.</p>
 
@@ -402,19 +406,20 @@ Highlight some of the interesting questions that came up along the way
 
                     <h3 id="linked-datasets">Linked datasets</h3>
                     <h4 id="linked-datasets_world-bank">World Bank</h4>
-                    <p>A <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file is compiled to create metadata for the World Bank Linked Datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a>. The <a href="http://worldbank.270a.info/data/">data dumps</a> are available either as individual RDF/XML files or in compressed gzip format.</p>
+                    <p>A <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file is compiled to create metadata for the World Bank Linked Datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a> []. The World Bank's RDF <a href="http://worldbank.270a.info/data/">datadumps</a> are available either as individual RDF/XML files or in compressed gzip format.</p>
 
                     <table id="linked-dataset_world-bank_table">
                         <caption>World Bank Linked Data</caption>
-                        <thead><tr><th>Dataset</th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
+                        <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
                         <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
-                            <tr><th>Climate Change</th><td>RDF/XML</td><td>78 million</td><td>10G</td></tr>
-                            <tr><th>Development Indicators</th><td>RDF/XML</td><td>79 million</td><td>8.4G</td></tr>
-                            <tr><th>Finances</th><td>RDF/XML</td><td>7 million</td><td>827M</td></tr>
-                            <tr><th>Projects and Operations</th><td>RDF/XML</td><td>1 million</td><td>93M</td></tr>
+                            <tr><th>Climate Change</th><td>RDF/XML</td><td>10GB</td><td>78M</td><td>7M</td></tr>
+                            <tr><th>Development Indicators</th><td>RDF/XML</td><td>8.4GB</td><td>79M</td><td>11M</td></tr>
+                            <tr><th>Finances</th><td>RDF/XML</td><td>827MB</td><td>7M</td><td>0.25M</td></tr>
+                            <tr><th>Projects and Operations</th><td>RDF/XML</td><td>93MB</td><td>0.96M</td><td>N/A</td></tr>
                         </tbody>
                     </table>
+
 
                     <h4 id="linked-datasets_eurostat">Eurostat</h4>
                     <p>TODO</p>
@@ -425,10 +430,10 @@ Highlight some of the interesting questions that came up along the way
 
                     <table id="linked-dataset_irish-census_table">
                         <caption>Irish Census Linked Data</caption>
-                        <thead><tr><th>Dataset</th><th>Format</th><th>Number of triples</th><th>Size</th></tr></thead>
+                        <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
                         <tfoot><tr><td colspan="4">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
-                            <tr><th>2006 Irish Census</th><td>Turtle</td><td>12 million</td><td>776M</td></tr>
+                            <tr><th>2006 Irish Census</th><td>Turtle</td><td>776MB</td><td>12M</td><td>1.6M</td></tr>
                         </tbody>
                     </table>
 
@@ -457,7 +462,10 @@ Highlight some of the interesting questions that came up along the way
                     <h3 id="sparql-endpoint">SPARQL Endpoint</h3>
                     <p>TODO</p>
                     <h4 id="sparql-endpoint_world-bank">World Bank</h4>
-                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
+                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line.
+
+
+A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
                     <h4 id="sparql-endpoint_eurostat">Eurostat</h4>
                     <p>Same setup as World Bank with its own <a href="http://eurostat.linked-statistics.org/sparql">SPARQL endpoint</a>. This endpoint includes only the schema and excludes the data (~533GB RDF/XML) due to the limitation of the available resources and performance reasons.</p>
                     <h4 id="sparql-endpoint_irish-census">Irish Census</h4>
@@ -547,6 +555,7 @@ XXX: If it makes sense, we might *briefly* talk about applications or "interesti
                         <p>TODO</p>
                         <ol about="[this:]">
                             <li id="r_1">Franklin, M., Halevy, A., Maier, D.: <em>From databases to dataspaces: a new abstraction for information management</em>, SIGMOD Record 34(4), 27–33 (2005), <a rel="dcterms:references" href="http://dl.acm.org/citation.cfm?id=1107502">http://dl.acm.org/citation.cfm?id=1107502</a></li>
+                            <li id="r_2">Ngonga Ngomo, A.-C.: <em>A Time-Efficient Hybrid Approach to Link Discovery</em>, The Sixth International Workshop on Ontology Matching, ISWC (2011), <a rel="dcterms:references" href="http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf">http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf</a>
     <!--
                             <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms</a></li>
                             <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0</a></li>
