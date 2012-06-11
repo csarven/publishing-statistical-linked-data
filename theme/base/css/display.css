@@ -116,7 +116,8 @@ white-space:pre;
 
 p + h4:before,
 caption:before,
-p + h5:before {
+p + h5:before,
+h4 + h5:before {
 content:"\A";
 white-space:pre;
 }

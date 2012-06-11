@@ -194,30 +194,32 @@ general and regional statistics, economy and finance, population and social cond
 
 
 
-                    <h3 id="data-review">Data preprocessing</h3>
+                    <h3 id="data-preprocessing">Data preprocessing</h3>
                     <p>In this section, we cover some of the observed abnormalities in the original datasets, and the decisions which were made in order to later achieve reasonable RDF serializations. The information in this section is not exhaustive, and is only meant to illustrate some of the recurring challenges.</p>
 
-                    <h4 id="data-review_world-bank">World Bank</h4>
+                    <h4 id="data-preprocessing_world-bank">World Bank</h4>
                     <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually updated, and others were brought up to the World Bank team's attention for investigation.</p>
 
-                    <p id="data-review_world-bank_missing-units"><em>Missing units</em>: The statistics of the World Development Indicators consists of various indicators in different measurement units. At the time of this writing, these measurements in the source data are only provided as part of the string of the indicator name, as opposed to an explicit XML node [].</p>
+                    <p id="data-preprocessing_world-bank_missing-units"><em>Missing units</em>: The statistics of the World Development Indicators consists of various indicators in different measurement units. At the time of this writing, these measurements in the source data are only provided as part of the string of the indicator name, as opposed to an explicit XML node [].</p>
 
-                    <p id="data-review_world-bank_missing-values"><em>Missing values</em>: Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values. Hence, in order to keep the RDF format of the dataset lean, these observations were excluded in the data transformation phase. This resulted in ~80% reduction in number of observations with actual measured data [].</p>
+                    <p id="data-preprocessing_world-bank_missing-values"><em>Missing values</em>: Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values. Hence, in order to keep the RDF format of the dataset lean, these observations were excluded in the data transformation phase. This resulted in ~80% reduction in number of observations with actual measured data [].</p>
 
-                    <p id="data-review_world-bank_aggregated-data"><em>Aggregated data</em>: While the World Bank API provides endpoints which compiled aggregate data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
+                    <p id="data-preprocessing_world-bank_aggregated-data"><em>Aggregated data</em>: While the World Bank API provides endpoints which compiled aggregate data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
 
 
-                    <p id="data-review_world-bank_most-recent-values"><em>Most recent values</em>: Most recent values were incorrectly introduced to non-date API calls [] in <em>WDI</em>. These observation nodes were excluded in the transformation phase since the data already contained observations with corresponding reference periods.</p>
+                    <p id="data-preprocessing_world-bank_most-recent-values"><em>Most recent values</em>: Most recent values were incorrectly introduced to non-date API calls [] in <em>WDI</em>. These observation nodes were excluded in the transformation phase since the data already contained observations with corresponding reference periods.</p>
 
-                    <p id="data-review_world-bank_naming-patterns"><em>Naming patterns</em>: Different naming patterns were identified across World Bank datasets. Some of these are as follows:</p>
+                    <p id="data-preprocessing_world-bank_naming-patterns"><em>Naming patterns</em>: Different naming patterns were identified across World Bank datasets. Some of these are as follows:</p>
 
-                    <p id="data-review_world-bank_region-names"><em>Region names</em>: Region names as used in <em>WDI</em> and <em>WBF</em> datasets differed [] in a way that although they essentially conveyed the same meaning, labels did not match exactly. In order to have URIs for the region labels in the <em>WBF</em>  observations, and to simplify the linking process, unique region names from the <em>WBF</em>  observations was added to region resources in <em>WDI</em>. During the XSLT process, the alternative labels were matched with the labels in the observations themselves to arrive at their canonical representations.</p>
+                    <p id="data-preprocessing_world-bank_region-names"><em>Region names</em>: Region names as used in <em>WDI</em> and <em>WBF</em> datasets differed [] in a way that although they essentially conveyed the same meaning, labels did not match exactly. In order to have URIs for the region labels in the <em>WBF</em>  observations, and to simplify the linking process, unique region names from the <em>WBF</em>  observations was added to region resources in <em>WDI</em>. During the XSLT process, the alternative labels were matched with the labels in the observations themselves to arrive at their canonical representations.</p>
 
-                    <p id="data-review_world-bank_credit-loan"><em>Credit and Loan names</em>: Based on a private discussion with the WFI team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
+                    <p id="data-preprocessing_world-bank_credit-loan"><em>Credit and Loan names</em>: Based on a private discussion with the WFI team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
 
-                    <p id="data-review_world-bank_missing-countries"><em>Missing countries</em>: Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
+                    <p id="data-preprocessing_world-bank_missing-countries"><em>Missing countries</em>: Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
 
-                    <h4 id="data-review_eurostat">Eurostat</h4>
+                    <p id="data-preprocessing_world-bank_normalization"><em>Normalization</em>: Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">ISO 8601</a> format.</p>
+
+                    <h4 id="data-preprocessing_eurostat">Eurostat</h4>
                     <p>There are approximately 5200 datasets published by Eurostat. Eurostat update information about datasets as well as table of contents twice a day. The datasets holds statistics on daily, monthly, quarterly and annual basis. Therefore, certain datasets are updated daily and many datasets are updated on monthly basis. Instead of updating all Eurostat data sets on daily, weekly or monthly basis, we decided to update on weekly basis. Instead of doing complete Eurostat transformation on weekly basis, we decided to update only those datasets which has been updated or added in the last week.</p>
 
 <p>Although, our data set parser parses TSV files to generate observation values using RDF Data Cube vocabulary but TSV files misses the frequency value which is necessary to represent observation value. In order to add frequency value to the observations of each data set, we additionally parsed SDMX format to retrieve the frequency value of each data set.</p>
@@ -226,7 +228,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
 
-                    <h4 id="data-review_cso-ireland">CSO Ireland</h4>
+                    <h4 id="data-preprocessing_cso-ireland">CSO Ireland</h4>
                     <p>TODO</p>
 
 
@@ -284,6 +286,8 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p id="uri-patterns_world-bank_world-bank-climates"><em>World Bank Climate Change</em> observations are within <code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a>.</p>
 
+                    <p id="uri-patterns_world-bank_blank-nodes"><em>Blank nodes (<dfn><abbr title="blank nodes">bnodes</abbr></dfn>)</em>: By in large, the datasets do not contain bnodes, with the exception of unavoidable ones in the Projects and Operations code list. Since the maintenance of creating resolvable URIs have a cost, the decision was not to create arbitrary URIs given the (beta) state of the <em>WBPO</em> API. For Data Cube's data structure definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>), bnodes were naturally created. In order to offer a metadata file for World Bank's schema, some of the files with bnodes had to be merged. In order to avoid the conflict on collapsing bnodes with the same identifier, the decision to carry this out was based on a method that happened to be most efficient; import all of the metadata files into a named graph in RDF store, then export the named graph to a single file.</p>
+
 
                     <h5 id="uri-patterns_eurostat">Eurostat</h5>
                     <p>The base URI we used for Eurostat is <code>http://eurostat.linked-statistics.org/</code>. In Eurostat, we deal with data sets, their corresponding metadata and the dictionaries. We kept same file name for the metadata and the actual dataset containing observation values as they appear in original data and distinguish them by using <code>dsd</code> <code>data</code> in our URI patterns. Further, the dictionaries which are shared among all data sets are provided by using <code>dic</code> in our URI patterns. The following URI patterns are used:</p>
@@ -295,104 +299,6 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h5 id="uri-patterns_cso-ireland">CSO Ireland</h5>
                     <p>All the resources in the 2006 Irish Census dataset use slash URIs. The geographical code lists for enumeration areas and electoral districts employ hierarchical URIs (Dodds, Davis, 2012), in which identifiers of geographical areas are nested within the "namespace" URIs of their parent geographical features (e.g., an enumeration area nested under a county) (Mynarz et al., 2010).</p>
-
-
-                    <h4 id="blank-nodes">Blank nodes</h4>
-                    <p>TODO</p>
-
-                    <h5 id="blank-nodes_world-bank">World Bank</h5>
-                    <p>By in large, the datasets do not contain blank nodes (<dfn><abbr title="blank nodes">bnodes</abbr></dfn>), with the exception of unavoidable ones in the Projects and Operations code list. Since the maintenance of creating resolvable URIs have a cost, the decision was not to create arbitrary URIs given the (beta) state of the <em>WBPO</em> API. For Data Cube's data structure definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>), bnodes were naturally created.</p>
-                    <p>In order to offer a metadata file for World Bank's schema, some of the files with bnodes had to be merged. In order to avoid the conflict on collapsing bnodes with the same identifier, the decision to carry this out was based on a method that happened to be most efficient; import all of the metadata files into a named graph in RDF store, then export the named graph to a single file.</p>
-
-                    <h5 id="blank-nodes_eurostat">Eurostat</h5>
-                    <p>TODO</p>
-
-                    <h5 id="blank-nodes_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
-
-
-
-                    <h4 id="data-modeling_normalization">Normalization</h4>
-                    <p>TODO</p>
-
-                    <h5 id="data-modeling_world-bank_normalization">World Bank</h5>
-                    <p>Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">ISO 8601</a> format.</p>
-
-                    <h5 id="data-modeling_eurostat_normalization">Eurostat</h5>
-                    <p>TODO</p>
-
-                    <h5 id="data-modeling_cso-ireland_normalization">CSO Ireland</h5>
-                    <p>TODO</p>
-
-
-                    <h4 id="data-interlinking">Data interlinking</h4>
-                    <p>TODO</p>
-<!--
-What can you link on (codelists probably.. but not observations.. geography is the obvious connection points)
-Reused some.. and mapped to existing stuff
-Highlight some of the interesting questions that came up along the way
--->
-
-                    <h5 id="data-interlinking_world-bank">World Bank</h5>
-                    <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, and curating the final results. With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
-
-                    <p>Additional interlinking was done by adding links to resources with corresponding <code>foaf:page</code>s on the World Bank site, as well as links to referenced documents.</p>
-
-                    <h5 id="data-interlinking_eurostat">Eurostat</h5>
-                    <p>We used Silk Framework to publish some initial link sets. Table [<a href="#data-interlinking_eurostat_table">0</a>] gives an overview of the targeted data sets, types and the published link counts.</p>
-
-                    <table id="data-interlinking_eurostat_table">
-                        <caption>Table [] Interlinks in Eurostat</caption>
-                        <thead><tr><th>Target data</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
-                        <tbody>
-                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td>country</td><td><code>owl:sameAs</code></td><td>1899</td></tr>
-                            <tr><td><a href="http://linkedgeodata.org/">LinkedGeoData</a></td><td>country</td><td><code>owl:sameAs</code></td><td>1876</td></tr>
-                        </tbody>
-                    </table>
-
-                    <h5 id="data-interlinking_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
-
-
-                    <h4 id="data-enrichment">Data enrichment</h4>
-                    <p>TODO</p>
-
-                    <h5 id="data-enrichment_world-bank">World Bank</h5>
-                    <p>A code list for currencies was created based on <a href="http://www.currency-iso.org/iso_index/iso_tables/iso_tables_a1.htm">ISO 4217</a> currency and funds name and code elements to represent the SDMX attributes for the amount measurements in the World Bank Finances datasets. They were also linked to each country which officially uses that currency.</p>
-
-                    <p>Given that some of the codes in the World Bank country code list are not considered to be countries e.g., <code>1W</code> representing <em>World</em>, only the resources which represented a real country have an added <code>rdf:type</code> instance of <code>dbo:Country</code>.</p>
-
-                    <h5 id="data-enrichment_eurostat">Eurostat</h5>
-                    <p>TODO</p>
-
-                    <h5 id="data-enrichment_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
-
-
-
-                    <h4 id="data-provenance">Data provenance</h4>
-                    <p>TODO</p>
-
-                    <h5 id="data-provenance_world-bank">World Bank</h5>
-                    <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide metadata for resources like code lists and datasets. They particularly address the following information:</p>
-                    <ul>
-                        <li><em>Defining source</em> using <code>rdfs:isDefinedBy</code></li>
-                        <li><em>License</em> using <code>dcterms:license</code></li>
-                        <li><em>Source location</em> using <code>dcterms:source</code></li>
-                        <li><em>Related resource</em> using <code>dcterms:hasPart</code> and <code>dcterms:isPartOf</code></li>
-                        <li><em>Creator of the data</em> using <code>dcterms:creator</code></li>
-                        <li><em>Publisher of the data</em> using <code>dcterms:publisher</code></li>
-                        <li><em>Creation date</em> using <code>dcterms:created</code></li>
-                        <li><em>Issued date</em> using <code>dcterms:issued</code></li>
-                        <li><em>Modified date</em> using <code>dcterms:modified</code></li>
-                    </ul>
-
-                    <h5 id="data-provenance_eurostat">Eurostat</h5>
-                    <p>TODO</p>
-
-                    <h5 id="data-provenance_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
-
 
 
                     <h4 id="data-structure-definition">Data structure definitions</h4>
@@ -456,8 +362,47 @@ Highlight some of the interesting questions that came up along the way
 
 
                     <h3 id="linked-datasets">Linked datasets</h3>
+                    <h4 id="data-interlinking">Data interlinking</h4>
+                    <p>TODO</p>
+
+                    <h5 id="data-interlinking_world-bank">World Bank</h5>
+                    <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, and curating the final results. With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
+
+                    <p>Additional interlinking was done by adding links to resources with corresponding <code>foaf:page</code>s on the World Bank site, as well as links to referenced documents.</p>
+
+                    <h5 id="data-interlinking_eurostat">Eurostat</h5>
+                    <p>We used Silk Framework to publish some initial link sets. Table [<a href="#data-interlinking_eurostat_table">0</a>] gives an overview of the targeted data sets, types and the published link counts.</p>
+
+                    <table id="data-interlinking_eurostat_table">
+                        <caption>Table [] Interlinks in Eurostat</caption>
+                        <thead><tr><th>Target data</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
+                        <tbody>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td>country</td><td><code>owl:sameAs</code></td><td>1899</td></tr>
+                            <tr><td><a href="http://linkedgeodata.org/">LinkedGeoData</a></td><td>country</td><td><code>owl:sameAs</code></td><td>1876</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h5 id="data-interlinking_cso-ireland">CSO Ireland</h5>
+                    <p>TODO</p>
+
+
+                    <h4 id="data-enrichment">Data enrichment</h4>
+                    <p>TODO</p>
+
+                    <h5 id="data-enrichment_world-bank">World Bank</h5>
+                    <p>A code list for currencies was created based on <a href="http://www.currency-iso.org/iso_index/iso_tables/iso_tables_a1.htm">ISO 4217</a> currency and funds name and code elements to represent the SDMX attributes for the amount measurements in the World Bank Finances datasets. They were also linked to each country which officially uses that currency.</p>
+
+                    <p>Given that some of the codes in the World Bank country code list are not considered to be countries e.g., <code>1W</code> representing <em>World</em>, only the resources which represented a real country have an added <code>rdf:type</code> instance of <code>dbo:Country</code>.</p>
+
+                    <h5 id="data-enrichment_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+                    <h5 id="data-enrichment_cso-ireland">CSO Ireland</h5>
+                    <p>TODO</p>
+
+
                     <h4 id="linked-datasets_world-bank">World Bank</h4>
-                    <p>A <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file is compiled to create metadata for the World Bank Linked Datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a> []. The World Bank's RDF <a href="http://worldbank.270a.info/data/">datadumps</a> are available either as individual RDF/XML files or in compressed gzip format.</p>
+                    <p>TODO</p>
 
                     <table id="linked-dataset_world-bank_table">
                         <caption>World Bank Linked Data</caption>
@@ -501,35 +446,72 @@ Highlight some of the interesting questions that came up along the way
 
                     <h3 id="publication">Publication</h3>
                     <p>TODO</p>
-                    <h4 id="publication_world-bank">World Bank</h4>
-                    <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
 
-                    <h4 id="publication_eurostat">Eurostat</h4>
+                    <h4 id="data-provenance">Data provenance</h4>
                     <p>TODO</p>
-                    <h4 id="publication_cso-ireland">CSO Ireland</h4>
+
+                    <h5 id="data-provenance_world-bank">World Bank</h5>
+                    <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide metadata for resources like code lists and datasets. They particularly address the following information:</p>
+                    <ul>
+                        <li><em>Defining source</em> using <code>rdfs:isDefinedBy</code></li>
+                        <li><em>License</em> using <code>dcterms:license</code></li>
+                        <li><em>Source location</em> using <code>dcterms:source</code></li>
+                        <li><em>Related resource</em> using <code>dcterms:hasPart</code> and <code>dcterms:isPartOf</code></li>
+                        <li><em>Creator of the data</em> using <code>dcterms:creator</code></li>
+                        <li><em>Publisher of the data</em> using <code>dcterms:publisher</code></li>
+                        <li><em>Creation date</em> using <code>dcterms:created</code></li>
+                        <li><em>Issued date</em> using <code>dcterms:issued</code></li>
+                        <li><em>Modified date</em> using <code>dcterms:modified</code></li>
+                    </ul>
+
+                    <h5 id="data-provenance_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+                    <h5 id="data-provenance_cso-ireland">CSO Ireland</h5>
+                    <p>TODO</p>
+
+
+                    <h4 id="void">VoID</h4>
+                    <p>TODO</p>
+
+                    <h5 id="void_world-bank">World Bank</h5>
+                    <p>A <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file is compiled to create metadata for the World Bank Linked Datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a> [].</p>
+
+                    <h5 id="void_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+
+                    <h5 id="void_cso-ireland">CSO Ireland</h5>
+                    <p>TODO</p>
+
+
+                    <h4>Human user-interface</h4>
+                    <p>TODO</p>
+
+                    <h5 id="user-interface_world-bank">World Bank</h5>
+                    <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
+                    <h5 id="user-interface_eurostat">Eurostat</h5>
+                    <p>TODO</p>
+                    <h5 id="user-interface_cso-ireland">CSO Ireland</h5>
                     <p>The publication of approach of the 2006 Irish Census Linked Data is same as World Bank's using Linked Data Pages. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
 
 
-                    <h3 id="sparql-endpoint">SPARQL Endpoint</h3>
+                    <h4 id="sparql-endpoint">SPARQL Endpoint</h4>
                     <p>TODO</p>
-                    <h4 id="sparql-endpoint_world-bank">World Bank</h4>
+                    <h5 id="sparql-endpoint_world-bank">World Bank</h5>
                     <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
-
-                    <h4 id="sparql-endpoint_eurostat">Eurostat</h4>
+                    <h5 id="sparql-endpoint_eurostat">Eurostat</h5>
                     <p>Same setup as World Bank with its own <a href="http://eurostat.linked-statistics.org/sparql">SPARQL endpoint</a>. This endpoint includes only the schema and excludes the data (~533GB RDF/XML) due to the limitation of the available resources and performance reasons.</p>
-                    <h4 id="sparql-endpoint_cso-ireland">CSO Ireland</h4>
+                    <h5 id="sparql-endpoint_cso-ireland">CSO Ireland</h5>
                     <p>Same setup as World Bank with its own <a href="http://data-gov.ie/sparql">SPARQL endpoint</a>. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
 
 
-
-
-                    <h3 id="data-dumps">Data dumps</h3>
+                    <h4 id="data-dumps">Data dumps</h4>
                     <p>TODO</p>
-                    <h4 id="data-dumps_world-bank">World Bank</h4>
-                    <p>The RDF <a href="http://worldbank.270a.info/data/">data dumps</a> can be retrieved in several ways and are available in gzips of the schema and datasets along with individuals RDF/XML files. For automatic processing with tools like <a href="http://github.com/csarven/graphpusher">GraphPusher</a>, the location of the data dumps can be discovered via <a href="http://worldbank.270a.info/.well-known/void">World Bank's VoID</a>.</p>
-                    <h4 id="data-dumps_eurostat">Eurostat</h4>
+                    <h5 id="data-dumps_world-bank">World Bank</h5>
+                    <p>The World Bank's RDF <a href="http://worldbank.270a.info/data/">data dumps</a> are available either as individual RDF/XML files or in compressed gzip format. For automatic processing with tools like <a href="http://github.com/csarven/graphpusher">GraphPusher</a>, the location of the data dumps can be discovered via <a href="http://worldbank.270a.info/.well-known/void">World Bank's VoID</a>.</p>
+                    <h5 id="data-dumps_eurostat">Eurostat</h5>
                     <p>TODO</p>
-                    <h4 id="data-dumps_cso-ireland">CSO Ireland</h4>
+                    <h5 id="data-dumps_cso-ireland">CSO Ireland</h5>
                     <p>TODO</p>
 
 
