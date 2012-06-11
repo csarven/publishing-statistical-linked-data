@@ -92,8 +92,11 @@
                     <h3 id="original-data_eurostat">Eurostat</h3>
                     <p>TODO</p>
 
-                    <h3 id="original-data_cso-ireland">Central Statistics Office (CSO) Ireland</h3>
-                    <p>TODO</p>
+                    <h3 id="original-data_cso-ireland">Central Statistics Office Ireland</h3>
+                    <p>The Central Statistics Office (<dfn><abbr title="Central Statistics Office">CSO</abbr>) is the official Irish agency responsible for collecting and disseminating statistics about Ireland. The main source of the statistical data for the CSO is the National Census that is scheduled to be held every five years. The data compiled by the CSO serve as a key input for decision-making in the Irish government and it informs its policies and programmes both at national and local levels.</p>
+
+                    <p>The original statistical data, which was a subject to conversion to RDF in a pilot experiment conducted during the summer of 2010 at the Linked Data Research Centre in DERI, was a result of the 2006 Irish Census. A subset of the bulk of the census data that was chosen for the experiment consisted of demographic data tracking small area population statistics (<dfn><abbr title="Small Area Population Statistics">SAPS</abbr></dfn>).</p>
+
 
 
                     <h2 id="case-studies">Case Studies</h2>
@@ -114,7 +117,7 @@
                     <p>TODO</p>
 
                     <h4 id="data-source_cso-ireland">CSO Ireland</h4>
-                    <p>TODO</p>
+                    <p>The CSO publishes population statistics in several ways, none of which is particularly suited for direct reuse. The data is primarily available through the CSO's web site, formatted for the purpose of display. The CSO offers access to raw demographic data, however, the data is available only in PC-Axis, a domain-specific format for expressing multidimensional statistical data. Besides data in raw the CSO exposes them in an interactive data viewer provided by the <a href="http://www.beyond2020.com/">Beyond 20/20 software</a> that allows to browse, sort and plot the data.</p>
 
 
                     <h3 id="data-retrieval">Data retrieval</h3>
@@ -168,15 +171,17 @@
                     <p>TODO.</p>
 
                     <h4 id="data-retrieval_cso-ireland">CSO Ireland</h4>
-                    <p>TODO. Table [<a href="#data-retrieval_cso-ireland_table">3</a>] provides retrieval information about the 2006 Irish Census datasets.</p>
+                    <p>Data from the 2006 Irish Census were retrieved manually, downloading each slice of small area population statistics individually via the export to Excel files from the <a href="http://beyond2020.cso.ie/census/ReportFolders/ReportFolders.aspx">CSO's instance of the Beyond 20/20</a>. The data was paged to several files that had to be pieced together, saved as CSV files, and provided with a different character encoding.</p>
+
+                    <p>Statistical data in the retrieved datasets were attributed to one of two mutually overlapping conceptualizations of Irish geography. There were datasets coded with enumeration areas and datasets coded with electoral districts. Both types of datasets were downloaded and combined during the conversion to RDF Table [<a href="#data-retrieval_cso-ireland_table">3</a>] provides retrieval information about the 2006 Irish Census datasets.</p>
                     <table id="data-retrieval_cso-ireland_table">
                         <caption><strong>Table 3.</strong> 2006 Irish Census data retrieval</caption>
                         <thead><tr><th>Datasets</th><th>URLs</th><th>Format</th><th>Number of requests</th><th>Data size</th></tr></thead>
                         <tfoot><tr><td colspan="5">These datasets are retrieved manually using the interactive application by clicking on the access URLs.</td></tr></tfoot>
                         <tbody>
                             <tr>
-                                <th><a href="http://census.cso.ie/census/ReportFolders/ReportFolders.aspx">Census Interactive Tables for 2006</a></th>
-                                <td><code>http://census.cso.ie/census/ReportFolders/ReportFolders.aspx</code></td>
+                                <th><a href="http://beyond2020.cso.ie/census/ReportFolders/ReportFolders.aspxx">Census Interactive Tables for 2006</a></th>
+                                <td><code>http://beyond2020.cso.ie/census/ReportFolders/ReportFolders.aspx</code></td>
                                 <td>CSV</td>
                                 <td>14</td>
                                 <td>8MB</td>
@@ -236,10 +241,10 @@
                     <p>The metadata file contains ~86000 triples in which ~8000 are <code>skos:Concept</code>s. Although, the <em>WBPO</em> dataset is a considered to be classifications with ~15000 <code>skos:Concept</code>s, it was kept separately from the metadata file for practical reasons.</p>
 
                     <h5 id="vocabularies_eurostat">Eurostat</h5>
-                    <p>TODO</p>
+                    <p>The vocabularies used in Eurostat are: Data Cube, SKOS, RDF, RDFS, VoiD, XSD, Dublin Core and FOAF.</p>
 
                     <h5 id="vocabularies_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>The 2006 Irish Census dataset was among the first datasets modelled with the Data Cube vocabulary. At the time of the data transformation the specification of the Data Cube vocabulary was still under development and subject to edits. The data model thus co-evolved with the changes made to the vocabulary’s specification.</p>
 
 
 
@@ -290,7 +295,7 @@
                     <p>TODO</p>
 
                     <h5 id="blank-nodes_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>All the resources in the 2006 Irish Census dataset use slash URIs. The geographical code lists for enumeration areas and electoral districts employ hierarchical URIs (Dodds, Davis, 2012), in which identifiers of geographical areas are nested within the "namespace" URIs of their parent geographical features (e.g., an enumeration area nested under a county) (Mynarz et al., 2010).</p>
 
 
 
@@ -401,7 +406,15 @@ Highlight some of the interesting questions that came up along the way
                     <p>TODO</p>
 
                     <h4 id="data-conversion_cso-ireland">CSO Ireland</h4>
-                    <p>TODO</p>
+                    <p>The conversion of 2006 Irish Census data was conducted with a custom Python script based on librdf.[] Due to a relatively small volume of the data the conversion was initially implemented using an in-memory RDF store. Nevertheless, we have discovered it to be insufficient for every but the smallest datasets. Consequently, to cater for the larger datasets, the implementation switched to a file back-end based on <a href="http://www.oracle.com/technetwork/products/berkeleydb/overview/index.html">BerkeleyDB</a>.</p>
+
+                    <p>Still, the back-end was not capable of handling the computation of aggregated values using SPARQL queries. To compute aggregates a more performant, standalone triple store would be needed. Ultimately, we have decided to keep the back-end and postpone generation of aggregate values to a later stage when the data would be loaded into a triple store.</p>
+
+                    <p>Another implementation trade-off that we had to make was related to the SPARQL engine in librdf. Due to the engine not being able to execute certain types of SPARQL queries, queries were de-optimized in order for the engine to process them. For example, direct use of URIs in SPARQL graph patterns was not handled properly so that the URIs were matched in the <code>FILTER</code> clause.</p>
+
+                    <p>The most time consuming task of the conversion regarded "reverse engineering" of code lists used in the data. Most code lists were reconstructed manually from the headers and column names in the original data. However, unlike the majority of code lists containing several items, geographical code lists were too large to be processed manually and thus it was necessary to automate their extraction. Geographical code lists, such as the enumeration areas, had to be distilled from the statistical data referring to them. Since the statistical data contained little information about the code lists (e.g., code-name pairs), it was difficult to establish identity in them (e.g., resolve name clashes).</p>
+
+                    <p>The conversion scripts for the 2006 Irish Census data are available in a GitHub repository. []</p>
 
 
                     <h3 id="linked-datasets">Linked datasets</h3>
@@ -557,6 +570,8 @@ XXX: If it makes sense, we might *briefly* talk about applications or "interesti
                             <li id="r_1">Franklin, M., Halevy, A., Maier, D.: <em>From databases to dataspaces: a new abstraction for information management</em>, SIGMOD Record 34(4), 27–33 (2005), <a rel="dcterms:references" href="http://dl.acm.org/citation.cfm?id=1107502">http://dl.acm.org/citation.cfm?id=1107502</a></li>
                             <li id="r_2">Ngonga Ngomo, A.-C.: <em>A Time-Efficient Hybrid Approach to Link Discovery</em>, The Sixth International Workshop on Ontology Matching, ISWC (2011), <a rel="dcterms:references" href="http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf">http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf</a>
     <!--
+http://beyond2020.cso.ie/census/
+
                             <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/sFLaE9iumms</a></li>
                             <li><a href="https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0">https://groups.google.com/forum/?fromgroups#!topic/world-bank-api/DL4PlDLcLU0</a></li>
                             <li><a href="https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/SDcl8KkhTXs/VsDdRUezGqEJ">https://groups.google.com/forum/?fromgroups#!msg/world-bank-api/SDcl8KkhTXs/VsDdRUezGqEJ</a></li>
