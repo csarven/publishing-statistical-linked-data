@@ -74,17 +74,17 @@
 
 
                     <h2 id="introduction">Introduction</h2>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
 
 
                     <h2 id="linked-statistics">Linked statistics</h2>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
 
 
                     <h2 id="original-data">Original data</h2>
-                    <p>TODO: Blurb about the datasets we are about to discuss, what they are and meant for.. in what shape they are and how are they published...</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h3 id="original-data_world-bank">World Bank</h3>
                     <p>The World Bank is an international development organization that provides access to a comprehensive set of data about countries around the globe. The publicly available statistical data is collected from officially-recognized international sources, and consists of a wide array of observations on development indicators, financial statements, climate change, projects and operations.</p>
@@ -100,7 +100,7 @@
 
 
                     <h2 id="case-studies">Case Studies</h2>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h3 id="data-sources">Data sources</h3>
                     <h4 id="data-source_world-bank">World Bank</h4>
@@ -229,16 +229,16 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="data-preprocessing_cso-ireland">CSO Ireland</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Jindrich</strong></p>
 
 
 
                     <h3 id="data-modeling">Data modeling</h3>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
 
                     <h4 id="vocabularies">Vocabularies</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="vocabularies_world-bank">World Bank</h5>
                     <p>Besides RDF, RDFS, XSD, OWL, the most common vocabularies in these datasets are: <a href="http://www.w3.org/TR/vocab-data-cube/">RDF Data Cube</a> to describe multi-dimensional statistical data, <a href="http://purl.org/linked-data/sdmx">SDMX</a> for the statistical information model, British reference periods (<a href="http://reference.data.gov.uk/doc/year">Year</a>, <a href="http://reference.data.gov.uk/id/gregorian-interval/">Gregorian Interval</a>), <a href="http://www.w3.org/2004/02/skos/core">SKOS</a> to describe the concepts in the observations, and <a href="http://purl.org/dc/terms/">DC Terms</a> for general purpose metadata relations. Where appropriate, properties and classifications were created to represent World Bank Linked Data. The <em><a href="#uri-patterns">URI patterns</a></em> section gives a further break down of this.</p>
@@ -257,9 +257,9 @@ general and regional statistics, economy and finance, population and social cond
                     <h5 id="vocabularies_cso-ireland">CSO Ireland</h5>
                     <p>The 2006 Irish Census dataset was among the first datasets modelled with the Data Cube vocabulary. At the time of the data transformation the specification of the Data Cube vocabulary was still under development and subject to edits. The data model thus co-evolved with the changes made to the vocabulary’s specification.</p>
 
-<p>TODO <strong>A table for the vocabularies that are used in the use-cases.</strong></p>
+
                     <h4 id="uri-patterns">URI patterns</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="uri-patterns_world-bank">World Bank</h5>
                     <p>Given the statistical nature of the majority of the World Bank data, URI spaces are created for concepts, properties, observations, and datasets. New URIs for classifications and properties were created because majority of the properties and concepts did not already exist in the wild, and in cases where they did, they did not fully correspond with the World Bank's. For instance, the country codes in the World Bank data are not only composed of concepts of countries, but also other geopolitical areas and income levels. While these concepts are distinguishable from one another given additional patterns in the source data, they still belonged to the same code list. As a widely recommended practice in the Linked Data community, these World Bank resources were interlinked and mapped to external resources.</p>
@@ -302,10 +302,10 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="data-structure-definition">Data structure definitions</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-structure-definition_world-bank">World Bank</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
                     <ul>
                         <li><em>World Development Indicators</em> are available as a single observation model where it contains indicators, reference areas, and time series as dimension values, and the corresponding measurement value.</li>
                         <li><em>World Bank Finances</em> come in several sub-datasets with different structures i.e., the observations in the datasets contain different set of dimensions, along with a number of measurements and attributes.</li>
@@ -316,14 +316,14 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h5 id="data-structure-definition_eurostat">Eurostat</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
 
                     <h5 id="data-structure-definition_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Jindrich</strong></p>
 
 
                     <h3 id="data-conversion">Data conversion</h3>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h4 id="data-conversion_world-bank">World Bank</h4>
                     <p>XSLT 2.0 stylesheets were created to transform the source XML files to target RDF/XML serializations. Saxon's command-line XSLT and XQuery Processor tool was used for the transformations, and employed as part of Bash scripts to iterate through all the files in the datasets. The conversion step from the command-line with <code>saxonb-xslt</code> under the Ubuntu operating system was preferred over Java's <code>SAXTransformerFactory</code> Class as it was significantly faster in preliminary tests.</p>
@@ -363,7 +363,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h3 id="linked-datasets">Linked datasets</h3>
                     <h4 id="data-interlinking">Data interlinking</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-interlinking_world-bank">World Bank</h5>
                     <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, and curating the final results. With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
@@ -383,11 +383,11 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
 
                     <h4 id="data-enrichment">Data enrichment</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-enrichment_world-bank">World Bank</h5>
                     <p>A code list for currencies was created based on <a href="http://www.currency-iso.org/iso_index/iso_tables/iso_tables_a1.htm">ISO 4217</a> currency and funds name and code elements to represent the SDMX attributes for the amount measurements in the World Bank Finances datasets. They were also linked to each country which officially uses that currency.</p>
@@ -395,14 +395,15 @@ general and regional statistics, economy and finance, population and social cond
                     <p>Given that some of the codes in the World Bank country code list are not considered to be countries e.g., <code>1W</code> representing <em>World</em>, only the resources which represented a real country have an added <code>rdf:type</code> instance of <code>dbo:Country</code>.</p>
 
                     <h5 id="data-enrichment_eurostat">Eurostat</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
 
                     <h5 id="data-enrichment_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
 
-                    <h4 id="linked-datasets_world-bank">World Bank</h4>
-                    <p>TODO</p>
+                    <h4 id="rdf-datasets">RDF datasets</h4>
+                    <h5 id="linked-datasets_world-bank">World Bank</h5>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
                     <table id="linked-dataset_world-bank_table">
                         <caption>World Bank Linked Data</caption>
@@ -417,12 +418,12 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
 
-                    <h4 id="linked-datasets_eurostat">Eurostat</h4>
-                    <p>TODO</p>
+                    <h5 id="linked-datasets_eurostat">Eurostat</h5>
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
 
 
-                    <h4 id="linked-datasets_cso-ireland">CSO Ireland</h4>
-                    <p>TODO</p>
+                    <h5 id="linked-datasets_cso-ireland">CSO Ireland</h5>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
                     <table id="linked-dataset_cso-ireland_table">
                         <caption>CSO Ireland Linked Data</caption>
@@ -438,18 +439,17 @@ general and regional statistics, economy and finance, population and social cond
                     <h4 id="data-license_world-bank">World Bank</h4>
                     <p>In addition to adhering to <a href="http://go.worldbank.org/OJC02YMLA0">World Bank's terms of use</a>, the RDF data is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</a>.</p>
                     <h4 id="data-license_eurostat">Eurostat</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
                     <h4 id="data-license_cso-ireland">CSO Ireland</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
 
 
                     <h3 id="publication">Publication</h3>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h4 id="data-provenance">Data provenance</h4>
-                    <p>TODO</p>
-
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="data-provenance_world-bank">World Bank</h5>
                     <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide metadata for resources like code lists and datasets. They particularly address the following information:</p>
                     <ul>
@@ -463,40 +463,34 @@ general and regional statistics, economy and finance, population and social cond
                         <li><em>Issued date</em> using <code>dcterms:issued</code></li>
                         <li><em>Modified date</em> using <code>dcterms:modified</code></li>
                     </ul>
-
                     <h5 id="data-provenance_eurostat">Eurostat</h5>
-                    <p>TODO</p>
-
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
                     <h5 id="data-provenance_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Jindrich</strong></p>
 
 
                     <h4 id="void">VoID</h4>
-                    <p>TODO</p>
-
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="void_world-bank">World Bank</h5>
                     <p>A <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file is compiled to create metadata for the World Bank Linked Datasets. The information included, but not limited to is: locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, vocabularies used, dataset size. Statistics for the VoID file is generated using <a href="http://aksw.org/projects/LODStats">LODStats</a> [].</p>
-
                     <h5 id="void_eurostat">Eurostat</h5>
-                    <p>TODO</p>
-
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
                     <h5 id="void_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
 
                     <h4>Human user-interface</h4>
-                    <p>TODO</p>
-
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="user-interface_world-bank">World Bank</h5>
                     <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
                     <h5 id="user-interface_eurostat">Eurostat</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
                     <h5 id="user-interface_cso-ireland">CSO Ireland</h5>
                     <p>The publication of approach of the 2006 Irish Census Linked Data is same as World Bank's using Linked Data Pages. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
 
 
                     <h4 id="sparql-endpoint">SPARQL Endpoint</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="sparql-endpoint_world-bank">World Bank</h5>
                     <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
                     <h5 id="sparql-endpoint_eurostat">Eurostat</h5>
@@ -506,17 +500,16 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="data-dumps">Data dumps</h4>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="data-dumps_world-bank">World Bank</h5>
                     <p>The World Bank's RDF <a href="http://worldbank.270a.info/data/">data dumps</a> are available either as individual RDF/XML files or in compressed gzip format. For automatic processing with tools like <a href="http://github.com/csarven/graphpusher">GraphPusher</a>, the location of the data dumps can be discovered via <a href="http://worldbank.270a.info/.well-known/void">World Bank's VoID</a>.</p>
                     <h5 id="data-dumps_eurostat">Eurostat</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Aftab</strong></p>
                     <h5 id="data-dumps_cso-ireland">CSO Ireland</h5>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Sarven</strong></p>
 
 
                     <h3 id="dataset-advertisement">Advertising the dataset</h3>
-                    <p>TODO</p>
                     <h4 id="dataset-advertisement_world-bank">World Bank</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/world-bank-linked-data">world-bank-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=world-bank-linked-data">has level 3</a> in the CKAN Validator. It is a candidate for the lodcloud group.</p>
                     <h4 id="dataset-advertisement_eurostat">Eurostat</h4>
@@ -536,11 +529,11 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h2 id="related-work">Related work</h2>
-                    <p>TODO. Not sure whether to keep this as a high level wrap-up of publishing statistical linked data, or to go through related work for each use-case, or both.</p>
+                    <p>TODO --------------------------  <strong>Richard / Michael / Sarven</strong></p>
 
 
                     <h2 id="conclusions">Conclusions</h2>
-                    <p>TODO</p>
+                    <p>TODO --------------------------  <strong>Michael / Sarven</strong></p>
 
 
                     <div id="acknowledgements">
