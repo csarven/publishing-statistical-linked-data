@@ -93,7 +93,7 @@
                     <p>Eurostat is the statistical office of European Union with the aim to provide European Union with statistics at European level that enables comparisons between EU countries and regions. the main aim of Eurostat is to help decision-makers at EU level, in local government and in business, who need statistics to make decisions. Moreover, the public and media need statistics to get a clear picture of the society and to evaluate the performance of governments or politicians. The statistical data published by Eurostat can be used by governments, businesses, education sectors and the public for their work or daily life. The statistical data can be used to answer many questions like; what is the employment rate of an EU country? How is a particular EU country’s economy performing comparing to other EU countries etc.</p>
 
                     <h3 id="original-data_cso-ireland">Central Statistics Office Ireland</h3>
-                    <p>The Central Statistics Office (<dfn><abbr title="Central Statistics Office">CSO</abbr>) is the official Irish agency responsible for collecting and disseminating statistics about Ireland. The main source of the statistical data for the CSO is the National Census that is scheduled to be held every five years. The data compiled by the CSO serve as a key input for decision-making in the Irish government and it informs its policies and programmes both at national and local levels.</p>
+                    <p>The Central Statistics Office (<dfn><abbr title="Central Statistics Office">CSO</abbr></dfn>) is the official Irish agency responsible for collecting and disseminating statistics about Ireland. The main source of the statistical data for the CSO is the National Census that is scheduled to be held every five years. The data compiled by the CSO serve as a key input for decision-making in the Irish government and it informs its policies and programmes both at national and local levels.</p>
 
                     <p>The original statistical data, which was a subject to conversion to RDF in a pilot experiment conducted during the summer of 2010 at the Linked Data Research Centre in DERI, was a result of the 2006 Irish Census. A subset of the bulk of the census data that was chosen for the experiment consisted of demographic data tracking small area population statistics (<dfn><abbr title="Small Area Population Statistics">SAPS</abbr></dfn>).</p>
 
@@ -169,9 +169,9 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="data-retrieval_eurostat">Eurostat</h4>
-                    <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<abbr title="Data Structure Definition">DSD</abbr>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and dictionaries each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and dictionaries separately.</p>
+                    <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and dictionaries each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and dictionaries separately.</p>
 
-                    <p>Eurostat allows to download individual datasets or the complete database using bulk download facility. A <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&file=table_of_contents.xml">table of contents</a> which contains a list of datasets are also available for download. We wrote an XML parser in Java which parses the table of contents to create a list of datasets available to download from Eurostat’s bulk download facility. For each dataset entry found in the table of contents, we downloaded the respective dataset in TSV format, metadata in XML format and code lists in TSV format from Eurostat’s bulk download facility. Later, we used our custom written Java programs to parse the datasets, metadata and dictionaries and transform them into RDF format. We have written different shell scripts which wraps each Java program and one main script which handles the whole process of data downloading and transformation by invoking other scripts.</p>
+                    <p>Eurostat allows to download individual datasets or the complete database using bulk download facility. A <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&#38;file=table_of_contents.xml">table of contents</a> which contains a list of datasets are also available for download. We wrote an XML parser in Java which parses the table of contents to create a list of datasets available to download from Eurostat’s bulk download facility. For each dataset entry found in the table of contents, we downloaded the respective dataset in TSV format, metadata in XML format and code lists in TSV format from Eurostat’s bulk download facility. Later, we used our custom written Java programs to parse the datasets, metadata and dictionaries and transform them into RDF format. We have written different shell scripts which wraps each Java program and one main script which handles the whole process of data downloading and transformation by invoking other scripts.</p>
 
                     <h4 id="data-retrieval_cso-ireland">CSO Ireland</h4>
                     <p>Data from the 2006 Irish Census were retrieved manually, downloading each slice of small area population statistics individually via the export to Excel files from the <a href="http://beyond2020.cso.ie/census/ReportFolders/ReportFolders.aspx">CSO's instance of the Beyond 20/20</a>. The data was paged to several files that had to be pieced together, saved as CSV files, and provided with a different character encoding.</p>
@@ -255,7 +255,7 @@ general and regional statistics, economy and finance, population and social cond
                     <h5 id="vocabularies_cso-ireland">CSO Ireland</h5>
                     <p>The 2006 Irish Census dataset was among the first datasets modelled with the Data Cube vocabulary. At the time of the data transformation the specification of the Data Cube vocabulary was still under development and subject to edits. The data model thus co-evolved with the changes made to the vocabulary’s specification.</p>
 
-<p><strong>A table for the vocabularies that are used in the use-cases.</strong></p>
+<p>TODO <strong>A table for the vocabularies that are used in the use-cases.</strong></p>
                     <h4 id="uri-patterns">URI patterns</h4>
                     <p>TODO</p>
 
@@ -286,7 +286,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h5 id="uri-patterns_eurostat">Eurostat</h5>
-                    <p>The base URI we used for Eurostat is <code>http://eurostat.linked-statistics.org/</code>. In Eurostat, we deal with data sets, their corresponding metadata and the dictionaries. We kept same file name for the metadata and the actual dataset containing observation values as they appear in original data and distinguish them by using <code>dsd</code> <code>data</code> in our URI patterns. Further, the dictionaries which are shared among all data sets are provided by using <code>dic</code> in our URI patterns.</p> hence we used the following URI patterns:</p>
+                    <p>The base URI we used for Eurostat is <code>http://eurostat.linked-statistics.org/</code>. In Eurostat, we deal with data sets, their corresponding metadata and the dictionaries. We kept same file name for the metadata and the actual dataset containing observation values as they appear in original data and distinguish them by using <code>dsd</code> <code>data</code> in our URI patterns. Further, the dictionaries which are shared among all data sets are provided by using <code>dic</code> in our URI patterns. The following URI patterns are used:</p>
 
                     <p id="uri-patterns_eurostat_properties"><em>Metadata</em>: (DSDs) have the pattern <code>http://eurostat.linked-statistics.org/dsd/{id}</code>, where id is one of the dataset files.</p>
                     <p id="uri-patterns_eurostat_properties"><em>Datasets</em>: are within <code>http://eurostat.linked-statistics.org/data/{id}, where id is the filename for the dataset with observation data.</code></p>
@@ -513,10 +513,8 @@ Highlight some of the interesting questions that came up along the way
                     <h3 id="sparql-endpoint">SPARQL Endpoint</h3>
                     <p>TODO</p>
                     <h4 id="sparql-endpoint_world-bank">World Bank</h4>
-                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line.
+                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
 
-
-A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
                     <h4 id="sparql-endpoint_eurostat">Eurostat</h4>
                     <p>Same setup as World Bank with its own <a href="http://eurostat.linked-statistics.org/sparql">SPARQL endpoint</a>. This endpoint includes only the schema and excludes the data (~533GB RDF/XML) due to the limitation of the available resources and performance reasons.</p>
                     <h4 id="sparql-endpoint_cso-ireland">CSO Ireland</h4>
@@ -555,39 +553,6 @@ A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is avai
                     <p>The code which transforms the source data to RDF serializations can be found at GitHub: <a href="http://github.com/data-gov-ie/cso2rdf">cso2rdf</a>.</p>
 
 
-
-
-<!--
-XXX: If it makes sense, we might *briefly* talk about applications or "interesting" queries e.g., https://docs.google.com/spreadsheet/ccc?key=0AnqqglUUJZt8dF9kdC1OeS10aTg2bWhoME10VmZlZXc
-
-
-                    <h2 id="application">Application</h2>
-                    <p>The application for the the WBLD is viewed in the form of chart visualizations. A custom API is built to pull the necessary data out of the application. The parameters for the API are:
-                    <ul>
-                        <li><code>indicator</code>, which accepts a single indicator code (<code>skos:notation</code> of the indicator URI)</li>
-                        <li><code>country</code>, which accepts multiple country codes (<code>skos:notation</code> of the country URI)</li>
-                        <li><code>year</code>, which accepts a year in YYYY format</li>
-                    </ul>
-
-                    <p>The <code>indicator</code> parameter is a required as one of the dimensions in the observation needs to be known. The other required dimension is either <code>country</code> or <code>year</code>.</p>
-
-                    <p>Two API calls are made due to modular design approach; the first call is made to get the metadata about the indicator, whereas the second call is made to collect either all of the observations for the countries with that indicator, or all of the observations for a given reference period with that indicator. The response data from the API is requested in JSON format in order to pass it on to JavaScript library which handles the visualizations.</p>
-
-                    <h3 id="chart-visualization">Chart visualizations</h3>
-                    <p>The <a href="http://worldbank.270a.info/view">Tools</a> section on the site uses <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> to create the visualizations.</p>
-
-                    <h4 id="visualization_world-development-indicators">Visualizing World Development Indicators</h4>
-                    <p>Depending on the user selections, and the corresponding API call, two possible charts are generated:</p>
-
-                    <h5 id="visualization_world-development-indicators_motion-chart">Motion chart</h5>
-                    <p>It consists of three different views; a bubble chart, bar chart, and line chart. This chart is intended for observation values in countries, over a time period for an indicator. Unique colours are assigned to each country to easily visually separate them from one another. The reference period runs on the x-axis, whereas the measured values run on the y-axis.</p>
-
-                    <h5 id="visualization_world-development-indicators_geo-chart">Geo chart</h5>
-                    <p>It consists of a world map view where countries are separated by their official borders. This chart is used to view observation values for a time period for all the countries in the world. The legend consists in the form of a colour spectrum from lowest to highest measured values. The corresponding colours are assigned to each country on the map.</p>
--->
-
-
-
                     <h2 id="related-work">Related work</h2>
                     <p>TODO. Not sure whether to keep this as a high level wrap-up of publishing statistical linked data, or to go through related work for each use-case, or both.</p>
 
@@ -606,7 +571,7 @@ XXX: If it makes sense, we might *briefly* talk about applications or "interesti
                         <p>TODO</p>
                         <ol about="[this:]">
                             <li id="r_1">Franklin, M., Halevy, A., Maier, D.: <em>From databases to dataspaces: a new abstraction for information management</em>, SIGMOD Record 34(4), 27–33 (2005), <a rel="dcterms:references" href="http://dl.acm.org/citation.cfm?id=1107502">http://dl.acm.org/citation.cfm?id=1107502</a></li>
-                            <li id="r_2">Ngonga Ngomo, A.-C.: <em>A Time-Efficient Hybrid Approach to Link Discovery</em>, The Sixth International Workshop on Ontology Matching, ISWC (2011), <a rel="dcterms:references" href="http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf">http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf</a>
+                            <li id="r_2">Ngonga Ngomo, A.-C.: <em>A Time-Efficient Hybrid Approach to Link Discovery</em>, The Sixth International Workshop on Ontology Matching, ISWC (2011), <a rel="dcterms:references" href="http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf">http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf</a></li>
     <!--
 http://beyond2020.cso.ie/census/
 
