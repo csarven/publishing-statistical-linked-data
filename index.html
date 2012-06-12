@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -39,12 +40,25 @@
                 <div id="authors">
                     <dl>
                         <dt>Authors</dt>
-                        <dd class="entry-author">
-                            <p><a rel="dcterms:creator" href="http://csarven.ca/#i" class="author_name">Sarven Capadisli</a></p>
-                            <p><a about="http://csarven.ca/#i" rel="org:memberOf" href="http://deri.ie/" class="author_org">Digital Enterprise Research Institute</a>, <a class="author_org" href="http://nuigalway.ie/">National University of Ireland, Galway</a></p>
-                            <p><a about="http://csarven.ca/#i" rel="foaf:mbox" href="mailto:info&#64;csarven&#46;ca" class="author_email">info@csarven.ca</a></p>
-                        </dd>
+                        <dd class="entry-author"><a about="[this:]" rel="dcterms:creator dcterms:publisher dcterms:contributor" href="http://csarven.ca/#i">Sarven Capadisli</a><sup><a href="#author_email_1">1</a></sup> <sup><a href="#author_org_a">a</a><sup></dd>
+                        <dd class="entry-author"><a about="[this:]" rel="dcterms:contributor" href="http://sw-app.org/about.html#i">Michael Hausenblas</a><sup><a href="#author_email_2">2</a></sup> <sup><a href="#author_org_a">a</a><sup></dd>
+                        <dd class="entry-author"><a about="[this:]" rel="dcterms:contributor" href="http://richard.cyganiak.de/#me">Richard Cyganiak</a><sup><a href="#author_email_3">3</a></sup> <sup><a href="#author_org_a">a</a><sup></dd>
+                        <dd class="entry-author"><a about="[this:]" rel="dcterms:contributor" href="">Aftab Iqbal</a><sup><a href="#author_email_4">4</a></sup> <sup><a href="#author_org_a">a</a><sup></dd>
+                        <dd class="entry-author"><a about="[this:]" rel="dcterms:contributor" href="">Jindrich Mynarz</a><sup><a href="#author_email_5">5</a></sup> <sup><a href="#author_org_b">b</a><sup></dd>
                     </dl>
+
+                    <ul id="author_emails">
+                        <li id="author_email_1"><sup>1</sup><a about="http://csarven.ca/#i" rel="foaf:mbox" href="mailto:info@csarven.ca" class="author_email">info@csarven.ca</a></li>
+                        <li id="author_email_2"><sup>2</sup><a about="http://sw-app.org/about.html#i" rel="foaf:mbox" href="mailto:michael.hausenblas@deri.org">michael.hausenblas@deri.org</a></li>
+                        <li id="author_email_3"><sup>3</sup><a about="http://richard.cyganiak.de/#me" rel="foaf:mbox" href="mailto:richard.cyganiak@deri.org">richard.cyganiak@deri.org</a></li>
+                        <li id="author_email_4"><sup>4</sup><a about="" rel="foaf:mbox" href="mailto:aftab.iqbal@deri.org">aftab.iqbal@deri.org</a></li>
+                        <li id="author_email_5"><sup>5</sup><a about="" rel="foaf:mbox" href="mailto:mynarzjindrich@gmail.com">Jindřich Mynarz</a></li>
+                    </ul>
+
+                    <ul id="author_orgs">
+                        <li id="author_org_1"><sup>a</sup><a about="http://csarven.ca/#i" rel="org:memberOf" href="http://deri.ie/">Digital Enterprise Research Institute</a>, <a href="http://nuigalway.ie/">NUI, Galway</a>, Ireland</li>
+                        <li id="author_org_2"><sup>b</sup><a about="" rel="org:memberOf" href="http://vse.cz/">University of Economics, Prague</a>, Czech Republic</li>
+                    </ul>
                 </div>
 
                 <div id="abstract" class="entry-summary">
@@ -161,12 +175,7 @@ general and regional statistics, economy and finance, population and social cond
                         </tbody>
                     </table>
 
-                    <p>The data is retrieved at irregular periods - at least once a month - from the World Bank API endpoints. The retrieval act is partly based on new dataset announcements in World Bank mailing lists. Although the data retrieval and transformation phases are conducted by independent scripts, the commitment to retrieve and store the data is based on achieving the quality of the eventual RDF serialization. Therefore, Java and Bash scripts are manually executed to retrieve, in order to:</p>
-                    <ul>
-                        <li>closely monitor abnormalities in the responses and;</li>
-                        <li>account for necessary changes in the data transformations</li>
-                    </ul>
-
+                    <p>The data is retrieved at irregular periods - at least once a month - from the World Bank API endpoints. The retrieval act is partly based on new dataset announcements in World Bank mailing lists. Although the data retrieval and transformation phases are conducted by independent scripts, the commitment to retrieve and store the data is based on achieving the quality of the eventual RDF serialization. Therefore, Java and Bash scripts are manually executed to retrieve, in order to closely monitor abnormalities in the responses and account for necessary changes in the transformations.</p>
 
                     <h4 id="data-retrieval_eurostat">Eurostat</h4>
                     <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and dictionaries each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and dictionaries separately.</p>
@@ -366,16 +375,28 @@ general and regional statistics, economy and finance, population and social cond
                     <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-interlinking_world-bank">World Bank</h5>
-                    <p>The dataset is interlinked (~380 links) with <a href="http://dbpedia.org/">DBpedia</a> for countries and currencies, and (~216 links) with <a href="http://eurostat.linked-statistics.org/">Eurostat</a> for countries using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, and curating the final results. With respect to some of the concepts for code lists, they were manually matched with corresponding <code>skos:exactMatch</code> or <code>skos:closeMatch</code> links to DBpedia.</p>
+                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s.</p>
 
-                    <p>Additional interlinking was done by adding links to resources with corresponding <code>foaf:page</code>s on the World Bank site, as well as links to referenced documents.</p>
+                    <table id="data-interlinking_world-bank_table">
+                        <caption>Table [] Interlinks in World Bank</caption>
+                        <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
+                        <tbody>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>216</td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>sdmx:Currency</code></td><td><code>owl:sameAs</code></td><td>164</td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:exactMatch</code></td><td></td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:closeMatch</code></td><td></td></tr>
+                            <tr><td><a href="http://eurostat.linked-statistics.org/">Eurostat</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>216</td></tr>
+                            <tr><td><a href="http://worldbank.org/">World Bank</a></td><td><code>foaf:Document</code></td><td><code>foaf:page</code></td><td></td></tr>
+                        </tbody>
+                    </table>
+
 
                     <h5 id="data-interlinking_eurostat">Eurostat</h5>
-                    <p>We used Silk Framework to publish some initial link sets. Table [<a href="#data-interlinking_eurostat_table">0</a>] gives an overview of the targeted data sets, types and the published link counts.</p>
+                    <p>The Silk Framework is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table"></a>] gives an overview of the targeted data sets, types and the published link counts.</p>
 
                     <table id="data-interlinking_eurostat_table">
                         <caption>Table [] Interlinks in Eurostat</caption>
-                        <thead><tr><th>Target data</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
+                        <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
                         <tbody>
                             <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td>country</td><td><code>owl:sameAs</code></td><td>1899</td></tr>
                             <tr><td><a href="http://linkedgeodata.org/">LinkedGeoData</a></td><td>country</td><td><code>owl:sameAs</code></td><td>1876</td></tr>
@@ -482,11 +503,11 @@ general and regional statistics, economy and finance, population and social cond
                     <h4>Human user-interface</h4>
                     <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="user-interface_world-bank">World Bank</h5>
-                    <p>The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
+                    <p>The website is located at <code><a href="http://worldbank.270a.info/">http://worldbank.270a.info/</a></code>. The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
                     <h5 id="user-interface_eurostat">Eurostat</h5>
                     <p>TODO --------------------------  <strong>Aftab</strong></p>
                     <h5 id="user-interface_cso-ireland">CSO Ireland</h5>
-                    <p>The publication of approach of the 2006 Irish Census Linked Data is same as World Bank's using Linked Data Pages. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
+                    <p>The website is located at <code><a href="http://data-gov.ie/">http://data-gov.ie/</a></code>. The publication of approach of the 2006 Irish Census Linked Data is same as World Bank's using Linked Data Pages. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
 
 
                     <h4 id="sparql-endpoint">SPARQL Endpoint</h4>
