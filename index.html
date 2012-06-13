@@ -51,7 +51,7 @@
                         <li id="author_email_2"><sup>2</sup><a about="http://sw-app.org/mic.xhtml#i" rel="foaf:mbox" href="mailto:michael.hausenblas@deri.org">michael.hausenblas@deri.org</a></li>
                         <li id="author_email_3"><sup>3</sup><a about="http://richard.cyganiak.de/#me" rel="foaf:mbox" href="mailto:richard.cyganiak@deri.org">richard.cyganiak@deri.org</a></li>
                         <li id="author_email_4"><sup>4</sup><a about="http://www.deri.ie/about/team/member/Aftab_Iqbal#me" rel="foaf:mbox" href="mailto:aftab.iqbal@deri.org">aftab.iqbal@deri.org</a></li>
-                        <li id="author_email_5"><sup>5</sup><a about="http://keg.vse.cz/resource/person/jindrich-mynarz" rel="foaf:mbox" href="mailto:mynarzjindrich@gmail.com">Jindřich Mynarz</a></li>
+                        <li id="author_email_5"><sup>5</sup><a about="http://keg.vse.cz/resource/person/jindrich-mynarz" rel="foaf:mbox" href="mailto:mynarzjindrich@gmail.com">mynarzjindrich@gmail.com</a></li>
                     </ul>
 
                     <ul id="author_orgs">
@@ -62,7 +62,7 @@
 
                 <div id="abstract" class="entry-summary">
                     <h2>Abstract</h2>
-                    <p property="dcterms:abstract" datatype="">TODO</p>
+                    <p property="dcterms:abstract" datatype="">TODO --------------------------  <strong>Michael</strong></p>
                 </div>
 
                 <div property="dcterms:description" id="content" class="entry-content">
@@ -139,7 +139,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h4 id="arhitecture_cso-ireland">CSO Ireland</h4>
                     <figure id="figure_architecture_cso-ireland">
-                        <figcaption><strong>Figure 1</strong>. CSO deployment architecture</figcaption>
+                        <figcaption><strong>Figure 1</strong>. CSO Ireland deployment architecture</figcaption>
                     </figure>
 
                     <h4 id="arhitecture_eurostat">Eurostat</h4>
@@ -292,9 +292,9 @@ general and regional statistics, economy and finance, population and social cond
                     <h5 id="uri-patterns_eurostat">Eurostat</h5>
                     <p>The base URI we used for Eurostat is <code>http://eurostat.linked-statistics.org/</code>. In Eurostat, we deal with data sets, their corresponding metadata and the dictionaries. We kept same file name for the metadata and the actual dataset containing observation values as they appear in original data and distinguish them by using <code>dsd</code> <code>data</code> in our URI patterns. Further, the dictionaries which are shared among all data sets are provided by using <code>dic</code> in our URI patterns. The following URI patterns are used:</p>
 
-                    <p id="uri-patterns_eurostat_properties"><em>Metadata</em>: (DSDs) have the pattern <code>http://eurostat.linked-statistics.org/dsd/{id}</code>, where id is one of the dataset files.</p>
-                    <p id="uri-patterns_eurostat_properties"><em>Datasets</em>: are within <code>http://eurostat.linked-statistics.org/data/{id}, where id is the filename for the dataset with observation data.</code></p>
-                    <p id="uri-patterns_eurostat_properties"><em>Code lists</em>: use the pattern <code>http://eurostat.linked-statistics.org/dic/{id}</code>, where id is the dictionary filename.</p>
+                    <p id="uri-patterns_eurostat_metadata"><em>Metadata</em>: (DSDs) have the pattern <code>http://eurostat.linked-statistics.org/dsd/{id}</code>, where id is one of the dataset files.</p>
+                    <p id="uri-patterns_eurostat_datasets"><em>Datasets</em>: are within <code>http://eurostat.linked-statistics.org/data/{id}</code>, where id is the filename for the dataset with observation data.</p>
+                    <p id="uri-patterns_eurostat_code-lists"><em>Code lists</em>: use the pattern <code>http://eurostat.linked-statistics.org/dic/{id}</code>, where id is the dictionary filename.</p>
 
                     <h5 id="uri-patterns_world-bank">World Bank</h5>
                     <p>Given the statistical nature of the majority of the World Bank data, URI spaces are created for concepts, properties, observations, and datasets. New URIs for classifications and properties were created because majority of the properties and concepts did not already exist in the wild, and in cases where they did, they did not fully correspond with the World Bank's. For instance, the country codes in the World Bank data are not only composed of concepts of countries, but also other geopolitical areas and income levels. While these concepts are distinguishable from one another given additional patterns in the source data, they still belonged to the same code list. As a widely recommended practice in the Linked Data community, these World Bank resources were interlinked and mapped to external resources.</p>
