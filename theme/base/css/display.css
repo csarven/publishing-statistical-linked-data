@@ -187,12 +187,24 @@ content:"";
 content: "";
 }
 
+#abstract h2:after,
+#document-identifier h2:after,
+#categories-and-subject-descriptors h2:after,
+#keywords h2:after {
+content: ":";
+}
+
+
 #abstract h2:after {
 content: ".";
 }
 
 #abstract h2,
-#abstract h2 + p {
+#abstract h2 + p,
+#document-identifier h2,
+#document-identifier h2 + p,
+#keywords h2,
+#keywords h2 + ul {
 display:inline;
 }
 
