@@ -210,7 +210,7 @@ display:inline;
 
 
 table {
-
+width:100%;
 }
 
 th:last-child,
@@ -235,12 +235,11 @@ margin-bottom:0.5em;
 caption {
 text-align:left;
 font-size:12px;
+border-bottom:1px solid #000;
 }
-thead tr {
-border-bottom:0;
-}
-thead td {
-font-weight:bold;
+tbody {
+border-top:2px solid #000;
+border-bottom:2px solid #000;
 }
 
 th, td {
@@ -252,8 +251,7 @@ th {
 text-align:left;
 }
 tr {
-border-bottom-width:1px;
-border-bottom-style:solid;
+border-bottom:1px solid #000;
 }
 tr:last-child {
 border-bottom:0;
