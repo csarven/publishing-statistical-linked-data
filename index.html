@@ -381,10 +381,20 @@ general and regional statistics, economy and finance, population and social cond
                     <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-interlinking_cso-ireland">CSO Ireland</h5>
-                    <p>TODO --------------------------  <strong>Sarven</strong></p>
+                    <p>Interlinking was done manually. Table [<a href="#data-interlinking_cso-ireland_table"></a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <table id="data-interlinking_cso-ireland_table">
+                        <caption>Table [] Interlinks in CSO Ireland</caption>
+                        <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
+                        <tbody>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td>country</td><td><code>owl:sameAs</code></td><td>52</td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:ConceptScheme</code></td><td><code>skos:closeMatch</code></td><td>9</td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:exactMatch</code></td><td>5</td></tr>
+                            <tr><td><a href="http://sws.geonames.org/">Geonames</a></td><td><code>skos:Concept</code></td><td><code>skos:exactMatch</code></td><td>4</td></tr>
+                        </tbody>
+                    </table>
 
                     <h5 id="data-interlinking_eurostat">Eurostat</h5>
-                    <p>The Silk Framework is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table"></a>] gives an overview of the targeted data sets, types and the published link counts.</p>
+                    <p>The Silk Framework is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table"></a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
 
                     <table id="data-interlinking_eurostat_table">
                         <caption>Table [] Interlinks in Eurostat</caption>
@@ -396,7 +406,7 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_world-bank">World Bank</h5>
-                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s.</p>
+                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s. Table [<a href="#data-interlinking_world-bank_table"></a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
 
                     <table id="data-interlinking_world-bank_table">
                         <caption>Table [] Interlinks in World Bank</caption>
@@ -404,10 +414,10 @@ general and regional statistics, economy and finance, population and social cond
                         <tbody>
                             <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>216</td></tr>
                             <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>sdmx:Currency</code></td><td><code>owl:sameAs</code></td><td>164</td></tr>
-                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:exactMatch</code></td><td></td></tr>
-                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:closeMatch</code></td><td></td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:exactMatch</code></td><td>5</td></tr>
+                            <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>skos:Concept</code></td><td><code>skos:closeMatch</code></td><td>3</td></tr>
                             <tr><td><a href="http://eurostat.linked-statistics.org/">Eurostat</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>216</td></tr>
-                            <tr><td><a href="http://worldbank.org/">World Bank</a></td><td><code>foaf:Document</code></td><td><code>foaf:page</code></td><td></td></tr>
+                            <tr><td><a href="http://worldbank.org/">World Bank</a></td><td><code>foaf:Document</code></td><td><code>foaf:page</code></td>119526<td></td></tr>
                         </tbody>
                     </table>
 
@@ -417,6 +427,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h5 id="data-enrichment_cso-ireland">CSO Ireland</h5>
                     <p>TODO --------------------------  <strong>Sarven</strong></p>
+                    <p>World Geodetic System <dfn><abbr title="World Geodetic System">WGS</abbr></dfn> triples using <code>rdf:type</code> of <code>wgs:Point</code>, as well as latitude and longitude using <code>wgs:lat</code> and <code>wgs:long</code> was added to descriptions of Irish city resources in the dataset.</p>
 
                     <h5 id="data-enrichment_eurostat">Eurostat</h5>
                     <p>Eurostat provides data structure definition for each data set and the code lists are shared among all data sets hence, we did not find any inconsistencies while doing the RDF transformation and provided one to one mapping between data structure definition, data set observations and their associated code lists.</p>
@@ -487,7 +498,8 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h4 id="data-provenance">Data provenance</h4>
                     <p>TODO --------------------------  <strong>Michael</strong></p>
-                    <p>For 2006 Irish Census data, no provenance metadata was created during the process of conversion to RDF. TODO --------------------------  <strong>Sarven</strong> to add some provenance info for CSO from VoID</p>
+
+                    <p>The provenance metadata for 2006 Irish Census was not created during the process of conversion to RDF. Some of the properties were added to the VoID file at a later stage.</p>
 
                     <table id="data-provenance_table">
                         <caption>Table [] Provenance in CSO Ireland, Eurostat and World Bank Linked Datasets</caption>
@@ -495,11 +507,11 @@ general and regional statistics, economy and finance, population and social cond
                         <tbody>
                             <tr><th>Defining source</th><td></td><td></td><td><code>rdfs:isDefinedBy</code></td></tr>
                             <tr><th>License</th><td></td><td><code>rdfs:seeAlso</code></td><td><code>dcterms:license</code></td></tr>
-                            <tr><th>Source location</th><td></td><td><code>dcterms:source</code></td><td><code>dcterms:source</code></td></tr>
+                            <tr><th>Source location</th><td><code>dcterms:source</code></td><td><code>dcterms:source</code></td><td><code>dcterms:source</code></td></tr>
                             <tr><th>Related resource</th><td></td><td></td><td><code>dcterms:hasPart</code>, <code>dcterms:isPartOf</code></td></tr>
-                            <tr><th>Creator of the data</th><td></td><td><code>foaf:maker</code></td><td><code>dcterms:creator</code></td></tr>
+                            <tr><th>Creator of the data</th><td><code>dcterms:creator</code></td><td><code>foaf:maker</code></td><td><code>dcterms:creator</code></td></tr>
                             <tr><th>Publisher of the data</th><td></td><td><code>dcterms:publisher</code></td><td><code>dcterms:publisher</code></td></tr>
-                            <tr><th>Creation date</th><td></td><td><code>dcterms:created</code></td><td><code>dcterms:created</code></td></tr>
+                            <tr><th>Creation date</th><td><code>dcterms:created</code></td><td><code>dcterms:created</code></td><td><code>dcterms:created</code></td></tr>
                             <tr><th>Issued date</th><td></td><td></td><td><code>dcterms:issued</code></td></tr>
                             <tr><th>Modified date</th><td></td><td><code>dcterms:modified</code></td><td><code>dcterms:modified</code></td></tr>
                         </tbody>
