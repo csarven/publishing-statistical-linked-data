@@ -494,33 +494,24 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h4 id="data-provenance">Data provenance</h4>
                     <p>TODO --------------------------  <strong>Michael</strong></p>
-                    <h5 id="data-provenance_world-bank">World Bank</h5>
-                    <p>As part of data enrichment, triples pertaining provenance was added in order to partially provide metadata for resources like code lists and datasets. They particularly address the following information:</p>
-                    <ul>
-                        <li><em>Defining source</em> using <code>rdfs:isDefinedBy</code></li>
-                        <li><em>License</em> using <code>dcterms:license</code></li>
-                        <li><em>Source location</em> using <code>dcterms:source</code></li>
-                        <li><em>Related resource</em> using <code>dcterms:hasPart</code> and <code>dcterms:isPartOf</code></li>
-                        <li><em>Creator of the data</em> using <code>dcterms:creator</code></li>
-                        <li><em>Publisher of the data</em> using <code>dcterms:publisher</code></li>
-                        <li><em>Creation date</em> using <code>dcterms:created</code></li>
-                        <li><em>Issued date</em> using <code>dcterms:issued</code></li>
-                        <li><em>Modified date</em> using <code>dcterms:modified</code></li>
-                    </ul>
-                    <h5 id="data-provenance_eurostat">Eurostat</h5>
-                    <p>TODO --------------------------  <strong>Aftab</strong></p>
-                    <ul>
-                        <li><em>License</em> using <code>rdfs:seeAlso</code></li>
-                        <li><em>Source location</em> using <code>dcterms:source</code></li>
-                        <li><em>Creator of the data</em> using <code>foaf:maker</code></li>
-                        <li><em>Publisher of the data</em> using <code>dcterms:publisher</code></li>
-                        <li><em>Creation date</em> using <code>dcterms:created</code></li>
-                        <li><em>Modified date</em> using <code>dcterms:modified</code></li>
-                    </ul>
+                    <p>No provenance metadata was created during the process of conversion to RDF. TODO --------------------------  <strong>Sarven</strong> to add some provenance info for CSO from VoID</p>
 
-                    <h5 id="data-provenance_cso-ireland">CSO Ireland</h5>
-                    <p>TODO --------------------------  <strong>Sarven</strong></p>
-                    <p>No provenance metadata was created during the process of conversion to RDF.</p>
+                    <table id="data-provenance_table">
+                        <caption>Table [] Provenance in CSO Ireland, Eurostat and World Bank Linked Datasets</caption>
+                        <thead><tr><th>Link type</th><th>CSO Ireland</th><th>Eurostat</th><th>World Bank</th></tr></thead>
+                        <tbody>
+                            <tr><th>Defining source</th><td></td><td></td><td><code>rdfs:isDefinedBy</code></td></tr>
+                            <tr><th>License</th><td></td><td><code>rdfs:seeAlso</code></td><td><code>dcterms:license</code></td></tr>
+                            <tr><th>Source location</th><td></td><td><code>dcterms:source</code></td><td><code>dcterms:source</code></td></tr>
+                            <tr><th>Related resource</th><td></td><td></td><td><code>dcterms:hasPart</code>, <code>dcterms:isPartOf</code></td></tr>
+                            <tr><th>Creator of the data</th><td></td><td><code>foaf:maker</code></td><td><code>dcterms:creator</code></td></tr>
+                            <tr><th>Publisher of the data</th><td></td><td><code>dcterms:publisher</code></td><td><code>dcterms:publisher</code></td></tr>
+                            <tr><th>Creation date</th><td></td><td><code>dcterms:created</code></td><td><code>dcterms:created</code></td></tr>
+                            <tr><th>Issued date</th><td></td><td></td><td><code>dcterms:issued</code></td></tr>
+                            <tr><th>Modified date</th><td></td><td><code>dcterms:modified</code></td><td><code>dcterms:modified</code></td></tr>
+                        </tbody>
+                    </table>
+
 
 
                     <h4 id="void">VoID</h4>
