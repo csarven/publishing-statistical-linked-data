@@ -325,7 +325,12 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h5 id="data-structure-definition_eurostat">Eurostat</h5>
-                    <p>TODO --------------------------  <strong>Aftab</strong></p>
+                    <p>Eurostat publishes data structure definition of each dataset separately. Eurostat data structure definition consists of <em>concepts</em>, <em>code lists</em> and <em>components</em>. The <em>component</em> wraps all of the <em>concepts</em> and their associated <em>code lists</em> defined in a particular data structure definition. We defined all concepts as <code>skos:Concept</code> in our modeling approach. Further, all the code lists were defined as <code>skos:ConceptScheme</code>.</p>
+
+                    <p>Eurostat publishes their own code lists as well as re use SDMX code lists. For example, Eurostat uses their own/custom code list to represent different indicators but reuse Frequency code lists from <a href="http://sdmx.org/wp-content/uploads/2009/01/02_sdmx_cog_annex_2_cl_2009.pdf">SDMX content-oriented guidelines</a>.</p>
+
+                    <p>For a concrete example, please have a look at the Powdered Dairy Products# dataset’s meta-data. We didn’t translate code lists whose <code>agencyID</code> is SDMX because RDF Data Cube vocabulary provides implementation of all code lists published by SDMX. Further, concepts like time_period and obs_value were mapped directly to </code>dcterms:date<code> and <code>sdmx-measure:obsValue</code>.</p>
+
 
                     <h5 id="data-structure-definition_cso-ireland">CSO Ireland</h5>
                     <p>In most cases, the data structure of the 2006 Irish Census data in RDF follows the structure of the source data, even though the transposition of the modelling patterns from the original data to its RDF version was not optimal from the perspective of modelling data in the Data Cube vocabulary.</p>
