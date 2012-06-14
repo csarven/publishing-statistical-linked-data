@@ -20,6 +20,10 @@ widows: 0;
 margin:47mm 0;
 }
 
+a {
+text-decoration:none;
+color:#000;
+}
 
 #references {
 page-break-before: always;
