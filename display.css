@@ -102,8 +102,11 @@ content: ".";
 h4 + p,
 h5 + p {
 display:inline;
-text-align:justify;
-/*word-break:break-all;This is a bit hacky.. it appears to work in webkit and maybe it shouldn't */
+/*text-align:justify;*/
+
+/*This is a bit hacky.. it appears to work in webkit and maybe it shouldn't */
+/*word-break:break-all;*/
+
 /*
 text-justify:distribute;
 word-break:break-all;
