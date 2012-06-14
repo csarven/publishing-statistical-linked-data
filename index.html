@@ -268,6 +268,12 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p>There exists <code>-</code>'s for observations values in the datasets. An assumption was made to change the value to <code>0</code>. Observations with values <code>:</code> which indicated no value were left out during the transformation to RDF.</p>
 
+                    <p><code>dcterms:date</code> properties was used for time periods in Eurostat. We have encountered various time period formats among different data sets. We converted them into appropriate date literals while doing RDF transformation which as described below:</p>
+                    <p>YYYY-MM-DD date format was used where we encountered reference periods like: YearMmonthDday, YearQ1, YearM3, YearS2, Year.</p>
+                    <p>YYYY-MM-DD date format was used where we encountered reference periods like: year1_yearx. We do not have time format information available in the data set which makes it hard to tell if the observation values are for 1 or x number of years. So we converted such time period values into year1-01-01.</p>
+
+                    <p>Certain observation values represent time period values as Long Term Annual Average (<dfn><abbr title="Long Term Annual Average">LTAA</abbr></dfn>). We did not know how to deal with LTAA in RDF and Eurostat does not provide any information about it in the metadata of that particular dataset. Hence, we wrote a small Turtle file which contains the definition of LTAA. Time periods mentioning LTAA in original dataset for any particular observation value were represented in RDF using the URI of Turtle file as: <code>&lt;http://eurostat.linked-statistics.org/data/{dataset}#observation&gt; sdmx:timePeriod &lt;http://eurostat.linked-statistics.org/misc&gt;</code>.</p>
+
                     <h4 id="data-preprocessing_world-bank">World Bank</h4>
                     <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually updated, and others were brought up to the World Bank team's attention for investigation.</p>
 
@@ -332,6 +338,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p id="uri-patterns_eurostat_metadata"><em>Metadata</em>: (DSDs) have the pattern <code>http://eurostat.linked-statistics.org/dsd/{id}</code>, where id is one of the dataset files.</p>
                     <p id="uri-patterns_eurostat_datasets"><em>Datasets</em>: are within <code>http://eurostat.linked-statistics.org/data/{id}</code>, where id is the filename for the dataset with observation data.</p>
                     <p id="uri-patterns_eurostat_code-lists"><em>Code lists</em>: use the pattern <code>http://eurostat.linked-statistics.org/dic/{id}</code>, where id is the dictionary filename.</p>
+                    <p id="uri-patterns_eurostat_observations"><em>Observations</em>: use the pattern <code>http://eurostat.linked-statistics.org/data/{dataset}#{dimension1},{dimension2},{dimensionN}</code>, where the order of dimension values in the URI space depends on the order of dimension values present in the data set.</p>
 
                     <h5 id="uri-patterns_world-bank">World Bank</h5>
                     <p>Given the statistical nature of the majority of the World Bank data, URI spaces are created for concepts, properties, observations, and datasets. New URIs for classifications and properties were created because majority of the properties and concepts did not already exist in the wild, and in cases where they did, they did not fully correspond with the World Bank's. For instance, the country codes in the World Bank data are not only composed of concepts of countries, but also other geopolitical areas and income levels. While these concepts are distinguishable from one another given additional patterns in the source data, they still belonged to the same code list. As a widely recommended practice in the Linked Data community, these World Bank resources were interlinked and mapped to external resources.</p>
