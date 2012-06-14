@@ -86,8 +86,7 @@ h2 + p,
 h3 + p {
 text-indent:0;
 }
-h1 + p,
-h2 + p {
+h1 + p {
 margin-bottom:1em;
 }
 
