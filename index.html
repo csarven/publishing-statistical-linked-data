@@ -87,41 +87,40 @@
 
 
                     <h2 id="introduction">Introduction</h2>
-                    <p>In the past couple of years we have witnessed an increasing number of efforts to publish structured data on the Web following the Linked Data principles. The <a href="http://lod-cloud.net/">LOD cloud</a> currently consist of over 300 datasets providing more than 30 billion individual facts, and are interlinked by more than 500 million RDF links ranging from media data sources to government data sources. While some of the best practices concerning the publishing process can be considered to be domain-agnostic it is important to highlight domain-specific challenges and share the lessons learned for particular sorts of data. In our case, we have been focusing our publishing efforts in the past three years on official statistics data. The main contribution of this paper is hence the documentation of the experiences we have gathered in this realm.
-	 </p>
-	<p>Official statistics are the empirical evidence needed for policy making and economic research. Statistics offices are also among the most data-savvy organisations in government and often have a strong history of publishing data in electronic form. The fitness of different dissemination formats for re-usable statistical data can be understood along the <a href="http://5stardata.info/">5-star plan for Open Data</a> by Tim Berners-Lee. The [<a href="#5starplan_table">0</a>] below lists respective examples for statistical data and formats.
-		</p>
-        <table id="5starplan_table">
-            <caption><strong>Table 0.</strong> 5-star plan for statistical Open Data.</caption>
-            <thead><tr><th>Rating</th><th>Meaning</th><th>Example</th></tr></thead>
-            <tbody>
-                <tr>
-                    <td>&#x2605;</td>
-                    <td>on the Web, under an open licence</td>
-                    <td>PDF document containing tables</td>
-                </tr>
-                <tr>
-                    <td>&#x2605; &#x2605;</td>
-                    <td>as above, but in structured format</td>
-                    <td>Excel sheet</td>
-                </tr>
-                <tr>
-                    <td>&#x2605; &#x2605; &#x2605;</td>
-                    <td>as above, but in non-proprietary format</td>
-                    <td>CSV</td>
-                </tr>
-                <tr>
-                    <td>&#x2605; &#x2605; &#x2605;</td>
-                    <td>as above, and observations, etc. have URIs</td>
-                    <td>RDF/XML</td>
-                </tr>
-                <tr>
-                    <td>&#x2605; &#x2605; &#x2605; &#x2605;</td>
-                    <td>as above, and links to other datasets for context</td>
-                    <td>RDF/XML with out-bound links</td>
-                </tr>
-            </tbody>
-        </table>
+                    <p>In the past couple of years we have witnessed an increasing number of efforts to publish structured data on the Web following the Linked Data principles. The <a href="http://lod-cloud.net/">LOD cloud</a> currently consist of over 300 datasets providing more than 30 billion individual facts, and are interlinked by more than 500 million RDF links ranging from media data sources to government data sources. While some of the best practices concerning the publishing process can be considered to be domain-agnostic it is important to highlight domain-specific challenges and share the lessons learned for particular sorts of data. In our case, we have been focusing our publishing efforts in the past three years on official statistics data. The main contribution of this paper is hence the documentation of the experiences we have gathered in this realm.</p>
+	                <p>Official statistics are the empirical evidence needed for policy making and economic research. Statistics offices are also among the most data-savvy organisations in government and often have a strong history of publishing data in electronic form. The fitness of different dissemination formats for re-usable statistical data can be understood along the <a href="http://5stardata.info/">5-star plan for Open Data</a> by Tim Berners-Lee. The [<a href="#5starplan_table">0</a>] below lists respective examples for statistical data and formats.</p>
+
+                    <table id="5starplan_table">
+                        <caption><strong>Table 0.</strong> 5-star plan for statistical Open Data.</caption>
+                        <thead><tr><th>Rating</th><th>Meaning</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr>
+                                <td>&#x2605;</td>
+                                <td>on the Web, under an open licence</td>
+                                <td>PDF document containing tables</td>
+                            </tr>
+                            <tr>
+                                <td>&#x2605; &#x2605;</td>
+                                <td>as above, but in structured format</td>
+                                <td>Excel sheet</td>
+                            </tr>
+                            <tr>
+                                <td>&#x2605; &#x2605; &#x2605;</td>
+                                <td>as above, but in non-proprietary format</td>
+                                <td>CSV</td>
+                            </tr>
+                            <tr>
+                                <td>&#x2605; &#x2605; &#x2605; &#x2605;</td>
+                                <td>as above, and observations, etc. have URIs</td>
+                                <td>RDF/XML</td>
+                            </tr>
+                            <tr>
+                                <td>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</td>
+                                <td>as above, and links to other datasets for context</td>
+                                <td>RDF/XML with out-bound links</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
                     <h2 id="linked-statistics">Linked Statistics</h2>
                     <p>With the rise of special-purpose, domain-specific formats such as PC-Axis or SDMX, re-using statistical data has become more straight-forward possible. However, with the complexity introduced by these formats, the barrier for consuming the data has raised as well. On the other hand, general-purpose formats such as Microsoft's Excel or CSV are very widely deployed and a number of tools and libraries in any kind of programming language one could possibly think of exist to process them. The down-side of these formats is equally obvious: as much of the high-quality annotations and metadata, that is, how to interpret the observations, is not or only partially captured, the data fidelity suffers. Even worse, using these formats, the data and metadata typically gets separated. With linked statistics, one can leverage the existing infrastructure as well as retaining metadata along with the data, yielding high data fidelity, consumable in a standardised, straight-forward way. However, the handling of statistical data as Linked Data requires particular attention in order to maintain its integrity and fidelity.</p>
