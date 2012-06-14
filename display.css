@@ -102,6 +102,7 @@ content: ".";
 h4 + p,
 h5 + p {
 display:inline;
+text-indent:0;
 /*text-align:justify;*/
 
 /*This is a bit hacky.. it appears to work in webkit and maybe it shouldn't */
