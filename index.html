@@ -413,7 +413,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p>The conversion scripts for the 2006 Irish Census data are available in a GitHub repository.[]</p>
 
                     <h4 id="data-conversion_eurostat">Eurostat</h4>
-                    <p>Various tools have been used in the publishing process: our custom-written Java program was first used to download and transform the Eurostat data sets, meta data and the codelists into RDF. Eurostat publishes more than 5200 data sets which when converted into RDF took more than 350 GB of disk space yielding ~8 billion triples altogether. Instead of hosting such a huge number of triples via an SPARQL endpoint, we generated a catalog file which contains a set of triples specifying the location of a particular dataset on the file system.</p>
+                    <p>Various tools have been used in the publishing process: our custom-written Java program was first used to download and transform the Eurostat data sets, meta data and the codelists into RDF. Eurostat publishes more than 5200 data sets which when converted into RDF took more than 537GB of disk space yielding ~8 billion triples altogether. Instead of hosting such a huge number of triples via an SPARQL endpoint, we generated a catalog file which contains a set of triples specifying the location of a particular dataset on the file system.</p>
 
                     <p>The updated data sets are reflected through <code>lastUpdate</code> date field associated to each dataset in the table of contents file. We have scheduled a cron job which runs every weekend and execute the following steps:</p>
 
@@ -521,9 +521,9 @@ general and regional statistics, economy and finance, population and social cond
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
                         <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
-                            <tr><th>Datasets</th><td>RDF/XML</td><td>350GB</td><td>8B</td><td></td></tr>
-                            <tr><th>DSDs</th><td>Turtle</td><td>347M</td><td>6M</td><td>N/A</td></tr>
-                            <tr><th>Code lists</th><td>RDF/XML</td><td>21M</td><td>0.3M</td><td>N/A</td></tr>
+                            <tr><th>Datasets</th><td>RDF/XML</td><td>537GB</td><td>8B</td><td>1B</td></tr>
+                            <tr><th>DSDs</th><td>Turtle</td><td>347MB</td><td>6M</td><td>N/A</td></tr>
+                            <tr><th>Code lists</th><td>RDF/XML</td><td>21MB</td><td>0.3M</td><td>N/A</td></tr>
                         </tbody>
                     </table>
 

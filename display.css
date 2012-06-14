@@ -5,16 +5,20 @@
  * @link      http://csarven.ca/
  */
 
-* { margin:0; padding:0; }
+* { margin:0; padding:0; background: transparent !important; color: #000 !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; }
 img { display:block; border:0; }
 a abbr { cursor: pointer; border-bottom:0; }
 table { border-collapse:collapse; }
 tr { vertical-align:top; }
 ol { list-style-position:inside; }
-h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table, thead, tbody, tfoot, tr {
-orphans: 0;
-widows: 0;
+h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table {
+orphans: 3;
+widows: 3;
 }
+
+thead { display: table-header-group; }
+tr, img { page-break-inside: avoid; }
+img { max-width: 100% !important; }
 
 @page {
 margin:47mm 0;
@@ -53,6 +57,7 @@ font-size:13px;
 
 h1,h2,h3,h4,h5,h6 {
 overflow:hidden;
+page-break-after: avoid;
 }
 h1 {
 font-size:19px;
