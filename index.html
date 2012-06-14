@@ -127,7 +127,7 @@
 
 					<p>Going beyond the operations of slicing, filtering and visualising statistical data typically requires out-of-band information to combine it with other kinds of data. Contextual information is usually not found in the statistical data itself. Using linked statistics, we are able to perform this data integration task in a more straight-forward way by leveraging the contextual information provided by the typed links between the data items of one data set to other data sets in the <a href="http://lod-cloud.net/" title="Linking Open Data">LOD cloud</a>.</p>
 
-					<p>Last but not least, linked statistics provide and in fact enable are queries across datasets: given the dimensions are linked, one can learn from a certain observation's dimension value, other provided dimension values, enabling the automation of cross-dataset queries, hence cutting down integration costs and delivering results quicker.</p>
+					<p>Last but not least, what linked statistics provide, and in fact enable, are queries across datasets: given the dimensions are linked, one can learn from a certain observation's dimension value, other provided dimension values, enabling the automation of cross-dataset queries, hence cutting down integration costs and delivering results quicker.</p>
 
 					<p>Organisations that are involved in publishing statistical Linked Data and establishing related methodologies and best practices include the <a href="http://data.gov.uk">UK Government</a> (data.gov.uk), the National Institute of Statistics and Economic Studies (<dfn><abbr title="National Institute of Statistics and Economic Studies">INSEE</abbr></dfn>, France), the U.S. Bureau of Labour Statistics (<dfn><abbr title="Bureau of Labour Statistics">BLS</abbr></dfn>), and the European Environment Agency (<dfn><abbr title="European Environment Agency">EEA</abbr></dfn>). Statistics from many other sources are currently published not by the original statistics producer, but by third parties (universities, web technology companies etc): U.S. Census 2000, Spanish Census, including historical microdata, EU election results, International Monetary Fund (<dfn><abbr title="International Monetary Fund">IMF</abbr></dfn>) commodity prices to name a few as well as the data from Central Statistics Office Ireland, Eurostat, and World Bank, which we will focus on in this paper.</p>
 
@@ -140,7 +140,7 @@
                     <p>The original statistical data, which was a subject to conversion to RDF in a pilot experiment conducted during the summer of 2010 at the Linked Data Research Centre in DERI, was a result of the 2006 Irish Census. A subset of the bulk of the census data that was chosen for the experiment consisted of demographic data tracking small area population statistics (<dfn><abbr title="Small Area Population Statistics">SAPS</abbr></dfn>).</p>
 
                     <h3 id="original-data_eurostat">Eurostat</h3>
-                    <p>Eurostat is the statistical office of European Union with the aim to provide European Union statistical information in a way that can be comparable at European level. Statistical data collection is done by statistical authorities of each Member States. They verify and analyse the data before sending it to Eurostat. Eurostat's role is to consolidate the statistical data they receive from each Member States and ensure that they are comparable. Eurostat is actually only provides harmonized statistical data using common statistical language.</p> 
+                    <p>Eurostat is the statistical office of European Union with the aim to provide European Union statistical information in a way that can be comparable at European level. Statistical data collection is done by statistical authorities of each Member States. They verify and analyse the data before sending it to Eurostat. Eurostat's role is to consolidate the statistical data they receive from each Member States and ensure that they are comparable. Eurostat actually only provides harmonized statistical data using common statistical language.</p> 
 
                     <h3 id="original-data_world-bank">World Bank</h3>
                     <p>The World Bank is an international development organization that provides access to a comprehensive set of data about countries around the globe. The publicly available statistical data is collected from officially-recognized international sources, and consists of a wide array of observations on development indicators, financial statements, climate change, projects and operations.</p>
@@ -209,9 +209,9 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h4 id="data-retrieval_eurostat">Eurostat</h4>
-                    <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and dictionaries each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and dictionaries separately.</p>
+                    <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and code lists each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and code lists separately.</p>
 
-                    <p>Eurostat allows to download individual datasets or the complete database using bulk download facility. A <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&#38;file=table_of_contents.xml">table of contents</a> which contains a list of datasets are also available for download. We wrote an XML parser in Java which parses the table of contents to create a list of datasets available to download from Eurostat’s bulk download facility. For each dataset entry found in the table of contents, we downloaded the respective dataset in TSV format, metadata in XML format and code lists in TSV format from Eurostat’s bulk download facility. Later, we used our custom written Java programs to parse the datasets, metadata and dictionaries and transform them into RDF format. We have written different shell scripts which wraps each Java program and one main script which handles the whole process of data downloading and transformation by invoking other scripts.</p>
+                    <p>Eurostat allows to download individual datasets or the complete database using bulk download facility. A <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&#38;file=table_of_contents.xml">table of contents</a> which contains a list of datasets are also available for download. We wrote an XML parser in Java which parses the table of contents to create a list of datasets available to download from Eurostat’s bulk download facility. For each dataset entry found in the table of contents, we downloaded the respective dataset in TSV format, metadata in XML format and code lists in TSV format from Eurostat’s bulk download facility. Later, we used our custom written Java programs to parse the datasets, metadata and code lists and transform them into RDF format. We have written different shell scripts which wrap each Java program and one main script which handles the whole process of data downloading and transformation by invoking other scripts.</p>
 
                     <h4 id="data-retrieval_world-bank">World Bank</h4>
                     <p>The World Bank datasets were collected by making requests to The World Bank API endpoints using the XML output format. The reason for choosing the XML format preference over JSON was to easily transform the data to an RDF/XML serialization with XSLT  by relying on the well established XML tool-chain. Table [<a href="#data-retrieval_world-bank_table">3</a>] provides retrieval information about the datasets.</p>
@@ -268,7 +268,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p>There exists <code>-</code>'s for observations values in the datasets. An assumption was made to change the value to <code>0</code>. Observations with values <code>:</code> which indicated no value were left out during the transformation to RDF.</p>
 
-                    <p><code>dcterms:date</code> properties was used for time periods in Eurostat. We have encountered various time period formats among different data sets. We converted them into appropriate date literals while doing RDF transformation which as described below:</p>
+                    <p><code>dcterms:date</code> property was used for time periods in Eurostat. We have encountered various time period formats among different data sets. We converted them into appropriate date literals while doing RDF transformation which as described below:</p>
                     <p>YYYY-MM-DD date format was used where we encountered reference periods like: YearMmonthDday, YearQ1, YearM3, YearS2, Year.</p>
                     <p>YYYY-MM-DD date format was used where we encountered reference periods like: year1_yearx. We do not have time format information available in the data set which makes it hard to tell if the observation values are for 1 or x number of years. So we converted such time period values into year1-01-01.</p>
 
@@ -333,7 +333,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p>In 2006 Irish Census dataset blank nodes were used only for identification of instances of qb:ComponentSpecification. All other resources were identified with URIs.</p>
 
                     <h5 id="uri-patterns_eurostat">Eurostat</h5>
-                    <p>The base URI we used for Eurostat is <code>http://eurostat.linked-statistics.org/</code>. In Eurostat, we deal with data sets, their corresponding metadata and the dictionaries. We kept same file name for the metadata and the actual dataset containing observation values as they appear in original data and distinguish them by using <code>dsd</code> <code>data</code> in our URI patterns. Further, the dictionaries which are shared among all data sets are provided by using <code>dic</code> in our URI patterns. The following URI patterns are used:</p>
+                    <p>The base URI we used for Eurostat is <code>http://eurostat.linked-statistics.org/</code>. In Eurostat, we deal with data sets, their corresponding metadata and the code lists. We kept same file name for the metadata and the actual dataset containing observation values as they appear in original data and distinguish them by using <code>dsd</code> <code>data</code> in our URI patterns. Further, the code lists which are shared among all data sets are provided by using <code>dic</code> in our URI patterns. The following URI patterns are used:</p>
 
                     <p id="uri-patterns_eurostat_metadata"><em>Metadata</em>: (DSDs) have the pattern <code>http://eurostat.linked-statistics.org/dsd/{id}</code>, where id is one of the dataset files.</p>
                     <p id="uri-patterns_eurostat_datasets"><em>Datasets</em>: are within <code>http://eurostat.linked-statistics.org/data/{id}</code>, where id is the filename for the dataset with observation data.</p>
@@ -365,7 +365,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p id="uri-patterns_world-bank_world-bank-climates"><em>World Bank Climate Change</em> observations are within <code>http://worldbank.270a.info/dataset/world-bank-climates/{id}/{various patterns separated by slash}</code>, where id is one of; <a href="http://worldbank.270a.info/dataset/world-bank-climates">climate change dataset code</a>.</p>
 
-                    <p id="uri-patterns_world-bank_blank-nodes"><em>Blank nodes (<dfn><abbr title="blank nodes">bnodes</abbr></dfn>)</em>: By in large, the datasets do not contain bnodes, with the exception of unavoidable ones in the Projects and Operations code list. Since the maintenance of creating resolvable URIs have a cost, the decision was not to create arbitrary URIs given the (beta) state of the <em>WBPO</em> API. For Data Cube's data structure definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>), bnodes were naturally created. In order to offer a metadata file for World Bank's schema, some of the files with bnodes had to be merged. In order to avoid the conflict on collapsing bnodes with the same identifier, the decision to carry this out was based on a method that happened to be most efficient; import all of the metadata files into a named graph in RDF store, then export the named graph to a single file.</p>
+                    <p id="uri-patterns_world-bank_blank-nodes"><em>Blank nodes (<dfn><abbr title="blank nodes">bnodes</abbr></dfn>)</em>: By in large, the datasets do not contain bnodes, with the exception of unavoidable ones in the Projects and Operations code list. Since the maintenance of creating resolvable URIs has a cost, the decision was not to create arbitrary URIs given the (beta) state of the <em>WBPO</em> API. For Data Cube's data structure definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>), bnodes were naturally created. In order to offer a metadata file for World Bank's schema, some of the files with bnodes had to be merged. In order to avoid the conflict on collapsing bnodes with the same identifier, the decision to carry this out was based on a method that happened to be most efficient; import all of the metadata files into a named graph in RDF store, then export the named graph to a single file.</p>
 
 
 
@@ -455,7 +455,7 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_eurostat">Eurostat</h5>
-                    <p>The Silk Framework is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table">5</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>The <a href="http://www4.wiwiss.fu-berlin.de/bizer/silk/">Silk Framework</a> is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table">5</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
 
                     <table id="data-interlinking_eurostat_table">
                         <caption><strong>Table 5.</strong> Interlinks in Eurostat</caption>
@@ -593,12 +593,12 @@ general and regional statistics, economy and finance, population and social cond
                     <h4>Human User-interface</h4>
                     <p>TODO --------------------------  <strong>Michael</strong></p>
                     <h5 id="user-interface_cso-ireland">CSO Ireland</h5>
-                    <p>The website is located at <code><a href="http://data-gov.ie/">http://data-gov.ie/</a></code>. The publication of approach of the 2006 Irish Census Linked Data is same as World Bank's using Linked Data Pages. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
+                    <p>The website is located at <code><a href="http://data-gov.ie/">http://data-gov.ie/</a></code>. The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
                     <h5 id="user-interface_eurostat">Eurostat</h5>
                     <p>The website is located at <code><a href="http://eurostat.linked-statistics.org/">http://eurostat.linked-statistics.org/</a></code> where it contains custom static HTML pages, with links to dump directories, and SPARQL endpoint.</p>
 
                     <h5 id="user-interface_world-bank">World Bank</h5>
-                    <p>The website is located at <code><a href="http://worldbank.270a.info/">http://worldbank.270a.info/</a></code>. The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site.</p>
+                    <p>The website is located at <code><a href="http://worldbank.270a.info/">http://worldbank.270a.info/</a></code>. The publication of approach of the World Bank Linked Data is same as CSO Ireland.</p>
 
 
 
@@ -636,7 +636,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h3 id="code">Source Code</h3>
                     <h4 id="code_cso-ireland">CSO Ireland</h4>
-                    <p>The code which transforms the source data to RDF serializations can be found at GitHub: <a href="http://github.com/data-gov-ie/cso2rdf">cso2rdf</a>.</p>
+                    <p>The code which transforms the source data to RDF serializations can be found at GitHub: <a href="http://github.com/data-gov-ie/cso2rdf">data-gov-ie/cso2rdf</a>.</p>
                     <h4 id="code_eurostat">Eurostat</h4>
                     <p>The code which transforms the source data to RDF serializations can be found at GitHub: <a href="https://github.com/LATC/EU-data-cloud">LATC/EU-data-cloud</a>.</p>
                     <h4 id="code_world-bank">World Bank</h4>
@@ -656,13 +656,20 @@ general and regional statistics, economy and finance, population and social cond
                         <li>Creating Linked Data - Part IV: Developing RDF Schemas: Jeni Tennison (blog post)</li>
                         <li>Statistics on the Web of Linked Data: Michael, Richard (not a paper)</li>
                         <li>A Publishing Pipeline for Linked Government Data: Fadi, Richard, ..</li>
+                        <li>Linked Open Piracy</li>
+                        <li>The Joy of Data - A Cookbook for Publishing Linked Government Data on the Web</li>
+                        <li>Methodological Guidelines for Publishing Government Linked Data</li>
+                        <li>Google Public Data Explorer</li>
+                        <li>Designing URI Sets for the UK Public Sector</li>
+                        <li>Harvard Business School (HBS) case study - Data.gov</li>
                         <li>http://logd.tw.rpi.edu/source/finances-worldbank-org/dataset_page/catalog (maybe somewhere here there is a paper)</li>
                         <li>http://www.esds.ac.uk/international/access/LDaccess.asp (same as above)</li>
+                        <li>http://mimasld.wordpress.com/2011/11/25/final-product-post-esds-the-sdmx-to-rdf-process/ (blog post)</li>
                         <li>http://wbwrap.ontologycentral.com/ (same as above)</li>
+
 
                         <li>http://wiki.planet-data.eu/web/Datasets (maybe here somewhere)</li>
                         <li>http://environment.data.gov.uk/lab/  (more like documentation.. good stuff though)</li>
-                        <li>Linked Open Piracy</li>
                     </ul>
 
 
