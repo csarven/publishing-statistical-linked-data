@@ -37,6 +37,11 @@ table code {
 word-wrap:break-word;
 word-break:break-all;
 }
+
+#data-provenance_table code {
+word-break:normal;
+}
+
 /*html { font-size: 13px; }*/
 body {
 background-color:#FFFFFF;
@@ -261,8 +266,8 @@ border-bottom:2px solid #000;
 }
 
 th, td {
-padding-top:0.5em;
-padding-bottom:0.5em;
+padding-top:0.25em;
+padding-bottom:0.25em;
 padding-right:1em;
 }
 th {
