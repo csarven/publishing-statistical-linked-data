@@ -199,7 +199,6 @@
 
 
                     <h4 id="uri-patterns">URI Patterns</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
                     <p>All three datasets make use of <em>slash URIs</em> throughout the schema and data, with the exception that Eurostat uses hash URIs for its observations. The reason for this was to keep the URI patterns consistent and to make sure that all important resources when dereferenced returned information. Since the content size of the responses for statistical data may be heavy, the <em>slash URIs</em> approach appeared to be preferable to <em>hash URIs</em>, as the latter would not allow distinct requests in majority of the deployments on the Web. This is of course independent to accessing these resources via SPARQL endpoints.</p>
 
 
@@ -242,7 +241,6 @@
 
 
                     <h4 id="data-structure-definition">Data Structure Definitions</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-structure-definition_cso-ireland">CSO Ireland</h5>
                     <p>In most cases, the data structure of the 2006 Irish Census data in RDF follows the structure of the source data, even though the transposition of the modelling patterns from the original data to its RDF version was not optimal from the perspective of modelling data in the Data Cube vocabulary. For example, for every source file representing an individual view on the Census data an instance of <code>qb:DataStructureDefinition</code> was created with dimensions that preserved the structure of the original file. Following this guideline data aggregation into a multidimensional data cube was deferred to a later stages of data processing.</p>
@@ -269,7 +267,6 @@
 
 
                     <h3 id="data-conversion">Data Conversion</h3>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h4 id="data-conversion_cso-ireland">CSO Ireland</h4>
                     <p>The conversion of 2006 Irish Census data was conducted with a custom Python script based on librdf [<a href="#r_21">21</a>]. Due to a relatively small volume of the data the conversion was initially implemented using an in-memory RDF store. Nevertheless, we have discovered it to be insufficient for every but the smallest datasets. Consequently, to cater for the larger datasets, the implementation switched to a file back-end based on <a href="http://www.oracle.com/technetwork/products/berkeleydb/overview/index.html">BerkeleyDB</a> [<a href="#r_22">22</a>].</p>
