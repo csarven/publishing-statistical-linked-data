@@ -88,42 +88,10 @@
 
                     <h2 id="introduction">Introduction</h2>
                     <p>In the past couple of years we have witnessed an increasing number of efforts to publish structured data on the Web following the Linked Data principles. The <a href="http://lod-cloud.net/">LOD cloud</a> currently consist of over 300 datasets providing more than 30 billion individual facts, and are interlinked by more than 500 million RDF links ranging from media data sources to government data sources. While some of the best practices concerning the publishing process can be considered to be domain-agnostic it is important to highlight domain-specific challenges and share the lessons learned for particular sorts of data. In our case, we have been focusing our publishing efforts in the past three years on official statistical data. The main contribution of this paper is hence the documentation of the experiences we have gathered in this realm.</p>
-	                <p>Official statistics are the empirical evidence needed for policy making and economic research. Statistics offices are also among the most data-savvy organisations in government and often have a strong history of publishing data in electronic form. The fitness of different dissemination formats for re-usable statistical data can be understood along the <a href="http://5stardata.info/">5-star plan for Open Data</a> by Tim Berners-Lee. Table [<a href="#five-star-plan_table">0</a>] lists respective examples for statistical data and formats.</p>
-
-                    <table id="five-star-plan_table">
-                        <caption><strong>Table 0.</strong> 5-star plan for statistical Open Data.</caption>
-                        <thead><tr><th>Rating</th><th>Meaning</th><th>Example</th></tr></thead>
-                        <tbody>
-                            <tr>
-                                <td>&#x2605;</td>
-                                <td>on the Web, under an open licence</td>
-                                <td>PDF document containing tables</td>
-                            </tr>
-                            <tr>
-                                <td>&#x2605;&#x2605;</td>
-                                <td>as above, but in structured format</td>
-                                <td>Excel sheet</td>
-                            </tr>
-                            <tr>
-                                <td>&#x2605;&#x2605;&#x2605;</td>
-                                <td>as above, but in non-proprietary format</td>
-                                <td>CSV</td>
-                            </tr>
-                            <tr>
-                                <td>&#x2605;&#x2605;&#x2605;&#x2605;</td>
-                                <td>as above, and observations, etc. have URIs</td>
-                                <td>RDF/XML</td>
-                            </tr>
-                            <tr>
-                                <td>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</td>
-                                <td>as above, and links to other datasets for context</td>
-                                <td>RDF/XML with out-bound links</td>
-                            </tr>
-                        </tbody>
-                    </table>
+	                <p>Official statistics are the empirical evidence needed for policy making and economic research. Statistics offices are also among the most data-savvy organisations in government and often have a strong history of publishing data in electronic form. The fitness of different dissemination formats for re-usable statistical data can be understood along the <a href="http://5stardata.info/">5-star plan for Open Data</a> by Tim Berners-Lee.</p>
 
                     <h2 id="linked-statistics">Linked Statistics</h2>
-                    <p>With the rise of special-purpose, domain-specific formats such as <a href="http://www.scb.se/Pages/List____314011.aspx">PC-Axis</a> or <a href="http://sdmx.org/">SDMX</a>, re-using statistical data has become more straight-forward possible. However, with the complexity introduced by these formats, the barrier for consuming the data has raised as well. On the other hand, general-purpose formats such as Microsoft's Excel or CSV are very widely deployed and a number of tools and libraries in any kind of programming language one could possibly think of exist to process them. The down-side of these formats is equally obvious: as much of the high-quality annotations and metadata, that is, how to interpret the observations, is not or only partially captured, the data fidelity suffers. Even worse, using these formats, the data and metadata typically gets separated. With linked statistics, one can leverage the existing infrastructure as well as retaining metadata along with the data, yielding high data fidelity, consumable in a standardised, straight-forward way. However, the handling of statistical data as Linked Data requires particular attention in order to maintain its integrity and fidelity.</p>
+                    <p>With the rise of special-purpose, domain-specific formats such as <a href="http://www.scb.se/Pages/List____314011.aspx">PC-Axis</a> or <a href="http://sdmx.org/">SDMX</a>, re-using statistical data has become more possible. However, with the complexity introduced by these formats, the barrier for consuming the data has raised as well. On the other hand, general-purpose formats such as Microsoft's Excel or CSV are very widely deployed and a number of tools and libraries in any kind of programming language one could possibly think of exist to process them. The down-side of these formats is equally obvious: as much of the high-quality annotations and metadata, that is, how to interpret the observations, is not or only partially captured, the data fidelity suffers. Even worse, using these formats, the data and metadata typically gets separated. With linked statistics, one can leverage the existing infrastructure as well as retaining metadata along with the data, yielding high data fidelity, consumable in a standardised, straight-forward way. However, the handling of statistical data as Linked Data requires particular attention in order to maintain its integrity and fidelity.</p>
 
 					<p>Going beyond the operations of slicing, filtering and visualising statistical data typically requires out-of-band information to combine it with other kinds of data. Contextual information is usually not found in the statistical data itself. Using linked statistics, we are able to perform this data integration task in a more straight-forward way by leveraging the contextual information provided by the typed links between the data items of one data set to other data sets in the <a href="http://lod-cloud.net/" title="Linking Open Data">LOD cloud</a>.</p>
 
@@ -153,7 +121,7 @@
 
                     <h3 id="data-sources">Data Sources</h3>
                     <h4 id="data-source_cso-ireland">CSO Ireland</h4>
-                    <p>The CSO publishes population statistics in several ways, none of which is particularly suited for direct reuse. The data is primarily available through the CSO's web site, formatted for the purpose of display. The CSO offers access to raw demographic data, however, the data is available only in PC-Axis, a domain-specific format for expressing multidimensional statistical data. Besides data in raw the CSO exposes them in an interactive data viewer provided by the <a href="http://www.beyond2020.com/">Beyond 20/20 software</a> that allows to browse, sort and plot the data.</p>
+                    <p>The CSO publishes population statistics in several ways, none of which is particularly suited for direct reuse. The data is primarily available through the CSO's website, formatted for the purpose of display. The CSO offers access to raw demographic data, however, the data is available in PC-Axis, a domain-specific format for expressing multidimensional statistical data.. Besides data in raw the CSO exposes them in an interactive data viewer provided by the <a href="http://www.beyond2020.com/">Beyond 20/20 software</a> that allows to browse, sort and plot the data. It offers a way to export the data in XLS and CSV.</p>
 
                     <h4 id="data-source_eurostat">Eurostat</h4>
                     <p>Eurostat datasets can be downloaded using Eurostat's <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing">bulk download facility</a>. The datasets are published by Eurostat in three different formats: TSV, DFT and SDMX. This makes it possible for users to import the data into the tool of their choice. Although there is no filtration on the different types of statistics which are made available by Eurostat, the datasets essentially cover statistical information along the following themes:
@@ -209,6 +177,8 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h4 id="data-retrieval_eurostat">Eurostat</h4>
+                    <p>There are approximately 6100 datasets published by Eurostat. Eurostat updates information about datasets as well as table of contents twice a day. The datasets holds statistics on daily, monthly, quarterly and annual basis. Therefore, certain datasets are updated daily and many datasets are updated on monthly basis. Instead of updating all Eurostat data sets on daily, weekly or monthly basis, we decided to update on weekly basis. Instead of doing complete Eurostat RDF transformation every week, we decided to update only those datasets which has been updated or added in the last week.</p>
+
                     <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and code lists each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and code lists separately.</p>
 
                     <p>Eurostat allows to download individual datasets or the complete database using bulk download facility. A <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&#38;file=table_of_contents.xml">table of contents</a> which contains a list of datasets are also available for download. We wrote an XML parser in Java which parses the table of contents to create a list of datasets available to download from Eurostat’s bulk download facility. For each dataset entry found in the table of contents, it downloaded the respective dataset in TSV format, metadata in XML format and code lists in TSV format from Eurostat’s bulk download facility. Later, custom written Java programs were invoked to parse the dataset, metadata and code lists and transform them into RDF format. We have written different shell scripts which wrap each Java program and one main script which handles the whole process of data downloading and transformation by invoking other scripts.</p>
@@ -262,8 +232,6 @@ general and regional statistics, economy and finance, population and social cond
                     <p> The data was paged to several files that had to be pieced together, saved as CSV files, and provided with a different character encoding. Statistical data in the retrieved datasets were attributed to one of two mutually overlapping conceptualizations of Irish geography. There were datasets coded with enumeration areas and datasets coded with electoral districts. Both types of datasets were downloaded and combined during the conversion to RDF.</p>
 
                     <h4 id="data-preprocessing_eurostat">Eurostat</h4>
-                    <p>There are approximately 5200 datasets published by Eurostat. Eurostat updates information about datasets as well as table of contents twice a day. The datasets holds statistics on daily, monthly, quarterly and annual basis. Therefore, certain datasets are updated daily and many datasets are updated on monthly basis. Instead of updating all Eurostat data sets on daily, weekly or monthly basis, we decided to update on weekly basis. Instead of doing complete Eurostat transformation on weekly basis, we decided to update only those datasets which has been updated or added in the last week.</p>
-
                     <p>Although, our data set parser parses TSV files to generate observation values using RDF Data Cube vocabulary but TSV files misses the frequency value which is necessary to represent observation value. In order to add frequency value to the observations of each data set, we additionally parsed SDMX format to retrieve the frequency value of each data set.</p>
 
                     <p>There exists <code>-</code>'s for observations values in the datasets. An assumption was made to change the value to <code>0</code>. Observations with values <code>:</code> which indicated no value were left out during the transformation to RDF.</p>
@@ -277,12 +245,11 @@ general and regional statistics, economy and finance, population and social cond
                     <h4 id="data-preprocessing_world-bank">World Bank</h4>
                     <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually updated, and others were brought up to the World Bank team's attention for investigation.</p>
 
-                    <p id="data-preprocessing_world-bank_missing-units"><em>Missing units</em>: The statistics of the World Development Indicators consists of various indicators in different measurement units. At the time of this writing, these measurements in the source data are only provided as part of the string of the indicator name, as opposed to an explicit XML node [].</p>
+                    <p id="data-preprocessing_world-bank_missing-units"><em>Missing units</em>: The statistics of the World Development Indicators consists of various indicators in different measurement units. At this time, the units of measurement are included within the indicator label as opposed to an explicit XML node for it [].</p>
 
                     <p id="data-preprocessing_world-bank_missing-values"><em>Missing values</em>: Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values. Hence, in order to keep the RDF format of the dataset lean, these observations were excluded in the data transformation phase. This resulted in ~80% reduction in number of observations with actual measured data [].</p>
 
-                    <p id="data-preprocessing_world-bank_aggregated-data"><em>Aggregated data</em>: While the World Bank API provides endpoints which compiled aggregate data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
-
+                    <p id="data-preprocessing_world-bank_aggregated-data"><em>Aggregated data</em>: While the World Bank API also provides aggregated data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
 
                     <p id="data-preprocessing_world-bank_most-recent-values"><em>Most recent values</em>: Most recent values were incorrectly introduced to non-date API calls [] in <em>WDI</em>. These observation nodes were excluded in the transformation phase since the data already contained observations with corresponding reference periods.</p>
 
@@ -290,7 +257,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p id="data-preprocessing_world-bank_region-names"><em>Region names</em>: Region names as used in <em>WDI</em> and <em>WBF</em> datasets differed [] in a way that although they essentially conveyed the same meaning, labels did not match exactly. In order to have URIs for the region labels in the <em>WBF</em>  observations, and to simplify the linking process, unique region names from the <em>WBF</em>  observations was added to region resources in <em>WDI</em>. During the XSLT process, the alternative labels were matched with the labels in the observations themselves to arrive at their canonical representations.</p>
 
-                    <p id="data-preprocessing_world-bank_credit-loan"><em>Credit and Loan names</em>: Based on a private discussion with the WFI team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
+                    <p id="data-preprocessing_world-bank_credit-loan"><em>Credit and Loan names</em>: Based on a private discussion with the <em>WBF</em> team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
 
                     <p id="data-preprocessing_world-bank_missing-countries"><em>Missing countries</em>: Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
 
@@ -413,7 +380,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p>The conversion scripts for the 2006 Irish Census data are available in a GitHub repository.[]</p>
 
                     <h4 id="data-conversion_eurostat">Eurostat</h4>
-                    <p>Various tools have been used in the publishing process: our custom-written Java program was first used to download and transform the Eurostat data sets, meta data and the codelists into RDF. Eurostat publishes more than 5200 data sets which when converted into RDF took more than 537GB of disk space yielding ~8 billion triples altogether. Instead of hosting such a huge number of triples via an SPARQL endpoint, we generated a catalog file which contains a set of triples specifying the location of a particular dataset on the file system.</p>
+                    <p>Various tools have been used in the publishing process: our custom-written Java program was first used to download and transform the Eurostat data sets, meta data and the codelists into RDF. Eurostat publishes more than 6100 data sets which when converted into RDF took more than 537GB of disk space yielding ~8 billion triples altogether. Instead of hosting such a huge number of triples via an SPARQL endpoint, we generated a catalog file which contains a set of triples specifying the location of a particular dataset on the file system.</p>
 
                     <p>The updated data sets are reflected through <code>lastUpdate</code> date field associated to each dataset in the table of contents file. We have scheduled a cron job which runs every weekend and execute the following steps:</p>
 
