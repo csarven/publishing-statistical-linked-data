@@ -33,7 +33,7 @@ color:#000;
 page-break-before: always;
 }
 
-code {
+table code {
 word-wrap:break-word;
 word-break:break-all;
 }
@@ -133,6 +133,7 @@ white-space:pre;
 
 * + h4:before,
 caption:before,
+figure:before,
 * + h5:before,
 h4 + h5:before {
 content:"\A";
