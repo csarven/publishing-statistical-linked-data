@@ -291,7 +291,7 @@
                         <li>Replace the old table of contents file with the new table of contents file for comparison in the next week cron job.</li>
                     </ol>
 
-                    <p>The approximate time of updating Eurostat RDF datasets on weekly basis is 3-4 days depending on the number of datasets updated or added in a week time. We have also setup a mailing list [] which provides information on our weekly updates to the interested Eurostat users. After the update has been completed, an email is automatically sent to the mailing list describing the number of datasets which has been modified, added, and deleted.</p>
+                    <p>The approximate time of updating Eurostat RDF datasets on weekly basis is 3-4 days depending on the number of datasets updated or added in a week time. We have also setup a mailing list which provides information on our weekly updates to the interested Eurostat users. After the update has been completed, an email is automatically sent to the mailing list describing the number of datasets which has been modified, added, and deleted.</p>
 
                     <p>Some of the code list names in Eurostat reuse the names in SDMX-XML codes, hence, they were kept as is since the RDF Data Cube vocabulary already uses SDMX-RDF. For other cases, they were renamed to closest possible vocabularies in RDF.</p>
 
@@ -459,7 +459,7 @@
                     <h5 id="sparql-endpoint_eurostat">Eurostat</h5>
                     <p>Same setup as World Bank with its own <a href="http://eurostat.linked-statistics.org/sparql">SPARQL endpoint</a>. This endpoint includes only the schema and excludes the data (~533GB RDF/XML) due to the limitation of the available resources and performance reasons.</p>
                     <h5 id="sparql-endpoint_world-bank">World Bank</h5>
-                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> [<a href="#r_40"></a>] storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> [<a href="#r_41"></a>] is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
+                    <p>Apache Jena&#8217;s <a href="http://incubator.apache.org/jena/documentation/tdb/">TDB</a> [<a href="#r_40">40</a>] storage system and <a href="http://incubator.apache.org/jena/documentation/serving_data/index.html">Fuseki</a> [<a href="#r_41">41</a>] is used to run the SPARQL server. Data in RDF format was incrementally loaded from into TDB RDF store using Jena's <code>tdbloader</code> script from command-line. A public <a href="http://worldbank.270a.info/sparql">SPARQL endpoint</a> is available which accepts SPARQL 1.1 queries. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
 
 
                     <h4 id="data-dumps">Data Dumps</h4>
