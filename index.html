@@ -97,7 +97,7 @@
 
 					<p>Last but not least, what linked statistics provide, and in fact enable, are queries across datasets: given the dimensions are linked, one can learn from a certain observation's dimension value, other provided dimension values, enabling the automation of cross-dataset queries, hence cutting down integration costs and delivering results quicker.</p>
 
-					<p>Organisations that are involved in publishing statistical Linked Data and establishing related methodologies and best practices include the <a href="http://data.gov.uk">UK Government</a>, the National Institute of Statistics and Economic Studies (<dfn><abbr title="National Institute of Statistics and Economic Studies">INSEE</abbr></dfn>, France), the U.S. Bureau of Labour Statistics (<dfn><abbr title="Bureau of Labour Statistics">BLS</abbr></dfn>), and the European Environment Agency (<dfn><abbr title="European Environment Agency">EEA</abbr></dfn>). Statistics from many other sources are currently published not by the original statistics producer, but by third parties (universities, web technology companies etc): U.S. Census 2000, Spanish Census, including historical microdata, EU election results, <a href="http://img.org/">International Monetary Fund</a> (<dfn><abbr title="International Monetary Fund">IMF</abbr></dfn>) commodity prices to name a few as well as the data from Central Statistics Office Ireland, Eurostat, and World Bank, which we will focus on in this paper.</p>
+					<p>Organisations that are involved in publishing statistical Linked Data and establishing related methodologies and best practices include the <a href="http://data.gov.uk">UK Government</a>, the National Institute of Statistics and Economic Studies (<dfn><abbr title="National Institute of Statistics and Economic Studies">INSEE</abbr></dfn>, France), the U.S. Bureau of Labour Statistics (<dfn><abbr title="Bureau of Labour Statistics">BLS</abbr></dfn>), and the European Environment Agency (<dfn><abbr title="European Environment Agency">EEA</abbr></dfn>). Statistics from many other sources are currently published not by the original statistics producer, but by third parties (universities, web technology companies etc.): U.S. Census 2000, Spanish Census, including historical microdata, EU election results, <a href="http://img.org/">International Monetary Fund</a> (<dfn><abbr title="International Monetary Fund">IMF</abbr></dfn>) commodity prices to name a few as well as the data from Central Statistics Office Ireland, Eurostat, and World Bank, which we will focus on in this paper.</p>
 
                     <h2 id="original-data">Original Data</h2>
                     <p>In the following we discuss the nature and coverage of the original data sources of the case studies.</p>
@@ -108,7 +108,7 @@
                     <p>A subset of the bulk of the census data that was chosen for the experiment consisted of demographic data tracking small area population statistics (<dfn><abbr title="Small Area Population Statistics">SAPS</abbr></dfn>).</p>
 
                     <h3 id="original-data_eurostat">Eurostat</h3>
-                    <p><a href="http://ec.europa.eu/eurostat">Eurostat</a> is the statistical office of European Union with the aim to provide European Union statistical information in a way that can be comparable at European level. Statistical data collection is done by statistical authorities of each Member States. They verify and analyse the data before sending it to Eurostat. Eurostat's role is to consolidate the statistical data they receive from each Member States and ensure that they are comparable. Eurostat actually only provides harmonized statistical data using common statistical language.</p> 
+                    <p><a href="http://ec.europa.eu/eurostat">Eurostat</a> is the statistical office of European Union with the aim to provide European Union statistical information in a way that can be comparable at European level. Statistical data collection is done by statistical authorities of each Member States. They verify and analyse the data before sending it to Eurostat. Eurostat's role is to consolidate the statistical data they receive from each Member States and ensure that they are comparable. Eurostat actually only provides harmonized statistical data using common statistical language.</p>
 
                     <h3 id="original-data_world-bank">World Bank</h3>
                     <p>The <a href="http://worldbank.org/">World Bank</a> is an international development organization that provides access to a comprehensive set of data about countries around the globe. The publicly available statistical data is collected from officially-recognized international sources, and consists of a wide array of observations on development indicators, financial statements, climate change, projects and operations.</p>
@@ -169,7 +169,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p>Over 13000 retrieval requests were made to Eurostat for the datasets, DSDs and code lists, in total of 58GB in size.</p>
 
                     <h4 id="data-retrieval_world-bank">World Bank</h4>
-                    <p>The World Bank datasets were collected by making requests to the World Bank API endpoints using the XML output format. The reason for choosing the XML format preference over JSON was to easily transform the data to an RDF/XML serialization with XSLT  by relying on the well established XML tool-chain. 
+                    <p>The World Bank datasets were collected by making requests to the World Bank API endpoints using the XML output format. The reason for choosing the XML format preference over JSON was to easily transform the data to an RDF/XML serialization with XSLT  by relying on the well established XML tool-chain.</p>
 
                     <p>The Climate Change dataset required various API calls in total of ~140000 HTTP GET requests at ~1GB in total weight. The Development Indicators datasets required over 7000 requests, in total of ~18GB in size, making it the largest dataset in World Bank. The Finances API was used to retrieve 32 datasets in total of ~365MB in size. Finally, the Projects and Operations data is retrieved with a single call at ~170MB in total.</p>
 
@@ -470,7 +470,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h3 id="publication">Publication</h3>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>In this section we talk about various ways of making our Linked Datasets publicly accessible, discoverable, and usable.</p>
 
                     <h4 id="data-provenance">Data Provenance</h4>
                     <p>Table <a href="data-provenance_table">7</a> outlines the vocabulary terms that's in particular to provenance information that are used in all three case studies. The provenance metadata for 2006 Irish Census was not created during the process of conversion to RDF. Some of the properties were added to the VoID file at a later stage.</p>
@@ -494,7 +494,8 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="void">VoID</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>We use describe the Linked Datasets with the <a href="http://www.w3.org/TR/void/">VoID</a> vocabulary. It is generally intended to give an overview of the dataset metadata i.e., what it contains, ways to access it or query it.</p>
+
                     <h5 id="void_cso-ireland">CSO Ireland</h5>
                     <p>A <a href="http://data-gov.ie/.well-known/void">VoID</a> file is compiled for the CSO Ireland datasets. The information included, but not limited to is, locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, used vocabularies, size of the datasets, and interlinks to external datasets.</p>
                     <h5 id="void_eurostat">Eurostat</h5>
@@ -503,8 +504,8 @@ general and regional statistics, economy and finance, population and social cond
                     <p>A <a href="http://worldbank.270a.info/.well-known/void">VoID</a> file is compiled the World Bank Linked Datasets. The information included, but not limited to is, locations to RDF datadumps, named graphs that are used in the SPARQL endpoint, used vocabularies, size of the datasets, and interlinks to external datasets. Granular set of dataset statistics in generated and also included in the VoID file using <a href="http://aksw.org/projects/LODStats">LODStats</a> [].</p>
 
 
-                    <h4>Human User-interface</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <h4 id="user-interface">User-interface</h4>
+                    <p>Here we briefly discuss how the published data can be access primarily using a Web browser.</p>
                     <h5 id="user-interface_cso-ireland">CSO Ireland</h5>
                     <p>The website is located at <code><a href="http://data-gov.ie/">http://data-gov.ie/</a></code>. The HTML pages are generated and published by the <a href="https://github.com/csarven/linked-data-pages">Linked Data Pages</a> framework, where <a href="http://code.google.com/p/moriarty/">Moriarty</a>, <a href="http://code.google.com/p/paget/">Paget</a>, and <a href="https://github.com/semsol/arc2">ARC2</a> does the heavy lifting for it. Linked Data Pages is used to invoke unique SPARQL queries based on the requested URI. The results are outputted in corresponding HTML templates. Links to alternate RDF formats as well as in JSON are handled by content-negotiation. Given the nature of the invoked SPARQL query, alternate formats may contain additional triples like labels for the vocabulary terms that&#8217;s not in the RDF dumps. This minor difference is mentioned for the users on the site. For some resources e.g., Cities, <a href="https://google-developers.appspot.com/chart/">Google Charts Tools</a> is used to display various visualizations in place of the tabular data in the HTML.</p>
                     <h5 id="user-interface_eurostat">Eurostat</h5>
