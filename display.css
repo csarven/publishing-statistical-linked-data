@@ -22,6 +22,7 @@ img { max-width: 100% !important; }
 
 @page {
 margin:47mm 0;
+margin:40mm 0;
 }
 
 a {
@@ -255,7 +256,7 @@ font-weight:bold;
 margin-bottom:0.5em;
 }
 
-ul {
+ul, ol {
 margin-top:1em;
 }
 
