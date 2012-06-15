@@ -172,8 +172,6 @@
 
                     <p>World Bank APIs were called ~150000 times to retrieve all of the WDI, WBF, WBCC, WBPO datasets, with a total disk space of ~20GB.</p>
 
-                    <p>The dataset metadata are retrieved from the financial <a href="https://finances.worldbank.org/api/views/wc6g-9zmq/rows.xml">dictionary</a> and <a href="https://finances.worldbank.org/api/views.xml">dataset index</a>, and several calls to development indicators requesting information on sources, topics, regions, incomeLevels, lendingTypes, countries, and indicators. Some of the other information was manually put together or retrieved from external sources e.g., <a href="http://www.currency-iso.org/dl_iso_table_a1.xml">currencies</a>.</p>
-
                     <p>The data is retrieved at irregular periods - at least once a month - from the World Bank API endpoints. The retrieval act is partly based on new dataset announcements in World Bank mailing lists. Although the data retrieval and transformation phases are conducted by independent scripts, the commitment to retrieve and store the data is based on achieving the quality of the eventual RDF serialization. Therefore, Java and Bash scripts are manually executed to retrieve, in order to closely monitor abnormalities in the responses and account for necessary changes in the transformations.</p>
 
 
@@ -197,24 +195,7 @@
                     <h4 id="data-preprocessing_world-bank">World Bank</h4>
                     <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually updated, and others were brought up to the World Bank team's attention for investigation.</p>
 
-                    <p id="data-preprocessing_world-bank_missing-units"><em>Missing units</em>: The statistics of the World Development Indicators consists of various indicators in different measurement units. At this time, the units of measurement are included within the indicator label as opposed to an explicit XML node for it [].</p>
-
-                    <p id="data-preprocessing_world-bank_missing-values"><em>Missing values</em>: Some of the observations in the World Development Indicators dataset do not have measured data. The nodes for the values were given in the API response, however they contained no numerical values. Hence, in order to keep the RDF format of the dataset lean, these observations were excluded in the data transformation phase. This resulted in ~80% reduction in number of observations with actual measured data [].</p>
-
-                    <p id="data-preprocessing_world-bank_aggregated-data"><em>Aggregated data</em>: While the World Bank API also provides aggregated data for the <em>WDI</em>, some of these calls were left out in the retrieval process.</p>
-
-                    <p id="data-preprocessing_world-bank_most-recent-values"><em>Most recent values</em>: Most recent values were incorrectly introduced to non-date API calls [] in <em>WDI</em>. These observation nodes were excluded in the transformation phase since the data already contained observations with corresponding reference periods.</p>
-
-                    <p id="data-preprocessing_world-bank_naming-patterns"><em>Naming patterns</em>: Different naming patterns were identified across World Bank datasets. Some of these are as follows:</p>
-
-                    <p id="data-preprocessing_world-bank_region-names"><em>Region names</em>: Region names as used in <em>WDI</em> and <em>WBF</em> datasets differed [] in a way that although they essentially conveyed the same meaning, labels did not match exactly. In order to have URIs for the region labels in the <em>WBF</em>  observations, and to simplify the linking process, unique region names from the <em>WBF</em>  observations was added to region resources in <em>WDI</em>. During the XSLT process, the alternative labels were matched with the labels in the observations themselves to arrive at their canonical representations.</p>
-
-                    <p id="data-preprocessing_world-bank_credit-loan"><em>Credit and Loan names</em>: Based on a private discussion with the <em>WBF</em> team, it was determined that the vocabulary terms <em>Credit Status</em> and <em>Loan Status</em>, as well as <em>Credit Number</em> and <em>Loan Number</em> was used interchangeably. Thus, the canonical representation for the Linked Data URI pattern was to use one: <em>Loan Status</em> and <em>Loan Number</em>.</p>
-
-                    <p id="data-preprocessing_world-bank_missing-countries"><em>Missing countries</em>: Some country codes were identified in the <em>WDI</em> observations that were not defined in the <em>WDI</em> country code list. These were later added to the original data [] [].</p>
-
-                    <p id="data-preprocessing_world-bank_normalization"><em>Normalization</em>: Data was only altered by removing white-space at the start and end of text content. Some of the dates in the data were transformed into equivalent representations in <a href="http://www.iso.org/iso/catalogue_detail?csnumber=40874">ISO 8601</a> format.</p>
-
+                    <p>For preprocessing, we've identified several recurring issues in the original data, and decided on workable solutions. They are: units of measurements in the observations were part of the indicator string were left as is; missing observation values in the API response were excluded in the transformation phase resulting in ~80% reduction in number of observations with actual measured data; various naming patterns (primarily regions) in WBF differed from WDI such that alternative names had to be added to WBF in order to arrive at canonical representations during the XSLT process; missing country codes which were identified in the WDI observations but not in the country code list was added. [] [] [] [] [] []</p>
 
                     <h3 id="data-modeling">Data Modeling</h3>
                     <p>TODO --------------------------  <strong>Michael</strong></p>
@@ -564,7 +545,6 @@
 
                     <div id="references">
                         <h2>References</h2>
-                        <p>TODO</p>
                         <ol about="[this:]">
                             <li id="r_2">Ngonga Ngomo, A.-C.: <em>A Time-Efficient Hybrid Approach to Link Discovery</em>, The Sixth International Workshop on Ontology Matching, ISWC (2011), <a rel="dcterms:references" href="http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf">http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf</a></li>
 
