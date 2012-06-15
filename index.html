@@ -138,7 +138,7 @@ general and regional statistics, economy and finance, population and social cond
                     </ul>
 
                     <h3 id="architecture">Deployment Architecture</h3>
-                    <p>Tables [<a href="#figure_architecture_cso-ireland">1</a>], [<a href="#figure_architecture_eurostat">2</a>], [<a href="#figure_architecture_world-bank">3</a>] illustrate an overview on the overall architecture of the deployment of our three case studies. They will be discuss in further detail in the following sections.</p>
+                    <p>Figures [<a href="#figure_architecture_cso-ireland">1</a>], [<a href="#figure_architecture_eurostat">2</a>], [<a href="#figure_architecture_world-bank">3</a>] illustrate an overview on the overall architecture of the deployment of our three case studies. They will be discuss in further detail in the following sections.</p>
 
                     <figure id="figure_architecture_cso-ireland">
                         <figcaption><strong>Figure 1</strong>. CSO Ireland deployment architecture</figcaption>
@@ -165,6 +165,8 @@ general and regional statistics, economy and finance, population and social cond
                     <p>Along with the datasets, Eurostat also publishes Data Structure Definitions (<dfn><abbr title="Data Structure Definition">DSD</abbr></dfn>) about each dataset, as well as a set of dictionaries (code lists) which are shared among all datasets. Hence we take into consideration every type of information provided by Eurostat. The DSDs are published in XML format while the code lists are published in TSV format. Dataset is available in three different formats: TSV, DFT and SDMX. Given that the datasets, metadata and code lists each provide different type of information and is represented differently, we wrote Java programs to process XML and TSV formats of the metadata, dataset and code lists separately.</p>
 
                     <p>Eurostat allows to download individual datasets or the complete database using bulk download facility. A <a href="http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&#38;file=table_of_contents.xml">table of contents</a> which contains a list of datasets are also available for download. We wrote an XML parser in Java which parses the table of contents to create a list of datasets available to download from Eurostat’s bulk download facility. For each dataset entry found in the table of contents, it downloaded the respective dataset in TSV format, metadata in XML format and code lists in TSV format from Eurostat’s bulk download facility. Later, custom written Java programs were invoked to parse the dataset, metadata and code lists and transform them into RDF format. We have written different shell scripts which wrap each Java program and one main script which handles the whole process of data downloading and transformation by invoking other scripts.</p>
+
+                    <p>Over 13000 retrieval requests were made to Eurostat for the datasets, DSDs and code lists, in total of 58GB in size.</p>
 
                     <h4 id="data-retrieval_world-bank">World Bank</h4>
                     <p>The World Bank datasets were collected by making requests to the World Bank API endpoints using the XML output format. The reason for choosing the XML format preference over JSON was to easily transform the data to an RDF/XML serialization with XSLT  by relying on the well established XML tool-chain. 
@@ -356,9 +358,9 @@ general and regional statistics, economy and finance, population and social cond
                     <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="data-interlinking_cso-ireland">CSO Ireland</h5>
-                    <p>Interlinking was done manually. Table [<a href="#data-interlinking_cso-ireland_table">4</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>Interlinking was done manually. Table [<a href="#data-interlinking_cso-ireland_table">1</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
                     <table id="data-interlinking_cso-ireland_table">
-                        <caption><strong>Table 4.</strong> Interlinks in CSO Ireland</caption>
+                        <caption><strong>Table 1.</strong> Interlinks in CSO Ireland</caption>
                         <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
                         <tbody>
                             <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>52</td></tr>
@@ -369,10 +371,10 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_eurostat">Eurostat</h5>
-                    <p>The <a href="http://www4.wiwiss.fu-berlin.de/bizer/silk/">Silk Framework</a> is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table">5</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>The <a href="http://www4.wiwiss.fu-berlin.de/bizer/silk/">Silk Framework</a> is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table">2</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
 
                     <table id="data-interlinking_eurostat_table">
-                        <caption><strong>Table 5.</strong> Interlinks in Eurostat</caption>
+                        <caption><strong>Table 2.</strong> Interlinks in Eurostat</caption>
                         <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
                         <tbody>
                             <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>1899</td></tr>
@@ -381,10 +383,10 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_world-bank">World Bank</h5>
-                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s. Table [<a href="#data-interlinking_world-bank_table">6</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s. Table [<a href="#data-interlinking_world-bank_table">3</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
 
                     <table id="data-interlinking_world-bank_table">
-                        <caption><strong>Table 6.</strong> Interlinks in World Bank</caption>
+                        <caption><strong>Table 3.</strong> Interlinks in World Bank</caption>
                         <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
                         <tbody>
                             <tr><td><a href="http://dbpedia.org/">DBpedia</a></td><td><code>dbo:Country</code></td><td><code>owl:sameAs</code></td><td>216</td></tr>
@@ -416,10 +418,10 @@ general and regional statistics, economy and finance, population and social cond
                     <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h5 id="linked-datasets_cso-ireland">CSO Ireland</h5>
-                    <p>Table [<a href="#linked-dataset_cso-ireland_table">7</a>] outlines the current state of CSO Ireland's Linked Datasets.</p>
+                    <p>Table [<a href="#linked-dataset_cso-ireland_table">4</a>] outlines the current state of CSO Ireland's Linked Datasets.</p>
 
                     <table id="linked-dataset_cso-ireland_table">
-                        <caption><strong>Table 7.</strong> CSO Ireland Linked Data</caption>
+                        <caption><strong>Table 4.</strong> CSO Ireland Linked Data</caption>
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
                         <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
@@ -428,9 +430,9 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="linked-datasets_eurostat">Eurostat</h5>
-                    <p>Table [<a href="#linked-dataset_eurostat_table">8</a>] outlines the current state of Eurostat's Linked Datasets.</p>
+                    <p>Table [<a href="#linked-dataset_eurostat_table">5</a>] outlines the current state of Eurostat's Linked Datasets.</p>
                     <table id="linked-dataset_eurostat_table">
-                        <caption><strong>Table 8.</strong> Eurostat Linked Data</caption>
+                        <caption><strong>Table 5.</strong> Eurostat Linked Data</caption>
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
                         <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
@@ -441,10 +443,10 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="linked-datasets_world-bank">World Bank</h5>
-                    <p>Table [<a href="#linked-dataset_world-bank_table">9</a>] outlines the current state of World Bank's Linked Datasets.</p>
+                    <p>Table [<a href="#linked-dataset_world-bank_table">6</a>] outlines the current state of World Bank's Linked Datasets.</p>
 
                     <table id="linked-dataset_world-bank_table">
-                        <caption><strong>Table 9.</strong> World Bank Linked Data</caption>
+                        <caption><strong>Table 6.</strong> World Bank Linked Data</caption>
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
                         <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
@@ -471,12 +473,10 @@ general and regional statistics, economy and finance, population and social cond
                     <p>TODO --------------------------  <strong>Michael</strong></p>
 
                     <h4 id="data-provenance">Data Provenance</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
-
-                    <p>The provenance metadata for 2006 Irish Census was not created during the process of conversion to RDF. Some of the properties were added to the VoID file at a later stage.</p>
+                    <p>Table <a href="data-provenance_table">7</a> outlines the vocabulary terms that's in particular to provenance information that are used in all three case studies. The provenance metadata for 2006 Irish Census was not created during the process of conversion to RDF. Some of the properties were added to the VoID file at a later stage.</p>
 
                     <table id="data-provenance_table">
-                        <caption><strong>Table 10.</strong> Provenance in CSO Ireland, Eurostat and World Bank Linked Datasets</caption>
+                        <caption><strong>Table 7.</strong> Provenance in CSO Ireland, Eurostat and World Bank Linked Datasets</caption>
                         <thead><tr><th>Type of provenance</th><th>CSO Ireland</th><th>Eurostat</th><th>World Bank</th></tr></thead>
                         <tbody>
                             <tr><th>Defining source</th><td></td><td></td><td><code>rdfs:isDefinedBy</code></td></tr>
@@ -536,7 +536,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
 
-                    <h3 id="dataset-advertisement">Advertising the Datasets</h3>
+                    <h3 id="dataset-advertisement">Announcing the Datasets</h3>
                     <h4 id="dataset-advertisement_cso-ireland">CSO Ireland</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/data-gov-ie">data-gov-ie</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=data-gov-ie">has level 4</a> in the CKAN Validator. It is in the lodcloud group.</p>
                     <h4 id="dataset-advertisement_eurostat">Eurostat</h4>
@@ -600,7 +600,6 @@ general and regional statistics, economy and finance, population and social cond
                         <h2>References</h2>
                         <p>TODO</p>
                         <ol about="[this:]">
-                            <li id="r_1">Franklin, M., Halevy, A., Maier, D.: <em>From databases to dataspaces: a new abstraction for information management</em>, SIGMOD Record 34(4), 27–33 (2005), <a rel="dcterms:references" href="http://dl.acm.org/citation.cfm?id=1107502">http://dl.acm.org/citation.cfm?id=1107502</a></li>
                             <li id="r_2">Ngonga Ngomo, A.-C.: <em>A Time-Efficient Hybrid Approach to Link Discovery</em>, The Sixth International Workshop on Ontology Matching, ISWC (2011), <a rel="dcterms:references" href="http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf">http://www.dit.unitn.it/~p2p/OM-2011/om2011_Tpaper1.pdf</a></li>
     <!--
 http://beyond2020.cso.ie/census/
