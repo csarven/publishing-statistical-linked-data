@@ -227,7 +227,7 @@ general and regional statistics, economy and finance, population and social cond
                     <h5 id="vocabularies_cso-ireland">CSO Ireland</h5>
                     <p>The 2006 Irish Census dataset was among the first datasets modelled with the Data Cube vocabulary. At the time of the data transformation the specification of the Data Cube vocabulary was still under development and subject to edits. The data model thus co-evolved with the changes made to the vocabulary’s specification.</p>
 
-                    <p>Besides the Data Cube vocabulary the other vocabularies used included RDF, RDFS, SKOS, and various vocabularies from the SDMX/RDF suite# for expressing dimensions and concepts. The first versions of the converted data relied on elements from SDMX/RDF more but these elements were subsequently replaced with more generic elements from the Data Cube Vocabulary (e.g., <code>qb:Observation</code> instead of <code>sdmx:Observation</code>) or SKOS (e.g., <code>skos:ConceptScheme</code> in place of <code>sdmx:CodeList</code>).</p>
+                    <p>Besides the Data Cube vocabulary the other vocabularies used included RDF, RDFS, SKOS, and various vocabularies from the SDMX/RDF suite# for expressing dimensions and concepts. The first versions of the converted data relied on elements from SDMX/RDF more but these elements were subsequently replaced with more generic elements from the Data Cube Vocabulary (e.g., <code>qb:Observation</code> instead of <code>sdmx:Observation</code>) or SKOS (e.g., <code>skos:ConceptScheme</code> in place of <code>sdmx:code list</code>).</p>
 
                     <h5 id="vocabularies_eurostat">Eurostat</h5>
                     <p>The vocabularies used in Eurostat are: Data Cube, SKOS, RDF, RDFS, VoiD, XSD, Dublin Core and FOAF.</p>
@@ -269,7 +269,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p>The general URI space consists of:</p>
 
-                    <p id="uri-patterns_world-bank_classification"><em>Classifications</em> are composed of code lists for various concepts that are used in the World Bank datasets. The concepts are compiled by using the accompanied metadata from the World Bank, and are typed with <code>skos:Concept</code>. Each code list is of type <code>skos:CodeList</code> and have a URI pattern of <code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/country"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>. Each concept is defined under the code list namespace hierarchy e.g., <code>http://worldbank.270a.info/classification/country/CA</code> is the concept for country <em>Canada</em>.</p>
+                    <p id="uri-patterns_world-bank_classification"><em>Classifications</em> are composed of code lists for various concepts that are used in the World Bank datasets. The concepts are compiled by using the accompanied metadata from the World Bank, and are typed with <code>skos:Concept</code>. Each code list is of type <code>skos:code list</code> and have a URI pattern of <code>http://worldbank.270a.info/classification/{id}</code>, where id is one of; <a href="http://worldbank.270a.info/classification/country"></a>country, <a href="http://worldbank.270a.info/classification/income-level">income-level</a>, <a href="http://worldbank.270a.info/classification/indicator">indicator</a>, <a href="http://worldbank.270a.info/classification/lending-type">lending-type</a>, <a href="http://worldbank.270a.info/classification/region">region</a>, <a href="http://worldbank.270a.info/classification/source">source</a>, <a href="http://worldbank.270a.info/classification/topic">topic</a>, <a href="http://worldbank.270a.info/classification/project">project</a>, <a href="http://worldbank.270a.info/classification/currency">currency</a>, <a href="http://worldbank.270a.info/classification/loan-type">loan-type</a>, <a href="http://worldbank.270a.info/classification/loan-status">loan-status</a>, <a href="http://worldbank.270a.info/classification/variable">variable</a>, <a href="http://worldbank.270a.info/classification/global-circulation-model">global-circulation-model</a>, <a href="http://worldbank.270a.info/classification/scenario">scenario</a>, <a href="http://worldbank.270a.info/classification/basin">basin</a>. Each concept is defined under the code list namespace hierarchy e.g., <code>http://worldbank.270a.info/classification/country/CA</code> is the concept for country <em>Canada</em>.</p>
 
                     <p id="uri-patterns_world-bank_properties"><em>Properties</em> have the URI pattern <code>http://worldbank.270a.info/property/{id}</code>.</p>
 
@@ -329,7 +329,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p>The conversion scripts for the 2006 Irish Census data are available in a GitHub repository.[]</p>
 
                     <h4 id="data-conversion_eurostat">Eurostat</h4>
-                    <p>Various tools have been used in the publishing process: our custom-written Java program was first used to download and transform the Eurostat data sets, meta data and the codelists into RDF. Eurostat publishes more than 6100 data sets which when converted into RDF took more than 537GB of disk space yielding ~8 billion triples altogether. Instead of hosting such a huge number of triples via an SPARQL endpoint, we generated a catalog file which contains a set of triples specifying the location of a particular dataset on the file system.</p>
+                    <p>Various tools have been used in the publishing process: our custom-written Java program was first used to download and transform the Eurostat data sets, meta data and the code lists into RDF. Eurostat publishes more than 6100 data sets which when converted into RDF took more than 537GB of disk space yielding ~8 billion triples altogether. Instead of hosting such a huge number of triples via an SPARQL endpoint, we generated a catalog file which contains a set of triples specifying the location of a particular dataset on the file system.</p>
 
                     <p>The updated data sets are reflected through <code>lastUpdate</code> date field associated to each dataset in the table of contents file. We have scheduled a cron job which runs every weekend and execute the following steps:</p>
 
@@ -355,10 +355,10 @@ general and regional statistics, economy and finance, population and social cond
 
                     <h3 id="linked-datasets">Linked Datasets</h3>
                     <h4 id="data-interlinking">Data Interlinking</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>Interlinking things and concepts from our RDF datasets to external datasets in the LOD Cloud was a challenging task. It primarily requires the investigation of identifying eligible resource types in our datasets, and then finding suitable matches that are available externally. One useful requirement was to make sure that the target resources were dereferenable in order to make the interlinking worthwhile. Tables [<a href="#data-interlinking_cso-ireland_table">1</a>], [<a href="#data-interlinking_eurostat_table">2</a>], [<a href="#data-interlinking_world-bank_table">3</a>] gives an overview of the targeted external datasets, entity types, links, and counts for each case three cases respectively.</p>
 
                     <h5 id="data-interlinking_cso-ireland">CSO Ireland</h5>
-                    <p>Interlinking was done manually. Table [<a href="#data-interlinking_cso-ireland_table">1</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>Interlinking for CSO Ireland was done by manually investigating useful URIs.</p>
                     <table id="data-interlinking_cso-ireland_table">
                         <caption><strong>Table 1.</strong> Interlinks in CSO Ireland</caption>
                         <thead><tr><th>Target dataset</th><th>Entity type</th><th>Link type</th><th>Link count</th></tr></thead>
@@ -371,7 +371,7 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_eurostat">Eurostat</h5>
-                    <p>The <a href="http://www4.wiwiss.fu-berlin.de/bizer/silk/">Silk Framework</a> is used to publish initial link sets. Table [<a href="#data-interlinking_eurostat_table">2</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>The <a href="http://www4.wiwiss.fu-berlin.de/bizer/silk/">Silk Framework</a> is used to publish initial link sets.</p>
 
                     <table id="data-interlinking_eurostat_table">
                         <caption><strong>Table 2.</strong> Interlinks in Eurostat</caption>
@@ -383,7 +383,7 @@ general and regional statistics, economy and finance, population and social cond
                     </table>
 
                     <h5 id="data-interlinking_world-bank">World Bank</h5>
-                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s. Table [<a href="#data-interlinking_world-bank_table">3</a>] gives an overview of the targeted external datasets, entity types, links, and counts.</p>
+                    <p>The dataset is interlinked using <a href="http://aksw.org/Projects/limes">LInk discovery framework for MEtric Spaces</a> (<dfn><abbr title="LInk discovery framework for MEtric Spaces">LIMES</abbr></dfn>) []. While a great portion of the codes were matched automatically, it included a review step to catch false positives, true and false negatives, as well as curating the final results. Some of the code list concepts were manually matched with corresponding links in DBpedia using <code>skos:exactMatch</code>es and <code>skos:closeMatch</code>es, as well as to the World Bank site using <code>foaf:page</code>s.</p>
 
                     <table id="data-interlinking_world-bank_table">
                         <caption><strong>Table 3.</strong> Interlinks in World Bank</caption>
@@ -400,7 +400,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="data-enrichment">Data Enrichment</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>In this section we talk about some of the ways that we've tried to enrich the original data by adding information such that the datasets can be more useful, easily discovered, interlinked or queried.</p>
 
                     <h5 id="data-enrichment_cso-ireland">CSO Ireland</h5>
                     <p>The only data enrichment for CSO Ireland was the addition of World Geodetic System <dfn><abbr title="World Geodetic System">WGS</abbr></dfn> triples using <code>rdf:type</code> of <code>wgs:Point</code>, as well as latitude and longitude using <code>wgs:lat</code> and <code>wgs:long</code> to the descriptions of Irish city resources.</p>
@@ -415,26 +415,20 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="rdf-datasets">RDF Datasets</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>Tables [<a href="#linked-dataset_cso-ireland_table">4</a>], [<a href="#linked-dataset_eurostat_table">5</a>], [<a href="#linked-dataset_world-bank_table">6</a>] outlines the current state of RDF Linked Datasets for CSO Ireland, Eurostat, and World Bank. The size of the dataset are in rounded number of triples. The <a href="#void">datasets' VoID files</a> would normally contain exact numbers.</p>
 
-                    <h5 id="linked-datasets_cso-ireland">CSO Ireland</h5>
-                    <p>Table [<a href="#linked-dataset_cso-ireland_table">4</a>] outlines the current state of CSO Ireland's Linked Datasets.</p>
 
                     <table id="linked-dataset_cso-ireland_table">
                         <caption><strong>Table 4.</strong> CSO Ireland Linked Data</caption>
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
-                        <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>2006 Irish Census</th><td>Turtle</td><td>776MB</td><td>12M</td><td>1.6M</td></tr>
                         </tbody>
                     </table>
 
-                    <h5 id="linked-datasets_eurostat">Eurostat</h5>
-                    <p>Table [<a href="#linked-dataset_eurostat_table">5</a>] outlines the current state of Eurostat's Linked Datasets.</p>
                     <table id="linked-dataset_eurostat_table">
                         <caption><strong>Table 5.</strong> Eurostat Linked Data</caption>
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
-                        <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>Datasets</th><td>RDF/XML</td><td>537GB</td><td>8B</td><td>1B</td></tr>
                             <tr><th>DSDs</th><td>Turtle</td><td>347MB</td><td>6M</td><td>N/A</td></tr>
@@ -442,13 +436,9 @@ general and regional statistics, economy and finance, population and social cond
                         </tbody>
                     </table>
 
-                    <h5 id="linked-datasets_world-bank">World Bank</h5>
-                    <p>Table [<a href="#linked-dataset_world-bank_table">6</a>] outlines the current state of World Bank's Linked Datasets.</p>
-
                     <table id="linked-dataset_world-bank_table">
                         <caption><strong>Table 6.</strong> World Bank Linked Data</caption>
                         <thead><tr><th>Dataset</th><th>Format</th><th>Size</th><th>Number of triples</th><th>Number of observations</th></tr></thead>
-                        <tfoot><tr><td colspan="5">The size of the dataset is in rounded number of triples. See also the VoID file for exact numbers.</td></tr></tfoot>
                         <tbody>
                             <tr><th>Climate Change</th><td>RDF/XML</td><td>10GB</td><td>78M</td><td>7M</td></tr>
                             <tr><th>Development Indicators</th><td>RDF/XML</td><td>8.4GB</td><td>79M</td><td>11M</td></tr>
@@ -464,16 +454,16 @@ general and regional statistics, economy and finance, population and social cond
                     <p>TODO --------------------------  <strong>Michael / Jindřich / Sarven</strong></p>
                     <p>The use of the 2006 Irish Census data is governed by the Re-use of <a href="http://www.cso.ie/en/aboutus/dissemination/re-useofpublicsectorinformation/">Public Sector Information Statutory Instrument 279/2005</a>, which allows reuse provided that the creator (i.e., CSO) is attributed, the information is represented in an accurate way, and the information is used for a non-commercial purpose.</p>
                     <h4 id="data-license_eurostat">Eurostat</h4>
-                    <p>The actual Eurostat datasets adhere to <a href="http://epp.eurostat.ec.europa.eu/portal/page/portal/about_eurostat/policies/copyright_licence_policy ">Eurostat's terms of use</a> while the RDF data is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</a></p>
+                    <p>The actual Eurostat datasets adhere to <a href="http://epp.eurostat.ec.europa.eu/portal/page/portal/about_eurostat/policies/copyright_licence_policy ">Eurostat's terms of use</a> while the RDF data is licensed under <a href="http://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal (CC0 1.0) Public Domain Dedication</a>.</p>
                     <h4 id="data-license_world-bank">World Bank</h4>
-                    <p>In addition to adhering to <a href="http://go.worldbank.org/OJC02YMLA0">World Bank's terms of use</a>, the RDF data is licensed under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.</p>
+                    <p>In addition to adhering to <a href="http://go.worldbank.org/OJC02YMLA0">World Bank's terms of use</a>, the RDF data that is published is licensed under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.</p>
 
 
                     <h3 id="publication">Publication</h3>
                     <p>In this section we talk about various ways of making our Linked Datasets publicly accessible, discoverable, and usable.</p>
 
                     <h4 id="data-provenance">Data Provenance</h4>
-                    <p>Table <a href="data-provenance_table">7</a> outlines the vocabulary terms that's in particular to provenance information that are used in all three case studies. The provenance metadata for 2006 Irish Census was not created during the process of conversion to RDF. Some of the properties were added to the VoID file at a later stage.</p>
+                    <p>Table <a href="data-provenance_table">7</a> outlines the vocabulary terms that are used in particular to provenance information in all three case studies. The provenance metadata for 2006 Irish Census was not created during the process of conversion to RDF. Some of the properties were added to the VoID file at a later stage.</p>
 
                     <table id="data-provenance_table">
                         <caption><strong>Table 7.</strong> Provenance in CSO Ireland, Eurostat and World Bank Linked Datasets</caption>
@@ -517,7 +507,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="sparql-endpoint">SPARQL Endpoint</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>The SPARQL endpoints are accessible publicly with no authorization requirements. As a trade-off, the SPARQL service is subject to high resource demands from the server for certain query types. No query restrictions were placed in neither of the cases.</p>
                     <h5 id="sparql-endpoint_cso-ireland">CSO Ireland</h5>
                     <p>Same setup as World Bank with its own <a href="http://data-gov.ie/sparql">SPARQL endpoint</a>. The endpoint allows access to the full schema and datasets, and uses named graphs.</p>
                     <h5 id="sparql-endpoint_eurostat">Eurostat</h5>
@@ -527,7 +517,7 @@ general and regional statistics, economy and finance, population and social cond
 
 
                     <h4 id="data-dumps">Data Dumps</h4>
-                    <p>TODO --------------------------  <strong>Michael</strong></p>
+                    <p>The data dumps come in different formats, primarily either available in native RDF formats, or they are compressed for easy retrieval. Dumps are usually made visible by a link on the sites, or mentioned in the VoiD files. They are also <a href="dataset-announcement">announced in the Data Hub</a>.</p>
                     <h5 id="data-dumps_cso-ireland">CSO Ireland</h5>
                     <p>The <a href="http://data-gov.ie/data/">CSO Ireland's RDF data dumps</a> are available in RDF Turtle compressed with gzip.</p>
                     <h5 id="data-dumps_eurostat">Eurostat</h5>
@@ -537,12 +527,12 @@ general and regional statistics, economy and finance, population and social cond
 
 
 
-                    <h3 id="dataset-advertisement">Announcing the Datasets</h3>
-                    <h4 id="dataset-advertisement_cso-ireland">CSO Ireland</h4>
+                    <h3 id="dataset-announcement">Announcing the Datasets</h3>
+                    <h4 id="dataset-announcement_cso-ireland">CSO Ireland</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/data-gov-ie">data-gov-ie</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=data-gov-ie">has level 4</a> in the CKAN Validator. It is in the lodcloud group.</p>
-                    <h4 id="dataset-advertisement_eurostat">Eurostat</h4>
+                    <h4 id="dataset-announcement_eurostat">Eurostat</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/eurostat-linked-data">eurostat-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=eurostat-linked-data">has level 1</a> in the CKAN Validator. It is a candidate for the lodcloud group. And it is also available in the LATC project's <a href="http://latc-project.eu/datasets/">EU data cloud</a>.</p>
-                    <h4 id="dataset-advertisement_world-bank">World Bank</h4>
+                    <h4 id="dataset-announcement_world-bank">World Bank</h4>
                     <p>The dataset is registered in the Data Hub with ID: <a href="http://thedatahub.org/dataset/world-bank-linked-data">world-bank-linked-data</a>. The dataset <a href="http://www4.wiwiss.fu-berlin.de/lodcloud/ckan/validator/validate.php?package=world-bank-linked-data">has level 3</a> in the CKAN Validator. It is a candidate for the lodcloud group.</p>
 
 
