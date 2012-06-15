@@ -12,8 +12,8 @@ table { border-collapse:collapse; }
 tr { vertical-align:top; }
 ol { list-style-position:inside; }
 h2, h3, h4, h5, h6, p, ul, ol, li, pre, code, table {
-orphans: 3;
-widows: 3;
+orphans: 2;
+widows: 2;
 }
 
 thead { display: table-header-group; }
@@ -30,7 +30,7 @@ color:#000;
 }
 
 #references {
-page-break-before: always;
+/*page-break-before: always;*/
 }
 
 table code {

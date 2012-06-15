@@ -191,7 +191,7 @@ general and regional statistics, economy and finance, population and social cond
                     <p>YYYY-MM-DD date format was used where we encountered reference periods like: <code>{YYYY}M{MM}D{DD}</code>, <code>{YYYY}Q{QQ}</code>, <code>{YYYY}M{MM}</code>, <code>{YYYY}S{SS}</code>, <code>{YYYY}</code>.</p>
                     <p>YYYY-MM-DD date format was used where we encountered reference periods like: <code>{YYYY}_{YYYY}</code>. We do not have time format information available in the data set which makes it hard to tell if the observation values are for 1 or x number of years.</p>
 
-                    <p>Certain observation values represent reference period values as Long Term Annual Average (<dfn><abbr title="Long Term Annual Average">LTAA</abbr></dfn>). We did not know how to deal with LTAA in RDF and Eurostat does not provide any information about it in the metadata of that particular dataset. Hence, we wrote a small Turtle file which contains the definition of LTAA. Reference periods mentioning LTAA in original dataset for any particular observation value were represented in RDF using the URI of Turtle file as: <code>&lt;http://eurostat.linked-statistics.org/data/{dataset}#observation&gt; sdmx:timePeriod &lt;http://eurostat.linked-statistics.org/misc&gt;</code>.</p>
+                    <p>Certain observation values represent reference period values as Long Term Annual Average (<dfn><abbr title="Long Term Annual Average">LTAA</abbr></dfn>). We did not know how to deal with LTAA in RDF and Eurostat does not provide any information about it in the metadata of that particular dataset. Hence, we wrote a small Turtle file which contains the definition of LTAA. Reference periods mentioning LTAA in original dataset for any particular observation value were represented in RDF using the URI of Turtle file.</p>
 
                     <h4 id="data-preprocessing_world-bank">World Bank</h4>
                     <p>In order to arrive at a proper and useful Linked Data representation, some of the following problems were solved either with a script or manually updated, and others were brought up to the World Bank team's attention for investigation.</p>
@@ -237,9 +237,7 @@ general and regional statistics, economy and finance, population and social cond
 
                     <p>In the case of country codes, <a href="http://www.iso.org/iso/country_codes/background_on_iso_3166/iso_3166-2.htm">ISO 3166-2</a> is used as the primary representation for countries. For example, the URI <code><a href="http://worldbank.270a.info/classification/country/CA">http://worldbank.270a.info/classification/country/CA</a></code> identifies the country <em>Canada</em> in the datasets. It contains a <code>skos:exactMatch</code> relation to <code><a href="http://worldbank.270a.info/classification/country/CAN">http://worldbank.270a.info/classification/country/CAN</a></code> and vice-versa.</p>
 
-                    <p>The <em>WDI</em> addresses ~7000 development indicators.</p>
-
-                    <p>The metadata file contains ~86000 triples in which ~8000 are <code>skos:Concept</code>s. Although, the <em>WBPO</em> dataset is a considered to be classifications with ~15000 <code>skos:Concept</code>s, it was kept separately from the metadata file for practical reasons.</p>
+                    <p>The <em>WDI</em> addresses ~7000 development indicators. The metadata file contains ~86000 triples in which ~8000 are <code>skos:Concept</code>s. Although, the <em>WBPO</em> dataset is a considered to be classifications with ~15000 <code>skos:Concept</code>s, it was kept separately from the metadata file for practical reasons.</p>
 
 
                     <h4 id="uri-patterns">URI Patterns</h4>
