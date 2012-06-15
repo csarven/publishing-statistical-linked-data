@@ -255,6 +255,10 @@ font-weight:bold;
 margin-bottom:0.5em;
 }
 
+ul {
+margin-top:1em;
+}
+
 caption {
 text-align:left;
 font-size:12px;
