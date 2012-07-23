@@ -359,5 +359,11 @@ margin-bottom:1em;
 margin-bottom:3em;
 }
 
-
+#comments,
+.entry-author,
+.datetimestamp,
+.entry-replies,
+#footer {
+display:none;
+}
 
